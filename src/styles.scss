@@ -34,17 +34,44 @@ $alexAdmin-theme: mat-light-theme($alexAdmin-primary, $alexAdmin-accent, $alexAd
 html, body { height: 100%; }
 body, p { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-.header {
-    background-color: red;
+.holder {
+    display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+    flex-wrap: nowrap;
+    
+    .header {
+        background-color: red;
+        min-height: 50px;
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		align-self: center;
+		align-items: stretch;
+    }
+    
+    .main {
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        .side {
+            overflow-x: hidden;
+	        overflow-y: auto;
+	        width: 250px;
+	        height: 100%;
+	        margin: 0;
+            background-color: green;
+        }
+        .content {
+            background-color: royalblue;
+            position: relative;
+            width: 100%;
+            // height: 100%;
+        }
+    }
 }
 
-.main {
-    .side {
-        background-color: green;
-    }
-    .content {
-        background-color: royalblue;
-    }
-}
 
 
