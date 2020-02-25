@@ -30,6 +30,13 @@ $alexAdmin-theme: mat-light-theme($alexAdmin-primary, $alexAdmin-accent, $alexAd
 
 /* You can add global styles to this file, and also import other style files */
 
+/* Импорт внешних библиотек стилей */
+@import 'bootstrap/scss/bootstrap-grid.scss';
+@import "~bootstrap/scss/mixins";
+@import '~bootstrap/scss/utilities';
+
+
+
 html,
 body {
   height: 100%;
@@ -48,10 +55,6 @@ p {
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
   width: 100%;
   height: 100%;
   flex-wrap: nowrap;
@@ -59,9 +62,9 @@ p {
     background-color: white;
   }
 }
-mat-sidenav-container {
-	height: 100%;
-}
+// mat-sidenav-container {
+// 	height: 100%;
+// }
 
 #main-sidenav {
   overflow-x: hidden;
@@ -81,7 +84,8 @@ mat-sidenav-container {
 
 app-header {
   display: block;
-  height: 70px;
+  height: 50px;
+  
   header {
     height: 100%;
     width: 100%;
