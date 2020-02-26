@@ -1,7 +1,11 @@
-<h1>Меню</h1>
-<ul>
+
+<!-- <ul>
   <li><a [routerLink]="[ '/user' ]">Сотрудники</a></li>
   <li><a [routerLink]="[ '/scale' ]">Должности</a></li>
   <li><a [routerLink]="[ '/group' ]">Группы</a></li>
-  <li><a [routerLink]="[ '/errorlink' ]">ERROR</a></li>
-</ul>
+  
+</ul> -->
+<!-- <li><a [routerLink]="[ '/errorlink' ]">ERROR</a></li> -->
+<div class="menu">
+  <div class="item" *ngFor="let route of resRoutes"><a [routerLink]="[ '/' + route.path ]">{{route.name}}</a></div>
+</div>

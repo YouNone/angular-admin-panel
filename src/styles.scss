@@ -31,11 +31,9 @@ $alexAdmin-theme: mat-light-theme($alexAdmin-primary, $alexAdmin-accent, $alexAd
 /* You can add global styles to this file, and also import other style files */
 
 /* Импорт внешних библиотек стилей */
-@import 'bootstrap/scss/bootstrap-grid.scss';
+@import "bootstrap/scss/bootstrap-grid.scss";
 @import "~bootstrap/scss/mixins";
-@import '~bootstrap/scss/utilities';
-
-
+@import "~bootstrap/scss/utilities";
 
 html,
 body {
@@ -45,6 +43,14 @@ body,
 p {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+a,
+a:link,
+a:active,
+a:hover {
+  color: black;
+  text-decoration: none;
 }
 
 .brd {
@@ -62,9 +68,6 @@ p {
     background-color: white;
   }
 }
-// mat-sidenav-container {
-// 	height: 100%;
-// }
 
 #main-sidenav {
   overflow-x: hidden;
@@ -80,12 +83,13 @@ p {
   height: 100%;
   margin: 0;
   overflow-x: hidden;
+  // background-color: #ededed;
 }
 
 app-header {
   display: block;
   height: 50px;
-  
+
   header {
     height: 100%;
     width: 100%;
@@ -114,49 +118,22 @@ app-header {
     }
   }
 }
-
-// .holder {
-//     display: flex;
-// 	flex-direction: column;
-// 	width: 100%;
-// 	height: 100%;
-//     flex-wrap: nowrap;
-
-//     .header {
-//         background-color: red;
-//         min-height: 50px;
-// 		width: 100%;
-// 		display: flex;
-// 		flex-direction: row;
-// 		flex-wrap: nowrap;
-// 		align-self: center;
-// 		align-items: stretch;
-//     }
-
-//     #screen {
-//         height: 100%;
-//         display: flex;
-//         flex-direction: row;
-//         #main-sidenav {
-//             overflow-x: hidden;
-// 	        overflow-y: auto;
-// 	        width: 250px;
-// 	        height: 100%;
-// 	        margin: 0;
-//             background-color: green;
-//         }
-//         .content {
-//             background-color: royalblue;
-//             position: relative;
-//             width: 100%;
-//             // height: 100%;
-//         }
-//     }
-// }
-// .box-nav {
-//     margin: 0px 20px 0 20px;
-//     color: #444;
-//     display: flex;
-//     flex-direction: row;
-//     flex-wrap: nowrap;
-// }
+.menu {
+  display: flex;
+  flex-direction: column;
+  .item {
+    background-color: #ededed;
+    width: 100%;
+    a {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      color: black;
+    }
+    a:hover {
+      background-color: #dddddd;
+      padding: 9px;
+      border: rgb(196, 196, 196) solid 1px;
+    }
+  }
+}

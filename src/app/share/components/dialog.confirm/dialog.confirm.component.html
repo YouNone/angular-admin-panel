@@ -1,0 +1,36 @@
+<div 
+	class="pt-3 movable" 
+	mat-dialog-title
+	cdkDragHandle
+	cdkDrag 
+	cdkDragRootElement=".cdk-overlay-pane" 
+	*ngIf="data.title.length"
+>
+	{{data.title}}
+</div>
+<div class="mb-3">
+	<div mat-dialog-content>
+		<p>{{data.msg}}</p>
+	</div>
+	<div mat-dialog-actions class="mt-2 mr-1 d-flex">
+		<div class="ml-auto">
+			<ng-container *ngFor="let item of data.btn">
+				<button 
+					*ngIf="item.active" 
+					type="button" 
+					mat-raised-button 
+					[mat-dialog-close]="item.value"
+					color="{{item.color}}" 
+					cdkFocusInitial
+				>{{item.title}}</button>
+				<button 
+					*ngIf="!item.active" 
+					type="button" 
+					mat-raised-button 
+					[mat-dialog-close]="item.value"
+					color="{{item.color}}"
+				>{{item.title}}</button>
+			</ng-container>
+		</div>
+	</div>
+</div>

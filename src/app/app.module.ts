@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { routesRoot } from './app.routes';
 import { AdminModule } from './admin/admin.module';
 import { NotFoundComponent } from './share/components/not.found/not.found.component';
+import { ROUTES_TREE } from './share/utilit/utilit';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,9 @@ import { NotFoundComponent } from './share/components/not.found/not.found.compon
     CommonAppModule,
     RouterModule.forRoot(routesRoot)
   ],
-  providers: [],
+  providers: [
+    {provide: ROUTES_TREE, useValue: routesRoot},
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
