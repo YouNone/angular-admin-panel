@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -9,6 +10,13 @@ import { routesRoot } from './app.routes';
 import { AdminModule } from './admin/admin.module';
 import { NotFoundComponent } from './share/components/not.found/not.found.component';
 import { ROUTES_TREE } from './share/utilit/utilit';
+import { SettingService } from './share/services/settings.service';
+import { MsgList } from './share/services/msg.list';
+import { UniversalDataService } from './share/services/universal.data.service';
+import { RequestsService } from './share/services/requests.service';
+import { NotificationsService, SimpleNotificationsModule } from 'angular2-notifications';
+import { DialogButtonConfig } from './share/utilit/dialog.button.config';
+import { LeaveUnsavedComponentGuard } from './share/services/leaveUnsavedGuard';
 
 @NgModule({
   declarations: [
@@ -16,15 +24,26 @@ import { ROUTES_TREE } from './share/utilit/utilit';
     NotFoundComponent
   ],
   imports: [
+    CommonAppModule,
     BrowserModule,
+    RouterModule.forRoot(routesRoot),
+    SimpleNotificationsModule.forRoot(),
     AdminModule,
     BrowserAnimationsModule,
-    CommonAppModule,
-    RouterModule.forRoot(routesRoot)
+    InfiniteScrollModule
   ],
   providers: [
-    {provide: ROUTES_TREE, useValue: routesRoot},
+    MsgList,
+    SettingService,
+    RequestsService,
+    UniversalDataService,
+    NotificationsService,
+    DialogButtonConfig,
+		LeaveUnsavedComponentGuard,
+    { provide: ROUTES_TREE, useValue: routesRoot },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule { }

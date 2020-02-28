@@ -30,7 +30,7 @@ export class UniversalDataService {
 
 
 	/** Роут, по которому происходит обращение к бэкэнду */
-	private serviceUrl: string = "";
+	private serviceUrl: string = "localhost:3000/";
 
 
 	/**
@@ -58,7 +58,7 @@ export class UniversalDataService {
 		);
 	}
 
-	
+
 	/**
 	 * Считывает массив объектов.
 	 * Адрес API содержится в переменной serviceUrl класса.
@@ -75,13 +75,15 @@ export class UniversalDataService {
 	 * @returns {Observable<T[]>} Поток на массив объектов
 	 * @memberof UniversalDataService
 	 */
-	getList<T>(options: ISearchOptions = {start: 0, limit: 0}): Observable<T[]> {
+	getList<T>(options: ISearchOptions = { start: 0, limit: 0 }): Observable<T[]> {
 		let url = this.serviceUrl;
+
 		// Ограничение limit = 0 говорит о том, что никаких дополнительных параметров не нужно. Только роут
-		if(options.limit !== 0){
+		if (options.limit !== 0) {
 			let optionUrl = new SearchOptions(options, this.$SETTINGS);
 			url += '?' + optionUrl.getUrl();
 		}
+
 		return this.request
 			.get<T[]>(url).pipe(
 				map((data: T[]) => data),
@@ -89,10 +91,11 @@ export class UniversalDataService {
 					this.showError(this.$MSG.getMsg('eReadItemsList'), err);
 					return of([]);
 				})
-			);
+			);			
 	}
 
-	
+
+
 	/**
 	 * Удаляет объект с указанным ID. 
 	 * Адрес API содержится в переменной serviceUrl класса.

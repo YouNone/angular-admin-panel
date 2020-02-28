@@ -36,6 +36,6 @@ export class MainMenuComponent implements OnInit {
 
 	ngOnInit() {
 		this.filterMenuRoutes();
-		console.log(this.resRoutes);
+		// console.log(this.resRoutes);
 	}
 }

@@ -124,9 +124,10 @@ export class ListComponentsClass<T extends IHaveId> implements OnInit {
 			limit: divAmout,
 		};
 		this.addExtraFilterOption(option, this.filterField);
-		this.listService.setServiceUrl(this.dataUrl);
+		this.listService.setServiceUrl(this.dataUrl);	
+			
 		this.listService.getList<T>(option)
-			.subscribe((newItem: T[]) => {
+			.subscribe((newItem: T[]) => {				
 				if (newItem) {
 					this.componentData = this.componentData.concat(newItem);
 				} else return;

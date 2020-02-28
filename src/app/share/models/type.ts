@@ -59,10 +59,15 @@ export interface IUser {
 	full_name: string;
 	/** Пароль пользователя */
 	password?: string;
-	/** Фото фользователя */
-	img?: string;
+	login: string;
+	email: string;
 	/** Пол	*/
 	sex?: ESex;
+	date_birth: string;
+	date_hire: string;
+	date_fire?: string;
+	date_create: string;
+	date_modify: string;
 }
 
 /**
@@ -161,3 +166,16 @@ export declare type ButtonsSet = ButtonDiscription[];
 export interface ChildDeactivatable<T> extends Component {
 	savedState: T;
 }
+/**
+ * Интерфейс передачи данных содержимого полей ввода формы при обработке события изменения состояния формы.
+ * Передает объект типа {fieldName1: value1, fieldName2: value2}
+ *
+ * @export
+ * @interface IFormValues
+ */
+export interface IFormValues { 
+	[key: string]: string | number; 
+}
+
+export type AllowedListType = 
+	 IScale | IUser;

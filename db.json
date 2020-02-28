@@ -1,0 +1,12 @@
+{
+    "user": [
+        {
+            "id": 1,
+            "full_name": "Гаврюша Обизянов",
+            "login": "Gavriil",
+            "email": "gavr@gmail.com",
+            "password": "yellowpen",
+            "sex": 1
+        }
+    ]
+}

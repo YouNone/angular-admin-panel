@@ -1,3 +1,110 @@
-<p>
-  user.edit works!
-</p>
+<div class="cover-parent">
+	<!-- <full-page-spinner *ngIf="!isReady"></full-page-spinner> -->
+	<div *ngIf="isReady" class="container-fluid component-inset">
+		<form [formGroup]="componentForm" (ngSubmit)="formSubmit()">
+			<div>
+				<div class="d-flex flex-row mt-3">
+					<div class="flex-grow-1 mr-2">
+						<h1>Сотрудник</h1>
+					</div>
+					<div>
+						<div>
+							<button (click)="goBack()" class="mr-2 mb-2" mat-raised-button type="button">Назад</button>
+							<button class="mb-2 submit-button" mat-raised-button [disabled]="disableButton"
+								color="primary" type="submit">
+								<i *ngIf="disableButton; else elseSave" class="fas fa-spinner fa-spin"></i>
+								<ng-template #elseSave>Сохранить</ng-template>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<mat-tab-group>
+				<mat-tab label="Основные настройки">
+					<div class="container-fluid mt-4">
+						<div class="row">
+							<div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+								<div class="d-flex flex-column flex-nowrap mat-form-column">
+									<mat-form-field>
+										<mat-label>Ф.И.О.</mat-label>
+										<input formControlName="full_name" matInput>
+										<mat-error>{{errMsg(componentForm.controls["full_name"], $MSG)}}</mat-error>
+									</mat-form-field>
+									<mat-form-field>
+										<mat-label>Пароль</mat-label>
+										<input formControlName="password" matInput type="password">
+										<mat-error>{{errMsg(componentForm.controls["password"], $MSG)}}</mat-error>
+									</mat-form-field>
+									<mat-form-field>
+										<mat-label>Код пользователя</mat-label>
+										<input formControlName="code" matInput>
+										<mat-error>{{errMsg(componentForm.controls["code"], $MSG)}}</mat-error>
+									</mat-form-field>
+								</div>
+							</div>
+							<div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+								<div class="d-flex flex-column flex-nowrap mat-form-column">
+									<mat-form-field>
+										<mat-label>Email</mat-label>
+										<input formControlName="email" matInput type="email">
+									</mat-form-field>
+
+									<mat-form-field>
+										<mat-label>Логин</mat-label>
+										<input formControlName="login" matInput>
+										<mat-error>{{errMsg(componentForm.controls["login"], $MSG)}}</mat-error>
+									</mat-form-field>
+
+									<mat-radio-group class="mt-4 mb-4" formControlName="sex">
+										<mat-label class="mr-2">Пол</mat-label>
+										<mat-radio-button name="sex" value="sexStr.male"
+											[checked]="componentData.sex == sexStr.male" class="mr-2">М
+										</mat-radio-button>
+										<mat-radio-button name="sex" value="sexStr.female"
+											[checked]="componentData.sex == sexStr.female">Ж</mat-radio-button>
+										<!-- (change)="radioChange($event, sex)" -->
+									</mat-radio-group>
+								</div>
+							</div>
+							<div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+								<div class="d-flex flex-column flex-nowrap mat-form-column">
+									<mat-form-field>
+										<input formControlName="date_birth" matInput [matDatepicker]="date_birth"
+											placeholder="Дата рождения">
+										<mat-datepicker-toggle matSuffix [for]="date_birth"></mat-datepicker-toggle>
+										<mat-datepicker #date_birth></mat-datepicker>
+									</mat-form-field>
+									<mat-form-field>
+										<input formControlName="date_hire" matInput [matDatepicker]="date_hire"
+											placeholder="Дата Приема">
+										<mat-datepicker-toggle matSuffix [for]="date_hire"></mat-datepicker-toggle>
+										<mat-datepicker #date_hire></mat-datepicker>
+									</mat-form-field>
+									<mat-form-field>
+										<input formControlName="date_fire" matInput [matDatepicker]="date_fire"
+											placeholder="Дата увольнения">
+										<mat-datepicker-toggle matSuffix [for]="date_fire"></mat-datepicker-toggle>
+										<mat-datepicker #date_fire></mat-datepicker>
+									</mat-form-field>
+									<mat-form-field>
+										<input formControlName="date_create" matInput [matDatepicker]="date_create"
+											placeholder="Дата создания">
+										<mat-datepicker-toggle matSuffix [for]="date_create"></mat-datepicker-toggle>
+										<mat-datepicker #date_create></mat-datepicker>
+									</mat-form-field>
+									<mat-form-field>
+										<input formControlName="date_modify" matInput [matDatepicker]="date_modify"
+											placeholder="Дата изменения">
+										<mat-datepicker-toggle matSuffix [for]="date_modify"></mat-datepicker-toggle>
+										<mat-datepicker #date_modify></mat-datepicker>
+									</mat-form-field>
+								</div>
+							</div>
+						</div>
+					</div>
+				</mat-tab>
+			</mat-tab-group>
+		</form>
+	</div>
+</div>
