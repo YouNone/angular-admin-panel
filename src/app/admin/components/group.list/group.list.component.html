@@ -1,3 +1,79 @@
-<p>
-  group.list works!
-</p>
+<mat-sidenav-container class="component-fullscreen-sidenav">
+	<mat-sidenav-content>
+		<div class="container-fluid component-inset">
+			<div class="row">
+				<div class="col-12">
+					<h1 class="mb-3">Группы</h1>
+				</div>
+			</div>
+			<!-- <app-search-filter 
+				buttonTitle="Поиск групп" 
+				[showFilterButton]="true" 
+				[filterIsActive]="sideNavIsOpen"
+				(onFilterStateChange)="changeFilterState($event)" 
+				(onSearchStringChange)="changeSearchString($event)"
+			>
+			</app-search-filter> -->
+
+			<!-- <additional-filter [title]="'Рубрика:'" [filterNodes]="filterStream$ | async"
+        (onRemoveFilter)="removeFilter()">
+      </additional-filter> -->
+
+			<div
+				infiniteScroll 
+				[fromRoot]="true" 
+				[infiniteScrollContainer]="'.component-inset'"
+				[infiniteScrollDistance]="distance" 
+				[infiniteScrollThrottle]="throttle" 
+				(scrolled)="onScroll($event)"
+			>
+				<table mat-table class="w-100  hover" [dataSource]="componentData" [trackBy]="tableTrackById" matSort
+					(matSortChange)="sortChange($event)" matSortActive="name" matSortDirection="asc"
+					matSortDisableClear>
+					<ng-container matColumnDef="code">
+						<th mat-header-cell *matHeaderCellDef mat-sort-header> Код </th>
+						<td mat-cell *matCellDef="let item"> {{item.code}}</td>
+					</ng-container>
+
+					<ng-container matColumnDef="name">
+						<th mat-header-cell *matHeaderCellDef mat-sort-header> Имя </th>
+						<td mat-cell *matCellDef="let item"> {{item.name}}</td>
+					</ng-container>
+
+					<ng-container matColumnDef="count">
+						<th mat-header-cell *matHeaderCellDef mat-sort-header> Участников </th>
+						<td mat-cell *matCellDef="let item"> {{item.count}}</td>
+					</ng-container>
+
+					<ng-container matColumnDef="action">
+						<th mat-header-cell *matHeaderCellDef class="operation-center"> Действия </th>
+						<td  mat-cell *matCellDef="let item" class="operation-center">
+							<div class="d-flex justify-content-between">
+								<button mat-icon-button>
+									<mat-icon class="fas fa-edit text-black-50"></mat-icon>
+								</button>
+								<button mat-icon-button (click)="itemDelete($event, item.id)">
+									<mat-icon class="fas fa-trash-alt text-black-50"></mat-icon>
+								</button>
+							</div>
+						</td>
+					</ng-container>
+
+					<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+					<tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="editItem(row)" class="point">
+					</tr>
+				</table>
+			</div>
+			<div class="bottom-right-container">
+				<button mat-mini-fab (click)="addItem()" color="accent">
+          <mat-icon>add</mat-icon>
+				</button>
+			</div>
+		</div>
+	</mat-sidenav-content>
+	<!-- <mat-sidenav [opened]="sideNavIsOpen" mode="side" position="end">
+		<tree-checker [treeName]="'group'" [activeElement]="state.f2" (onSelect)="setTreeFilter($event)"></tree-checker>
+	</mat-sidenav> -->
+</mat-sidenav-container>
+
+<router-outlet (deactivate)="onChildDeactivate($event)"></router-outlet>

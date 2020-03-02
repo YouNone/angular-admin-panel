@@ -1,12 +1,433 @@
 {
-    "user": [
+  "user": [
+    {
+      "id": 1,
+      "full_name": "Гаврюша Обизянов",
+      "login": "Gavriil",
+      "email": "gavr@gmail.com",
+      "password": "yellowpen",
+      "sex": 1
+    },
+    {
+      "id": 2,
+      "full_name": "Name 1",
+      "login": "login 1",
+      "email": "emailexample@gmail.com",
+      "password": "pass1",
+      "sex": 1
+    }
+  ],
+  "scale": [
+    {
+      "id": 1,
+      "name": "scale 0 - 10",
+      "code": "code1",
+      "type": "diapasone",
+      "scale": {
+        "min": 2,
+        "max": 100,
+        "step": 2
+      }
+    },
+    {
+      "id": 2,
+      "name": "scale 10 - 100",
+      "code": "code2",
+      "type": "diapasone",
+      "scale": {
+        "min": 10,
+        "max": 10,
+        "step": 10
+      }
+    },
+    {
+      "id": 3,
+      "name": "diap",
+      "code": "code1",
+      "type": "diapasone",
+      "scale": {
+        "min": 2,
+        "max": 100,
+        "step": 1
+      }
+    },
+    {
+      "id": 4,
+      "name": "enum 0-4",
+      "code": "code",
+      "type": "enumerable",
+      "scale": [
         {
-            "id": 1,
-            "full_name": "Гаврюша Обизянов",
-            "login": "Gavriil",
-            "email": "gavr@gmail.com",
-            "password": "yellowpen",
-            "sex": 1
+          "value": 1,
+          "description": "Имя буллита 1"
+        },
+        {
+          "value": 3,
+          "description": "Имя буллита1"
         }
-    ]
+      ]
+    }
+  ],
+  "group": [
+    {
+      "id": 1,
+      "code": "root",
+      "name": "Суперпользователи1",
+      "date_create": "2011-09-10T21:00:00.000Z",
+      "date_modify": "2019-11-10T21:00:00.000Z",
+      "user": [
+        {
+          "id": 35,
+          "password": "P@ssw0rd",
+          "code": "C991F4B4E59E445FC13F495549CA6741",
+          "login": "OmelchenkoIG",
+          "email": "OmelchenkoIG@dtek.com",
+          "full_name": "Омельченко Ірина Георгіївна",
+          "position": {
+            "name": "Position 1",
+            "id": 54325432
+          },
+          "division": {
+            "name": "Div 1",
+            "id": 5432446
+          },
+          "sex": "f"
+        },
+        {
+          "id": 36,
+          "password": "P@ssw0rd",
+          "code": "CB70D5EBB69F7FBA4A58903F9A2112C0",
+          "login": "KituginAV",
+          "email": "KituginAV@dtek.com",
+          "full_name": "Кітугін Олександр Вячеславович",
+          "position": {
+            "name": "Position 1",
+            "id": 54325432
+          },
+          "division": {
+            "name": "Div 1",
+            "id": 5432446
+          },
+          "sex": "m",
+          "header_type": "Лидер"
+        },
+        {
+          "id": 37,
+          "password": "P@ssw0rd",
+          "code": "CC87AF780242463BE97AE0CF23946A4F",
+          "login": "ChernovSergV",
+          "email": "ChernovSergV@dtek.com",
+          "full_name": "Чернов Сергій Валентинович",
+          "position": {
+            "name": "Position 1",
+            "id": 54325432
+          },
+          "division": {
+            "name": "Div 1",
+            "id": 5432446
+          },
+          "sex": "m"
+        },
+        {
+          "id": 42,
+          "password": "P@ssw0rd",
+          "code": "ABAEA03788B4FD5E77453DFFB2C4F112",
+          "login": "NazarovVA",
+          "email": "NazarovVA@dtek.com",
+          "full_name": "Назаров Володимир Олександрович",
+          "position": {
+            "name": "Position 1",
+            "id": 54325432
+          },
+          "division": {
+            "name": "Div 1",
+            "id": 5432446
+          },
+          "sex": "m",
+          "header_type": "Лидер"
+        },
+        {
+          "id": 43,
+          "password": "P@ssw0rd",
+          "code": "AC864C759E17DAA98954EA2832877A58",
+          "login": "PugachLA",
+          "email": "PugachLA@dtek.com",
+          "full_name": "Пугач Людмила Анатоліївна",
+          "position": {
+            "name": "Position 1",
+            "id": 54325432
+          },
+          "division": {
+            "name": "Div 1",
+            "id": 5432446
+          },
+          "sex": "f"
+        },
+        {
+          "id": 44,
+          "password": "P@ssw0rd",
+          "code": "B440D19C85CF4459DE80495E84194141",
+          "login": "PonezhaAM",
+          "email": "PonezhaAM@dtek.com",
+          "full_name": "Понєжа Олександр Михайлович",
+          "position": {
+            "name": "Position 1",
+            "id": 54325432
+          },
+          "division": {
+            "name": "Div 1",
+            "id": 5432446
+          },
+          "sex": "m",
+          "header_type": "Лидер"
+        },
+        {
+          "id": 46,
+          "password": "P@ssw0rd",
+          "code": "8EB90DF479598DBB68A781A082A1BCBA",
+          "login": "MedvedevaTV",
+          "email": "MedvedevaTV@dtek.com",
+          "full_name": "Мєдвєдєва Тетяна Володимирівна",
+          "position": {
+            "name": "Position 1",
+            "id": 54325432
+          },
+          "division": {
+            "name": "Div 1",
+            "id": 5432446
+          },
+          "sex": "f"
+        },
+        {
+          "id": 48,
+          "password": "P@ssw0rd",
+          "code": "9506AF8A62AF1ABE6A69ED8EEAF79904",
+          "login": "KuzminaEV",
+          "email": "KuzminaEV@dtek.com",
+          "full_name": "Кузьміна Олена Василівна",
+          "position": {
+            "name": "Position 1",
+            "id": 54325432
+          },
+          "division": {
+            "name": "Div 1",
+            "id": 5432446
+          },
+          "sex": "f",
+          "header_type": "Лидер"
+        },
+        {
+          "id": 50,
+          "password": "P@ssw0rd",
+          "code": "A3BF9F5F59E6F709A266C7348F9D998D",
+          "login": "PedkoAV",
+          "email": "PedkoAV@dtek.com",
+          "full_name": "Педько Олександр Валерійович",
+          "position": {
+            "name": "Position 1",
+            "id": 54325432
+          },
+          "division": {
+            "name": "Div 1",
+            "id": 5432446
+          },
+          "sex": "m",
+          "header_type": "Лидер"
+        }
+      ],
+      "boss": [
+        {
+          "id": 42,
+          "password": "P@ssw0rd",
+          "code": "ABAEA03788B4FD5E77453DFFB2C4F112",
+          "login": "NazarovVA",
+          "email": "NazarovVA@dtek.com",
+          "full_name": "Назаров Володимир Олександрович",
+          "position": {
+            "name": "Position 1",
+            "id": 54325432
+          },
+          "division": {
+            "name": "Div 1",
+            "id": 5432446
+          },
+          "sex": "m",
+          "header_type": {
+            "id": "1",
+            "name": "lider"
+          }
+        },
+        {
+          "id": 43,
+          "password": "P@ssw0rd",
+          "code": "AC864C759E17DAA98954EA2832877A58",
+          "login": "PugachLA",
+          "email": "PugachLA@dtek.com",
+          "full_name": "Пугач Людмила Анатоліївна",
+          "position": {
+            "name": "Position 1",
+            "id": 54325432
+          },
+          "division": {
+            "name": "Div 1",
+            "id": 5432446
+          },
+          "sex": "f",
+          "header_type": "Лидер"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Администратор",
+      "code": "admin",
+      "date_create": "2012-07-10T21:00:00.000Z",
+      "user": [
+        {
+          "id": 9,
+          "password": "P@ssw0rd",
+          "code": "3654D4791F12AE709991FFFD0527C3A8",
+          "login": "KameristiyAS",
+          "email": "KameristiyAS@dtek.com",
+          "full_name": "Камеристий Олександр Сергійович",
+          "position": {
+            "name": "Position 1",
+            "id": 54325432
+          },
+          "division": {
+            "name": "Div 1",
+            "id": 5432446
+          },
+          "img": "user_none.svg",
+          "sex": "m"
+        },
+        {
+          "id": 10,
+          "password": "P@ssw0rd",
+          "code": "6FED96E6C419CDC1D09E1FD685CFE1AB",
+          "login": "KornienkoAG",
+          "email": "KornienkoAG@dtek.com",
+          "full_name": "Корнієнко Андрій Григорович",
+          "position": {
+            "name": "Position 1",
+            "id": 54325432
+          },
+          "division": {
+            "name": "Div 1",
+            "id": 5432446
+          },
+          "img": "user_none.svg",
+          "sex": "m"
+        },
+        {
+          "id": 13,
+          "password": "P@ssw0rd",
+          "code": "906229298A33614482D88C5D3C2D8BBB",
+          "login": "KorolAI",
+          "email": "KorolAI@dtek.com",
+          "full_name": "Король Ганна Ігорівна",
+          "position": {
+            "name": "Position 1",
+            "id": 54325432
+          },
+          "division": {
+            "name": "Div 1",
+            "id": 5432446
+          },
+          "sex": "f"
+        },
+        {
+          "id": 14,
+          "password": "P@ssw0rd",
+          "code": "A96000C8708B8A4ABD8DCB1D16C57499",
+          "login": "MatyukhaNN",
+          "email": "MatyukhaNN@dtek.com",
+          "full_name": "Матюха Микола Миколайович",
+          "position": {
+            "name": "Position 1",
+            "id": 54325432
+          },
+          "division": {
+            "name": "Div 1",
+            "id": 5432446
+          },
+          "sex": "m"
+        },
+        {
+          "id": 15,
+          "password": "P@ssw0rd",
+          "code": "BDD99BBF0131640745373177BA3779DB",
+          "login": "PristaykoSV",
+          "email": "PristaykoSV@dtek.com",
+          "full_name": "Пристайко Сергій Володимирович",
+          "position": {
+            "name": "Position 1",
+            "id": 54325432
+          },
+          "division": {
+            "name": "Div 1",
+            "id": 5432446
+          },
+          "sex": "m"
+        },
+        {
+          "id": 17,
+          "password": "P@ssw0rd",
+          "code": "D5BB2938783F25DE4CFB54EA267AEEAA",
+          "login": "KalmykovMaV",
+          "email": "KalmykovMaV@dtek.com",
+          "full_name": "Калмиков Максим Вікторович",
+          "position": {
+            "name": "Position 1",
+            "id": 54325432
+          },
+          "division": {
+            "name": "Div 1",
+            "id": 5432446
+          },
+          "sex": "m"
+        }
+      ],
+      "boss": [
+        {
+          "id": 8,
+          "password": "P@ssw0rd",
+          "code": "34FF4FF33ABC07C6102B05CAC8ED74DD",
+          "login": "FedorchenkoVaV",
+          "email": "FedorchenkoVaV@dtek.com",
+          "full_name": "Федорченко Валерія Віталіївна",
+          "position": {
+            "name": "Position 1",
+            "id": 54325432
+          },
+          "division": {
+            "name": "Div 1",
+            "id": 5432446
+          },
+          "img": "user_none.svg",
+          "sex": "f",
+          "header_type": "HR Обучения"
+        },
+        {
+          "id": 9,
+          "password": "P@ssw0rd",
+          "code": "3654D4791F12AE709991FFFD0527C3A8",
+          "login": "KameristiyAS",
+          "email": "KameristiyAS@dtek.com",
+          "full_name": "Камеристий Олександр Сергійович",
+          "position": {
+            "name": "Position 1",
+            "id": 54325432
+          },
+          "division": {
+            "name": "Div 1",
+            "id": 5432446
+          },
+          "img": "user_none.svg",
+          "sex": "m",
+          "header_type": "Непосредственный руководитель"
+        }
+      ]
+    }
+  ]
 }

@@ -20,7 +20,7 @@ export const routesRoot: Routes = [
 			{
 				path: compRoutes.user, component: UserListComponent, data: { breadcrumb: 'Пользователи' }, children: [
 					{ path: compRoutes.userEdit, component: UserEditComponent, canDeactivate: [LeaveUnsavedComponentGuard] },
-					{ path: compRoutes.userEdit + '/:id/11', component: UserEditComponent, canDeactivate: [LeaveUnsavedComponentGuard] },
+					{ path: compRoutes.userEdit + '/:id', component: UserEditComponent, canDeactivate: [LeaveUnsavedComponentGuard] },
 				]
 			},
 
@@ -40,7 +40,6 @@ export const routesRoot: Routes = [
 		]
 
 	},
-
 	{ path: compRoutes.notFound, component: NotFoundComponent },
 	{ path: '**', redirectTo: compRoutes.notFound }
 ];

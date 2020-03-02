@@ -90,7 +90,7 @@ export class ListComponentsClass<T extends IHaveId> implements OnInit {
 	 * @memberof ListComponentsClass
 	 */
 	ngOnInit() {
-		this.itemsLoad(this.componentData.length, this.$SETTINGS.get("startListLen"));
+		this.itemsLoad(this.componentData.length, this.$SETTINGS.get("startListLen"));		
 	}
 
 
@@ -216,7 +216,7 @@ export class ListComponentsClass<T extends IHaveId> implements OnInit {
 	 * @param {T} item
 	 * @memberof ListComponentsClass
 	 */
-	editItem(item: T) {
+	editItem(item: T) {		
 		this.router.navigate([this.router.url, this.editUrl, item.id]);
 	}
 

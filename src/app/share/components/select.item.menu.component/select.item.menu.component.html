@@ -1,0 +1,10 @@
+<mat-menu 
+	#dynamicMenu="matMenu"
+>
+	<button 
+		*ngFor="let incomeItem of incomeData"
+		(click)="onSelectMenu(incomeItem, i)"
+		mat-menu-item
+	>{{incomeItem.name}}
+	</button>
+</mat-menu>

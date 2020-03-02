@@ -176,3 +176,65 @@ app-header {
   right: 50px;
   z-index: 1;
 }
+
+.enum-holder {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.enum-element {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.point, a {
+	cursor: pointer;
+}
+
+.input-val {
+	width: 15%;
+}
+
+.input-name {
+	width: 50%;
+  margin-left: 5%;
+	textarea {
+    min-height: 25px;
+		overflow: hidden;
+	}
+}
+
+.button-column {
+	width: 10%;
+}
+.discription-scale {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+table.hover {
+	td.mat-cell, td.mat-footer-cell, th.mat-header-cell {
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+	td {
+		min-width: 90px;
+	}
+	th {
+		background-color: white;
+		color: black;
+		font-weight: bold;
+		font-size: 1em;
+	}
+	tr:hover {
+		background-color:  #dddddd; 
+	}
+	th.operation-center, td.operation-center {
+		text-align: center;
+		width: 80px;
+	}
+}

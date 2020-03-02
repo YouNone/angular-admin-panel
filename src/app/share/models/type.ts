@@ -1,6 +1,8 @@
 import { Observable } from 'rxjs';
 import { Component } from '@angular/compiler/src/core';
 import { CanDeactivate } from '@angular/router';
+import { FormGroup, FormControl } from '@angular/forms';
+import { MatTableDataSource } from '@angular/material';
 
 export enum compRoutes {
 
@@ -18,6 +20,7 @@ export enum compRoutes {
     
     scale = 'scale',
 	scaleEdit = 'scaleedit',
+	catalogboss = 'headertype',			// Типы руководства. Справочник
 
 	// Other
 	auth = 'auth',
@@ -68,6 +71,8 @@ export interface IUser {
 	date_fire?: string;
 	date_create: string;
 	date_modify: string;
+	header_type?: ITypeOfLeader;
+
 }
 
 /**
@@ -122,6 +127,161 @@ export interface IScale {
 	date_create?: string;
 	/** Дата последнего изменения */
 	date_modify?: string;
+}
+
+export interface IGroup {
+	/** ID группы */
+	id?: string;
+	/** Имя группы */
+	name: string;
+	/** Код группы */
+	code: string;
+	/** дата создания группы */
+	date_create?: string;
+	date_modify?: string;
+	/** Количество пользователей группы */
+	count?: number;
+	/** Члены группы */
+	user?: IUserWithPosition[];
+	/** Руководители группы */
+	boss?: IUserWithPosition[];
+}
+
+export interface IUserWithPosition extends IUser {
+	/** Должность	пользователя */
+	position?: IPosition;
+	/** Подразделение, в котором работает сотрудник */
+	division?: IDivision;
+	/** Тип руководства. Устанавливается в тех структурах, где пользователь выступает в роли руководителя */
+	header_type?: ITypeOfLeader;
+}
+
+export interface ITypeOfLeader {
+	/** Id */
+	id?: string;
+	/** Код типа руководителя */
+	code?: string;
+	/** Название должности руководителя */
+	name?: string;
+	/** Дата создания */
+	date_create?: string;
+	/** Дата последнего изменения */
+	date_modify?: string;
+
+}
+
+export interface IPosition {
+	/** ID должности */
+	id?: string;
+	/** Название должности */
+	name: string;
+	/** код должности */
+	code?: string;
+	/** Подразделение к которому привязана должность */
+	division?: IDivision;
+	/** Данные пользователя-владельца. ФИО и ID минимум */
+	user?: IUser;
+	/** дерево подразделений-родителей предприятия  */
+	division_parent?: IDivision[];
+	/** Профиль компетенции должности */
+	competence_profile_id?: string;
+	/** Уровень должности */
+	position_level_id?: string;
+	/** Дата создания должности */
+	date_start?: string;
+	/** Дата завершения должности */
+	date_end?: string;
+	/** Дата создания */
+	date_create?: string;
+	/** Дата последней модификации */
+	date_modify?: string;
+
+}
+export interface IDivision {
+	/** ID подразделения */
+	id?: string;
+	/** Название подразделения */
+	name: string;
+	/** Код подразделения */
+	code?: string;
+	/** ссылка на объект родителя */
+	parent?: IDivision;
+	/** тип бизнеса */
+	division_profile_id?: string;
+	/** Флаг расформированного предприятия */
+	closed?: boolean;
+	/** Дата начала */
+	date_start?: string;
+	/** Конечная дата */
+	date_end?: string;
+	/** Дата создания */
+	date_create?: string;
+	/** Дата последнего изменения */
+	date_modify?: string;
+	/** Список руководителей */
+	boss?: IUserWithPosition[];
+}
+
+export interface ICheckState<T> {
+	state: boolean;
+	item: T;
+}
+export interface IGroupChanges extends ICommonGroupChanges {
+	/** Список ID добавленных/удаленных пользователей. Дельта состояния пользователей группы */
+	items: {
+		/** ID добавленных */
+		added: string[],
+		/** ID удаленных */
+		deleted: string[]
+	};
+}
+export interface ICommonGroupChanges {
+	/** ID документа */
+	id?: string;
+	/** Имя документа */
+	name: string;
+	/** Код документа */
+	code?: string;
+	/** Список ID добавленных/удаленных руководителей. Дельта состояния пользователей группы */
+	boss?: {
+		/** ID добавленных руководителей */
+		added: string[],
+		/** ID удаленных руководителей */
+		deleted: string[],
+		/** Объект, в котором ключи = ID руководителей, у которых изменился тип руководства, 
+		 * каждая запись хранит старое и новое значение типа руководства 
+		 * */
+		changed_header_type: {
+			/** ID пользователя-руководителя, которому изменяли тип руководства. Сравнивая val и oldVal 
+			 *  принимаем решение о необходимости внесения изменений  */
+			[boss_id: string]: {
+				/** ID начального типа руководства  */
+				old?: string;
+				/** ID нового типа руководства  */
+				new?: string;
+			}
+		}
+	};
+
+}
+
+export interface ITabState<T = any> {
+	/** Состав группы, если это группа */
+	group?: MatTableDataSource<IGroup>;
+	/** Список входящих пользователей/начальства */
+	users?: MatTableDataSource<IUserWithPosition>;
+	/** Универсальное поле чего-нибудь. То, что сортируется */
+	item?: MatTableDataSource<T>
+	/** Список предприятий, если это группа предприятий */
+	division?: MatTableDataSource<IDivision>;
+	/** Поле по кторому сортируется таблица*/
+	orderField?: string;
+	/** Строка по кторой фильтруется таблица*/
+	searchString?: string;
+	/**Направление сортировки */
+	order?: string;
+	/**Форма */
+	form: FormGroup | FormControl;
 }
 
 export enum ESort {

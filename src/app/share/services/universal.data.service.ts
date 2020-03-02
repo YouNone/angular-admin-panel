@@ -30,7 +30,7 @@ export class UniversalDataService {
 
 
 	/** Роут, по которому происходит обращение к бэкэнду */
-	private serviceUrl: string = "localhost:3000/";
+	private serviceUrl: string = "";
 
 
 	/**
@@ -40,7 +40,8 @@ export class UniversalDataService {
 	 * @memberof UniversalDataService
 	 */
 	setServiceUrl(url) {
-		this.serviceUrl = url;
+		this.serviceUrl = "http://localhost:3000/";
+		this.serviceUrl += url;		
 	}
 
 
@@ -77,13 +78,11 @@ export class UniversalDataService {
 	 */
 	getList<T>(options: ISearchOptions = { start: 0, limit: 0 }): Observable<T[]> {
 		let url = this.serviceUrl;
-
 		// Ограничение limit = 0 говорит о том, что никаких дополнительных параметров не нужно. Только роут
 		if (options.limit !== 0) {
 			let optionUrl = new SearchOptions(options, this.$SETTINGS);
 			url += '?' + optionUrl.getUrl();
 		}
-
 		return this.request
 			.get<T[]>(url).pipe(
 				map((data: T[]) => data),

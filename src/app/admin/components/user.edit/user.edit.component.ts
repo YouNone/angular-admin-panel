@@ -37,8 +37,6 @@ export class UserEditComponent extends EditComponentsClass<IUser>{
     public location: Location,
   ) {
     super(snackBar, router, route, $MSG, $SETTINGS, dataService, $NOTE, dialogService, location, User);
-    /** Присвоение  роутов*/
-    // this.routePrefix = ERoute.personnel;
     this.routeList = compRoutes.user;
   }
 
@@ -86,7 +84,7 @@ export class UserEditComponent extends EditComponentsClass<IUser>{
 
 			this.dataService.getItem<User>(this.currId)
 				.subscribe((data: User) => {
-					console.log(data);
+					// console.log(data);
 					this.componentData = new User(data);
 					this.componentForm.patchValue({
 						code: this.componentData.code,
@@ -98,7 +96,8 @@ export class UserEditComponent extends EditComponentsClass<IUser>{
 						date_modify: this.componentData.date_modify,
 						date_birth: this.componentData.date_birth,
 						date_hire: this.componentData.date_hire,
-						date_fire: this.componentData.date_fire
+						date_fire: this.componentData.date_fire,
+						header_type: this.componentData.header_type
 					});
 					this.isReady = true;
 				});
@@ -168,14 +167,14 @@ export class UserEditComponent extends EditComponentsClass<IUser>{
 		// console.log("successuly", this.componentData);
 		this.isChanged = false;
 		this.componentForm.markAsPristine();
-		console.log(this.componentForm);
+		// console.log(this.componentForm);
   }
   
   /** Перехватывает событие изменения radio-button и сохраняет его в форме */
-	// radioChange(e: MatRadioChange) {
-	// 	this.componentData["sex"] = 1;
-	// 	this.ctrl["sex"].setValue(e.value);
-	// 	this.componentData["sex"] = e.value;
-	// }
+	radioChange(e: MatRadioChange) {
+		this.componentData["sex"] = 1;
+		this.ctrl["sex"].setValue(e.value);
+		this.componentData["sex"] = e.value;
+	}
   
 }

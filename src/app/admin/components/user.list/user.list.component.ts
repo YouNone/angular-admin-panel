@@ -10,26 +10,26 @@ import { ListComponentsClass } from 'src/app/share/classes/ListComponents';
 import { UserEditComponent } from '../user.edit/user.edit.component';
 
 @Component({
-  selector: 'user.list',
-  templateUrl: './user.list.component.html',
-  styleUrls: ['./user.list.component.css']
+	selector: 'user.list',
+	templateUrl: './user.list.component.html',
+	styleUrls: ['./user.list.component.css']
 })
 export class UserListComponent extends ListComponentsClass<IUser> {
 
-  constructor(
-    public $SETTINGS: SettingService,
-    public router: Router,
-    public $MSG: MsgList,
-    public listService: UniversalDataService,
-    public dialogService: DialogService
-  ) {
-    super($SETTINGS, router, $MSG, listService, dialogService);
-    this.displayedColumns = ['full_name', 'login', 'email', 'action'];
-    this.editUrl = compRoutes.userEdit;
-    this.dataUrl = compRoutes.user;
-    this.listService.setServiceUrl(this.dataUrl);
-  }
-  
+	constructor(
+		public $SETTINGS: SettingService,
+		public router: Router,
+		public $MSG: MsgList,
+		public listService: UniversalDataService,
+		public dialogService: DialogService
+	) {
+		super($SETTINGS, router, $MSG, listService, dialogService);
+		this.displayedColumns = ['full_name', 'login', 'email', 'action'];
+		this.editUrl = compRoutes.userEdit;
+		this.dataUrl = compRoutes.user;
+		this.listService.setServiceUrl(this.dataUrl);
+	}
+
 	onChildDeactivate(compRef: UserEditComponent) {
 		if (compRef instanceof UserEditComponent) {
 			this.getChangedItemToList(compRef);
