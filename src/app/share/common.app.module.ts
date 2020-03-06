@@ -13,6 +13,7 @@ import { GroupEditComponent } from '../admin/components/group.edit/group.edit.co
 import { ScaleListComponent } from '../admin/components/scale.list/scale.list.component';
 import { ScaleEditComponent } from '../admin/components/scale.edit/scale.edit.component';
 import { DialogConfirmComponent } from './components/dialog.confirm/dialog.confirm.component';
+import { SelectItemMenuComponent } from './components/select.item.menu.component/select.item.menu.component';
 
 @NgModule({
 	imports: [
@@ -30,7 +31,8 @@ import { DialogConfirmComponent } from './components/dialog.confirm/dialog.confi
 		RouterModule,
 		ReactiveFormsModule,
 		AngMaterialModule,
-		InfiniteScrollModule
+		InfiniteScrollModule,
+		SelectItemMenuComponent
 	],
 	declarations: [
 		UserListComponent,
@@ -39,7 +41,8 @@ import { DialogConfirmComponent } from './components/dialog.confirm/dialog.confi
 		GroupEditComponent,
 		ScaleListComponent,
 		ScaleEditComponent,
-		DialogConfirmComponent
+		DialogConfirmComponent,
+		SelectItemMenuComponent
 	],
 	entryComponents: [
 		DialogConfirmComponent

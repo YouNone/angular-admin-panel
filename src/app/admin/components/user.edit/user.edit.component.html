@@ -48,6 +48,7 @@
 									<mat-form-field>
 										<mat-label>Email</mat-label>
 										<input formControlName="email" matInput type="email">
+										<mat-error>{{errMsg(componentForm.controls["email"], $MSG)}}</mat-error>
 									</mat-form-field>
 
 									<mat-form-field>

@@ -50,7 +50,7 @@ export class UserEditComponent extends EditComponentsClass<IUser>{
 			code: new FormControl(""),
 			address: new FormControl(""),
 			phone: new FormControl(""),
-			email: new FormControl(""),
+			email: new FormControl("", Validators.email),
 			date_birth: new FormControl(null),
 			date_hire: new FormControl(null),
 			date_fire: new FormControl(null),

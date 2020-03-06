@@ -1,19 +1,20 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Sort, MatTableDataSource, MatSnackBar, MatSort, MatMenuTrigger } from '@angular/material';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Location } from '@angular/common';
+import { Router, ActivatedRoute } from '@angular/router';
+import { forkJoin, Observable } from 'rxjs';
+import { NotificationsService } from 'angular2-notifications';
+
 import { IUser, IGroup, compRoutes, ITabState, ESort, ISearchOptions, ICheckState, IGroupChanges } from 'src/app/share/models/type';
 import { NotifElemetntConfig } from 'src/app/share/utilit/simple.notification.config';
 import { DialogButtonConfig } from 'src/app/share/utilit/dialog.button.config';
-import { Sort, MatTableDataSource, MatSnackBar, MatSort, MatMenuTrigger } from '@angular/material';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { forkJoin, Observable } from 'rxjs';
-import { Router, ActivatedRoute } from '@angular/router';
 import { MsgList } from 'src/app/share/services/msg.list';
 import { SettingService } from 'src/app/share/services/settings.service';
 import { UniversalDataService } from 'src/app/share/services/universal.data.service';
 import { DialogService } from 'src/app/share/services/dialog.service';
-import { NotificationsService } from 'angular2-notifications';
 import { Group } from 'src/app/share/classes/Group';
 import { EditComponentsClass } from 'src/app/share/classes/EditComponents';
-import { Location } from '@angular/common';
 import { TypeOfLeader } from 'src/app/share/classes/TypeOfLeader';
 import { GroupChanges } from 'src/app/share/classes/GroupChanges';
 import { SelectItemMenuComponent } from 'src/app/share/components/select.item.menu.component/select.item.menu.component';

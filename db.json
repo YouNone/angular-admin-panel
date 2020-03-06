@@ -15,6 +15,20 @@
       "email": "emailexample@gmail.com",
       "password": "pass1",
       "sex": 1
+    },
+    {
+      "full_name": "Григорий",
+      "login": "Grigor1",
+      "email": "grigor@gmail.com",
+      "password": "фуяфльш",
+      "sex": "sexStr.male",
+      "code": "code 1 test",
+      "address": "",
+      "phone": "",
+      "date_birth": "1988-12-31T21:00:00.000Z",
+      "date_hire": "2020-02-29T22:00:00.000Z",
+      "date_fire": "2020-03-14T22:00:00.000Z",
+      "id": 3
     }
   ],
   "scale": [
@@ -428,6 +442,28 @@
           "header_type": "Непосредственный руководитель"
         }
       ]
+    }
+  ],
+  "headertype": [
+    {
+      "id": 2,
+      "code": "hr",
+      "name": "HR-руководитель"
+    },
+    {
+      "id": 3,
+      "code": "main",
+      "name": "Непосредственный руководитель"
+    },
+    {
+      "id": 4,
+      "code": "personal_hr",
+      "name": "Персональный HR"
+    },
+    {
+      "id": 5,
+      "code": "learn_hr",
+      "name": "HR Обучения"
     }
   ]
 }
