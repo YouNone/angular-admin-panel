@@ -10,6 +10,8 @@ import { ScaleEditComponent } from './admin/components/scale.edit/scale.edit.com
 import { ScaleListComponent } from './admin/components/scale.list/scale.list.component';
 import { AdminComponent } from './admin/admin.component';
 import { NotFoundComponent } from './share/components/not.found/not.found.component';
+import { TaskListComponent } from './admin/components/task.list/task.list.component';
+import { TaskEditComponent } from './admin/components/task.edit/task.edit.component';
 
 export const routesRoot: Routes = [
 	{
@@ -37,6 +39,13 @@ export const routesRoot: Routes = [
 					{ path: compRoutes.scaleEdit + '/:id', component: ScaleEditComponent, canDeactivate: [LeaveUnsavedComponentGuard] },
 				]
 			},
+
+			{
+				path: compRoutes.task, component: TaskListComponent, data: { breadcrumb: 'Задачи' }, children: [
+					{ path: compRoutes.taskEdit, component: TaskEditComponent, canDeactivate: [LeaveUnsavedComponentGuard] },
+					{ path: compRoutes.taskEdit + '/:id', component: TaskEditComponent, canDeactivate: [LeaveUnsavedComponentGuard] },
+				]
+			}
 		]
 
 	},

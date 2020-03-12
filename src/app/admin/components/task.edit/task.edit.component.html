@@ -1,0 +1,178 @@
+<div class="cover-parent">
+	<div *ngIf="isReady" class="component-inset container-fluid">
+		<form [formGroup]="componentForm" (ngSubmit)="formSubmit()" class="h-100 d-flex flex-column">
+			<div class="d-flex flex-row">
+				<div class="flex-grow-1 mr-2">
+					<h1>Задача</h1>
+				</div>
+				<div>
+					<button (click)="goBack()" class="mr-2 mb-2" mat-raised-button type="button">Назад</button>
+					<button class="mb-2 submit-button" mat-raised-button [disabled]="disableButton" color="primary"
+						type="submit">
+						<i *ngIf="disableButton; else elseSave" class="fas fa-spinner fa-spin"></i>
+						<ng-template #elseSave>Сохранить</ng-template>
+					</button>
+				</div>
+			</div>
+			<div class="flex-grow-1 d-flex flex-column">
+				<mat-tab-group class="tab-group-100" dynamicHeight>
+					<mat-tab label="Основные настройки">
+						<div class="container-fluid mt-3">
+							<div class="container-fluid">
+								<div class="row mt-3">
+									<div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+										<div class="d-flex flex-column flex-nowrap mat-form-column">
+											<mat-form-field class="w-100 mt-4">
+												<mat-label>Название</mat-label>
+												<input formControlName="name" matInput>
+												<mat-error>{{errMsg(componentForm.controls["name"], $MSG)}}</mat-error>
+											</mat-form-field>
+	
+											<mat-form-field class="w-100 mt-4">
+												<mat-label>Код</mat-label>
+												<input formControlName="code" matInput>
+												<mat-error>{{errMsg(componentForm.controls["code"], $MSG)}}</mat-error>
+											</mat-form-field>
+										</div>
+									</div>
+									<div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+										<div class="d-flex flex-column flex-nowrap mat-form-column">
+											<mat-form-field class="mt-4">
+												<mat-label>Периодичность</mat-label>
+												<mat-select 
+													formControlName="type_start"
+													(selectionChange)="selectChange($event)"
+												>
+													<mat-option 
+														*ngFor="let shed of taskShedule;"
+														[value]="shed"
+													>{{shed}}
+													</mat-option>
+												</mat-select>
+												<mat-error>{{errMsg(componentForm.controls["type_start"], $MSG)}}</mat-error>
+											</mat-form-field>
+
+											<div [ngSwitch]="showedShedule" class="d-flex flex-column flex-nowrap mat-form-column">
+												<div *ngSwitchCase="'period'">
+													<mat-form-field class="w-100 mt-4">
+														<mat-label>Периодичность запуска (мин)</mat-label>
+														<input type="number" formControlName="execute_point" matInput>
+														<mat-error>{{errMsg(componentForm.controls["execute_point"], $MSG)}}</mat-error>
+													</mat-form-field>
+													<mat-form-field class="w-100 mt-4">
+														<mat-label>Запускать с</mat-label>
+														<input type="time" formControlName="time_start" matInput>
+														<mat-error>{{errMsg(componentForm.controls["time_start"], $MSG)}}</mat-error>
+													</mat-form-field>
+													<mat-form-field class="w-100 mt-4">
+														<mat-label>Запускать по</mat-label>
+														<input type="time" formControlName="time_end" matInput>
+														<mat-error>{{errMsg(componentForm.controls["time_end"], $MSG)}}</mat-error>
+													</mat-form-field>
+
+												</div>
+												<div *ngSwitchCase="'day'">
+													<mat-form-field class="w-100 mt-4">
+														<mat-label>Время запуска</mat-label>
+														<input type="time" formControlName="time_start" matInput>
+														<mat-error>{{errMsg(componentForm.controls["time_start"], $MSG)}}</mat-error>
+													</mat-form-field>				
+												</div>
+	
+												<div *ngSwitchCase="'week'">
+													<mat-form-field class="w-100 mt-4">
+														<mat-label>Время запуска</mat-label>
+														<input type="time" formControlName="time_start" matInput>
+														<mat-error>{{errMsg(componentForm.controls["time_start"], $MSG)}}</mat-error>
+													</mat-form-field>
+
+													<mat-form-field class="w-100 mt-4">
+														<mat-label>В день</mat-label>
+														<mat-select formControlName="execute_point" 
+															(selectionChange)="weekChange($event)"
+														>
+															<mat-option
+																*ngFor="let day of weekday; let i = index"
+																[value]="i"
+															>{{day}}
+															</mat-option>
+														</mat-select>
+													</mat-form-field>
+												</div>
+	
+												<div *ngSwitchCase="'month'">
+													<mat-form-field class="w-100 mt-4">
+														<mat-label>Время запуска</mat-label>
+														<input type="time" formControlName="time_start" matInput>
+														<mat-error>{{errMsg(componentForm.controls["time_start"], $MSG)}}</mat-error>
+													</mat-form-field>
+													<mat-form-field class="w-100 mt-4">
+														<mat-label>В день</mat-label>
+														<input type="number" formControlName="execute_point" matInput>
+														<mat-error>{{errMsg(componentForm.controls["execute_point"], $MSG)}}</mat-error>
+													</mat-form-field>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+										<div class="d-flex flex-column flex-nowrap mat-form-column">
+											<mat-form-field class="mt-4">
+												<input formControlName="date_start" matInput
+													[matDatepicker]="date_start" placeholder="Дата начала запуска">
+												<mat-datepicker-toggle matSuffix [for]="date_start">
+												</mat-datepicker-toggle>
+												<mat-datepicker #date_start></mat-datepicker>
+											</mat-form-field>
+	
+											<mat-form-field class="mt-4">
+												<input formControlName="date_end" matInput
+													[matDatepicker]="date_end" placeholder="Дата окончания запуска">
+												<mat-datepicker-toggle matSuffix [for]="date_end">
+												</mat-datepicker-toggle>
+												<mat-datepicker #date_end></mat-datepicker>
+											</mat-form-field>
+
+											<mat-form-field class="w-100 mt-4">
+												<input formControlName="date_execute" matInput
+													[matDatepicker]="date_execute" placeholder="Последний запуск">
+												<mat-datepicker-toggle matSuffix [for]="date_execute">
+												</mat-datepicker-toggle>
+												<mat-datepicker #date_execute></mat-datepicker>
+											</mat-form-field>
+
+											<mat-form-field class="mt-4">
+												<input formControlName="date_create" matInput
+													[matDatepicker]="date_create" placeholder="Дата создания">
+												<mat-datepicker-toggle matSuffix [for]="date_create">
+												</mat-datepicker-toggle>
+												<mat-datepicker #date_create></mat-datepicker>
+											</mat-form-field>
+	
+											<mat-form-field class="mt-4">
+												<input formControlName="date_modify" matInput
+													[matDatepicker]="date_modify" placeholder="Дата редактирования">
+												<mat-datepicker-toggle matSuffix [for]="date_modify">
+												</mat-datepicker-toggle>
+												<mat-datepicker #date_modify></mat-datepicker>
+											</mat-form-field>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</mat-tab>
+					<mat-tab  class="d-flex" label="Скрипт">
+						<div class="scrolled-tab-content">
+							<ngx-monaco-editor
+								class="template-editor"
+								[options]="editorOptions" 
+								formControlName="script"
+							></ngx-monaco-editor>
+						</div>		
+					</mat-tab>
+				</mat-tab-group>
+			</div>
+		</form>
+	</div>
+</div>

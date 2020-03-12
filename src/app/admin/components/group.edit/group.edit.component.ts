@@ -49,7 +49,7 @@ export class GroupEditComponent extends EditComponentsClass<Group> {
 
 	@ViewChild("sortUser", { static: false }) sortUser: MatSort;
 	@ViewChild("sortBoss", { static: false }) sortBoss: MatSort;
-	@ViewChild(MatMenuTrigger, { static: false }) contextMenu: MatMenuTrigger;
+	// @ViewChild(MatMenuTrigger, { static: false }) contextMenu: MatMenuTrigger;
 	@ViewChild(SelectItemMenuComponent, { static: true }) SelectItemMenuComponent: SelectItemMenuComponent;
 	selectedBossType: TypeOfLeader = undefined;
 

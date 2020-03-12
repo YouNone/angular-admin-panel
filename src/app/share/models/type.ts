@@ -20,6 +20,9 @@ export enum compRoutes {
     
     scale = 'scale',
 	scaleEdit = 'scaleedit',
+
+	task = 'task',
+	taskEdit = 'taskedit',
 	catalogboss = 'headertype',			// Типы руководства. Справочник
 
 	// Other
@@ -127,6 +130,41 @@ export interface IScale {
 	date_create?: string;
 	/** Дата последнего изменения */
 	date_modify?: string;
+}
+
+export interface ITask {
+	/** Id */
+	id?: string;
+	/** Код задачи */
+	code?: string;
+	/** Описание задачи */
+	name: string;
+ 	/** Дата создания */
+	date_create?: string;
+ 	/** Дата редактирования */
+	date_modify?: string;
+	/** Дата последнего запуска */
+	date_execute?: string;
+	/** Период выполнения */
+	type_start?: ETaskTypeStart;
+	/**Количесто выполнений */
+	execute_point?: string;
+	/** С/До датапикеры */
+	date_start?: string;
+	date_end?: string;
+	/** С/До время */
+	time_start?: string;
+	time_end?: string;
+	/** монако */
+	script?: string;
+}
+
+export enum ETaskTypeStart {
+	never = "never",
+	period = "period", 
+	day = "day", 
+	week = "week", 
+	month = "month"
 }
 
 export interface IGroup {
@@ -338,4 +376,4 @@ export interface IFormValues {
 }
 
 export type AllowedListType = 
-	 IScale | IUser;
+	 IScale | IUser | IGroup | ITask;

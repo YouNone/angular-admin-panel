@@ -14,6 +14,9 @@ import { ScaleListComponent } from '../admin/components/scale.list/scale.list.co
 import { ScaleEditComponent } from '../admin/components/scale.edit/scale.edit.component';
 import { DialogConfirmComponent } from './components/dialog.confirm/dialog.confirm.component';
 import { SelectItemMenuComponent } from './components/select.item.menu.component/select.item.menu.component';
+import { TaskListComponent } from '../admin/components/task.list/task.list.component';
+import { TaskEditComponent } from '../admin/components/task.edit/task.edit.component';
+import { MonacoEditorModule } from 'ngx-monaco-editor';
 
 @NgModule({
 	imports: [
@@ -23,7 +26,8 @@ import { SelectItemMenuComponent } from './components/select.item.menu.component
 		HttpClientModule,
 		ReactiveFormsModule,
 		AngMaterialModule,
-		InfiniteScrollModule
+		InfiniteScrollModule,
+		MonacoEditorModule.forRoot()
 	],
 	exports: [
 		CommonModule,
@@ -41,6 +45,8 @@ import { SelectItemMenuComponent } from './components/select.item.menu.component
 		GroupEditComponent,
 		ScaleListComponent,
 		ScaleEditComponent,
+		TaskListComponent,
+		TaskEditComponent,
 		DialogConfirmComponent,
 		SelectItemMenuComponent
 	],

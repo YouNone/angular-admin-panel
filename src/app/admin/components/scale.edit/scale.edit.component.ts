@@ -37,18 +37,6 @@ export class ScaleEditComponent extends EditComponentsClass<Scale> {
 		super(snackBar, router, route, $MSG, $SETTINGS, dataService, $NOTE, dialogService, location, Scale);
 		/** Присвоение  роутов*/
 		this.routeList = compRoutes.scale;
-
-		// this.componentData = new Scale({
-		// 	name: "",
-		// 	code: "",
-		// 	type: EScaleType.diapasone,
-		// 	scale: {
-		// 		min: 1,
-		// 		max: 100,
-		// 		step: 1
-		// 	}
-		// });
-
 	}
 
 	initState() {

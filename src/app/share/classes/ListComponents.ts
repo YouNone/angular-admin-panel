@@ -148,10 +148,10 @@ export class ListComponentsClass<T extends IHaveId> implements OnInit {
 		this.listService.setServiceUrl(this.dataUrl);
 		this.listService.getList<T>(option)
 			.subscribe((newItem: T[]) => {
+				console.log(newItem);
 				this.componentData = newItem;
 			});
 	}
-
 
 	/**
 	 *	Отлов события скролла и подгрузка новых элементов таблицы
@@ -160,6 +160,7 @@ export class ListComponentsClass<T extends IHaveId> implements OnInit {
 	 * @memberof ListComponentsClass
 	 */
 	onScroll(e) {
+		console.log(e, "onScroll");
 		this.itemsLoad(this.componentData.length, this.$SETTINGS.get("startListLen"));
 	}
 
@@ -169,11 +170,12 @@ export class ListComponentsClass<T extends IHaveId> implements OnInit {
 	 * @param {*} e
 	 * @memberof ListComponentsClass
 	 */
-	sortChange(e) {
+	sortChange(e) {		
+		console.log(e, "sortChange");
 		this.state.order = e.direction;
 		this.state.orderField = e.active;
-		// console.log(this.state.order, this.state.orderField);
 		this.itemReload();
+		
 	}
 
 	/**

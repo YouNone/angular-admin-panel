@@ -16,7 +16,7 @@ export class SelectItemMenuComponent implements OnInit {
 	constructor() { }
 
 	ngOnInit() {
-		
+		// console.log("I am ready");
 	}
 
 	onSelectMenu(item: TypeOfLeader, indx: number) {

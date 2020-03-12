@@ -91,64 +91,12 @@
       "date_modify": "2019-11-10T21:00:00.000Z",
       "user": [
         {
-          "id": 35,
-          "password": "P@ssw0rd",
-          "code": "C991F4B4E59E445FC13F495549CA6741",
-          "login": "OmelchenkoIG",
-          "email": "OmelchenkoIG@dtek.com",
-          "full_name": "Омельченко Ірина Георгіївна",
-          "position": {
-            "name": "Position 1",
-            "id": 54325432
-          },
-          "division": {
-            "name": "Div 1",
-            "id": 5432446
-          },
-          "sex": "f"
-        },
-        {
           "id": 36,
           "password": "P@ssw0rd",
           "code": "CB70D5EBB69F7FBA4A58903F9A2112C0",
-          "login": "KituginAV",
-          "email": "KituginAV@dtek.com",
-          "full_name": "Кітугін Олександр Вячеславович",
-          "position": {
-            "name": "Position 1",
-            "id": 54325432
-          },
-          "division": {
-            "name": "Div 1",
-            "id": 5432446
-          },
-          "sex": "m",
-          "header_type": "Лидер"
-        },
-        {
-          "id": 37,
-          "password": "P@ssw0rd",
-          "code": "CC87AF780242463BE97AE0CF23946A4F",
-          "login": "ChernovSergV",
-          "email": "ChernovSergV@dtek.com",
-          "full_name": "Чернов Сергій Валентинович",
-          "position": {
-            "name": "Position 1",
-            "id": 54325432
-          },
-          "division": {
-            "name": "Div 1",
-            "id": 5432446
-          },
-          "sex": "m"
-        },
-        {
-          "id": 42,
-          "password": "P@ssw0rd",
-          "code": "ABAEA03788B4FD5E77453DFFB2C4F112",
-          "login": "NazarovVA",
-          "email": "NazarovVA@dtek.com",
-          "full_name": "Назаров Володимир Олександрович",
+          "login": "Asher",
+          "email": "antSher@gmail.com",
+          "full_name": "Антон Шерович",
           "position": {
             "name": "Position 1",
             "id": 54325432
@@ -164,9 +112,9 @@
           "id": 43,
           "password": "P@ssw0rd",
           "code": "AC864C759E17DAA98954EA2832877A58",
-          "login": "PugachLA",
-          "email": "PugachLA@dtek.com",
-          "full_name": "Пугач Людмила Анатоліївна",
+          "login": "PutachK",
+          "email": "Putach@gmail.com",
+          "full_name": "Путач Кирил",
           "position": {
             "name": "Position 1",
             "id": 54325432
@@ -175,68 +123,15 @@
             "name": "Div 1",
             "id": 5432446
           },
-          "sex": "f"
+          "sex": "m"
         },
         {
           "id": 44,
           "password": "P@ssw0rd",
           "code": "B440D19C85CF4459DE80495E84194141",
-          "login": "PonezhaAM",
-          "email": "PonezhaAM@dtek.com",
-          "full_name": "Понєжа Олександр Михайлович",
-          "position": {
-            "name": "Position 1",
-            "id": 54325432
-          },
-          "division": {
-            "name": "Div 1",
-            "id": 5432446
-          },
-          "sex": "m",
-          "header_type": "Лидер"
-        },
-        {
-          "id": 46,
-          "password": "P@ssw0rd",
-          "code": "8EB90DF479598DBB68A781A082A1BCBA",
-          "login": "MedvedevaTV",
-          "email": "MedvedevaTV@dtek.com",
-          "full_name": "Мєдвєдєва Тетяна Володимирівна",
-          "position": {
-            "name": "Position 1",
-            "id": 54325432
-          },
-          "division": {
-            "name": "Div 1",
-            "id": 5432446
-          },
-          "sex": "f"
-        },
-        {
-          "id": 48,
-          "password": "P@ssw0rd",
-          "code": "9506AF8A62AF1ABE6A69ED8EEAF79904",
-          "login": "KuzminaEV",
-          "email": "KuzminaEV@dtek.com",
-          "full_name": "Кузьміна Олена Василівна",
-          "position": {
-            "name": "Position 1",
-            "id": 54325432
-          },
-          "division": {
-            "name": "Div 1",
-            "id": 5432446
-          },
-          "sex": "f",
-          "header_type": "Лидер"
-        },
-        {
-          "id": 50,
-          "password": "P@ssw0rd",
-          "code": "A3BF9F5F59E6F709A266C7348F9D998D",
-          "login": "PedkoAV",
-          "email": "PedkoAV@dtek.com",
-          "full_name": "Педько Олександр Валерійович",
+          "login": "SergM",
+          "email": "Serg@gmail.com",
+          "full_name": "Шевченко Сергей Михайлович",
           "position": {
             "name": "Position 1",
             "id": 54325432
@@ -254,9 +149,9 @@
           "id": 42,
           "password": "P@ssw0rd",
           "code": "ABAEA03788B4FD5E77453DFFB2C4F112",
-          "login": "NazarovVA",
-          "email": "NazarovVA@dtek.com",
-          "full_name": "Назаров Володимир Олександрович",
+          "login": "NazarA",
+          "email": "Nazar@gmail.com",
+          "full_name": "Назаров Анатолий Сергеевич",
           "position": {
             "name": "Position 1",
             "id": 54325432
@@ -268,26 +163,8 @@
           "sex": "m",
           "header_type": {
             "id": "1",
-            "name": "lider"
+            "name": "HR-руководитель"
           }
-        },
-        {
-          "id": 43,
-          "password": "P@ssw0rd",
-          "code": "AC864C759E17DAA98954EA2832877A58",
-          "login": "PugachLA",
-          "email": "PugachLA@dtek.com",
-          "full_name": "Пугач Людмила Анатоліївна",
-          "position": {
-            "name": "Position 1",
-            "id": 54325432
-          },
-          "division": {
-            "name": "Div 1",
-            "id": 5432446
-          },
-          "sex": "f",
-          "header_type": "Лидер"
         }
       ]
     },
@@ -301,96 +178,9 @@
           "id": 9,
           "password": "P@ssw0rd",
           "code": "3654D4791F12AE709991FFFD0527C3A8",
-          "login": "KameristiyAS",
-          "email": "KameristiyAS@dtek.com",
-          "full_name": "Камеристий Олександр Сергійович",
-          "position": {
-            "name": "Position 1",
-            "id": 54325432
-          },
-          "division": {
-            "name": "Div 1",
-            "id": 5432446
-          },
-          "img": "user_none.svg",
-          "sex": "m"
-        },
-        {
-          "id": 10,
-          "password": "P@ssw0rd",
-          "code": "6FED96E6C419CDC1D09E1FD685CFE1AB",
-          "login": "KornienkoAG",
-          "email": "KornienkoAG@dtek.com",
-          "full_name": "Корнієнко Андрій Григорович",
-          "position": {
-            "name": "Position 1",
-            "id": 54325432
-          },
-          "division": {
-            "name": "Div 1",
-            "id": 5432446
-          },
-          "img": "user_none.svg",
-          "sex": "m"
-        },
-        {
-          "id": 13,
-          "password": "P@ssw0rd",
-          "code": "906229298A33614482D88C5D3C2D8BBB",
-          "login": "KorolAI",
-          "email": "KorolAI@dtek.com",
-          "full_name": "Король Ганна Ігорівна",
-          "position": {
-            "name": "Position 1",
-            "id": 54325432
-          },
-          "division": {
-            "name": "Div 1",
-            "id": 5432446
-          },
-          "sex": "f"
-        },
-        {
-          "id": 14,
-          "password": "P@ssw0rd",
-          "code": "A96000C8708B8A4ABD8DCB1D16C57499",
-          "login": "MatyukhaNN",
-          "email": "MatyukhaNN@dtek.com",
-          "full_name": "Матюха Микола Миколайович",
-          "position": {
-            "name": "Position 1",
-            "id": 54325432
-          },
-          "division": {
-            "name": "Div 1",
-            "id": 5432446
-          },
-          "sex": "m"
-        },
-        {
-          "id": 15,
-          "password": "P@ssw0rd",
-          "code": "BDD99BBF0131640745373177BA3779DB",
-          "login": "PristaykoSV",
-          "email": "PristaykoSV@dtek.com",
-          "full_name": "Пристайко Сергій Володимирович",
-          "position": {
-            "name": "Position 1",
-            "id": 54325432
-          },
-          "division": {
-            "name": "Div 1",
-            "id": 5432446
-          },
-          "sex": "m"
-        },
-        {
-          "id": 17,
-          "password": "P@ssw0rd",
-          "code": "D5BB2938783F25DE4CFB54EA267AEEAA",
-          "login": "KalmykovMaV",
-          "email": "KalmykovMaV@dtek.com",
-          "full_name": "Калмиков Максим Вікторович",
+          "login": "ZabZab",
+          "email": "zabay@gmail.com",
+          "full_name": "Забаев Олександр Сергійович",
           "position": {
             "name": "Position 1",
             "id": 54325432
@@ -407,28 +197,9 @@
           "id": 8,
           "password": "P@ssw0rd",
           "code": "34FF4FF33ABC07C6102B05CAC8ED74DD",
-          "login": "FedorchenkoVaV",
-          "email": "FedorchenkoVaV@dtek.com",
-          "full_name": "Федорченко Валерія Віталіївна",
-          "position": {
-            "name": "Position 1",
-            "id": 54325432
-          },
-          "division": {
-            "name": "Div 1",
-            "id": 5432446
-          },
-          "img": "user_none.svg",
-          "sex": "f",
-          "header_type": "HR Обучения"
-        },
-        {
-          "id": 9,
-          "password": "P@ssw0rd",
-          "code": "3654D4791F12AE709991FFFD0527C3A8",
-          "login": "KameristiyAS",
-          "email": "KameristiyAS@dtek.com",
-          "full_name": "Камеристий Олександр Сергійович",
+          "login": "fremFrem",
+          "email": "Frem@gmail.com",
+          "full_name": "Анатолий Фремов",
           "position": {
             "name": "Position 1",
             "id": 54325432
@@ -439,9 +210,239 @@
           },
           "img": "user_none.svg",
           "sex": "m",
-          "header_type": "Непосредственный руководитель"
+          "header_type": "HR Обучения"
         }
       ]
+    }
+  ],
+  "task": [
+    {
+      "id": "1",
+      "name": "Необходимости завершения курсов из Адаптационной программы",
+      "code": "reminder_adapt",
+      "date_execute": "2012-03-19T21:00:00.000Z",
+      "type_start": "never",
+      "script": "var never = {\r\n    active: false,\r\n    status: true\r\n}",
+      "execute_point": ""
+    },
+    {
+      "id": "2",
+      "name": "Уведомление за 3 дня до мероприятия по адаптации",
+      "code": "reminder_adapt_event",
+      "date_execute": "2011-11-08T21:00:00.000Z",
+      "type_start": "period",
+      "script": "",
+      "execute_point": 15,
+      "date_start": "2020-03-12T22:00:00.000Z",
+      "date_end": "2020-03-26T22:00:00.000Z",
+      "time_start": "13:25",
+      "time_end": "01:55"
+    },
+    {
+      "id": "3",
+      "name": "Рассылка уведомлений о необходимости пройти обязательные курсы",
+      "code": "reminder_adapt_new",
+      "date_execute": "2016-12-12T21:00:00.000Z",
+      "type_start": "day",
+      "script": "",
+      "execute_point": "",
+      "time_start": "00:50"
+    },
+    {
+      "id": "4",
+      "name": "Напоминание о необходимости записаться на мероприятие по посещению ПП",
+      "code": "reminder_adapt_reservPP",
+      "date_execute": "2014-02-03T21:00:00.000Z",
+      "type_start": "week",
+      "script": "",
+      "execute_point": 6,
+      "time_start": "10:30"
+    },
+    {
+      "id": "5",
+      "name": "Формирование отчета по дубликатам результатов",
+      "code": "reminder_admin_double_results",
+      "date_execute": "2014-02-07T21:00:00.000Z",
+      "type_start": "month",
+      "script": "",
+      "execute_point": 15,
+      "time_start": "13:55"
+    },
+    {
+      "id": "6",
+      "code": "reminder_change_position",
+      "name": "Уведомление о новых записях в исории изменений",
+      "date_execute": "2012-08-07T21:00:00.000Z",
+      "schedule": "Ежедневно"
+    },
+    {
+      "id": "7",
+      "code": "reminder_competence_response",
+      "name": "Уведомление о необходимости оставить отзыв о тренинге по компетенциям",
+      "date_execute": "2019-09-06T21:00:00.000Z",
+      "schedule": "Еженедельно"
+    },
+    {
+      "id": "8",
+      "code": "reminder_course_talant",
+      "name": "Напоминание пройти курс по талантам",
+      "date_execute": "2016-01-21T21:00:00.000Z",
+      "schedule": "Никогда"
+    },
+    {
+      "id": "9",
+      "code": "reminder_devcenter_1",
+      "name": "Уведомление пользователю и его руководителю о необходимости подтвердить участие в Центре оценки",
+      "date_execute": "2013-07-26T21:00:00.000Z",
+      "schedule": "Никогда"
+    },
+    {
+      "id": "10",
+      "code": "reminder_double",
+      "name": "Уведомление со списком дубликатов",
+      "date_execute": "2013-09-26T21:00:00.000Z",
+      "schedule": "Никогда"
+    },
+    {
+      "id": "11",
+      "code": "reminder_double_3",
+      "name": "Уведомление со списком дубликатов хешей сотрудников",
+      "date_execute": "2019-09-06T21:00:00.000Z",
+      "schedule": "Никогда"
+    },
+    {
+      "id": "12",
+      "code": "reminder_double_coll_to_pos",
+      "name": "Уведомление со списком сотрудников на одну позицию",
+      "date_execute": "2019-09-06T21:00:00.000Z",
+      "schedule": "Никогда"
+    },
+    {
+      "id": "13",
+      "code": "reminder_ecourse",
+      "name": "Необходимости завершения курсов c проставленной конечной датой прохождения",
+      "date_execute": "2019-09-02T21:00:00.000Z",
+      "schedule": "Еженедельно"
+    },
+    {
+      "id": "14",
+      "code": "reminder_eod",
+      "name": "Уведомление по оценочной процедуре",
+      "date_execute": "2013-12-30T21:00:00.000Z",
+      "schedule": "Ежедневно"
+    },
+    {
+      "id": "15",
+      "code": "reminder_eod_manager",
+      "name": "Уведомление руководителям о необходимости заполнения форм оценки сотрудников",
+      "date_execute": "2013-12-30T21:00:00.000Z",
+      "schedule": "Ежедневно"
+    },
+    {
+      "id": "16",
+      "code": "reminder_eod_pa",
+      "name": "Уведомление о необходимости заполнить постановку целей",
+      "date_execute": "2015-08-12T21:00:00.000Z",
+      "schedule": "Ежедневно"
+    },
+    {
+      "id": "17",
+      "code": "reminder_interviev",
+      "name": "Уведомление о необходимости пройти опрос",
+      "date_execute": "2016-10-18T21:00:00.000Z",
+      "schedule": "Ежедневно"
+    },
+    {
+      "id": "18",
+      "code": "reminder_interviev_BACKUP",
+      "name": "Уведомление о необходимости пройти опрос_BACKUP",
+      "date_execute": "2016-07-19T21:00:00.000Z",
+      "schedule": "Ежедневно"
+    },
+    {
+      "id": "19",
+      "code": "reminder_knowledge_power",
+      "name": "Уведомление о сроке сдачи домашнего задания",
+      "date_execute": "2019-09-02T21:00:00.000Z",
+      "schedule": "Ежедневно"
+    },
+    {
+      "id": "20",
+      "code": "reminder_knowledge_power_ht",
+      "name": "Отправка уведомления о назначении домашнего задания по Энергии Знаний",
+      "date_execute": "2013-07-23T21:00:00.000Z",
+      "schedule": "Ежедневно"
+    },
+    {
+      "id": "21",
+      "code": "reminder_learning_effect",
+      "name": "Уведомление о необходимости заполнить оценку эффекта обучения",
+      "date_execute": "2011-07-04T21:00:00.000Z",
+      "schedule": "Ежедневно"
+    },
+    {
+      "id": "22",
+      "code": "reminder_learning_effect_future",
+      "name": "Уведомление руководителю о завершении обучения сотрудником и необходимости в будущем заполнить оценку эффекта обучения",
+      "date_execute": "2011-07-04T21:00:00.000Z",
+      "schedule": "Ежедневно"
+    },
+    {
+      "id": "23",
+      "name": "Напоминание за 3 дня до фильма",
+      "code": "reminder_movie",
+      "date_execute": "2016-12-03T22:00:00.000Z",
+      "schedule": "Ежедневно",
+      "comment": "Отзыв"
+    },
+    {
+      "id": "24",
+      "code": "reminder_new_event",
+      "name": "Уведомление о создании нового мероприятия в рамках АП",
+      "date_execute": "2012-08-23T21:00:00.000Z",
+      "schedule": "Ежедневно"
+    },
+    {
+      "id": "26",
+      "code": "reminder_profprogram_response",
+      "name": "Уведомление о необходимости оставить отзыв о мероприятии",
+      "date_execute": "2015-07-08T21:00:00.000Z",
+      "schedule": "Ежедневно"
+    },
+    {
+      "id": "27",
+      "code": "reminder_project_learning",
+      "name": "Уведомление для непрошедших курсы по управлению проектами",
+      "date_execute": "2011-10-17T21:00:00.000Z",
+      "schedule": "Ежедневно"
+    },
+    {
+      "id": "28",
+      "code": "reminder_PU_infosec",
+      "name": "Рассылка напоминаний сотрудникам ПУ о необходимости пройти курс по ИБ",
+      "date_execute": "2013-03-12T21:00:00.000Z",
+      "schedule": "Ежедневно"
+    },
+    {
+      "id": "29",
+      "code": "reminder_safety_course",
+      "name": "Отправка уведомления-напоминания о необходимости прохождения курса по ОТ",
+      "date_execute": "2012-08-15T21:00:00.000Z",
+      "schedule": "Ежедневно"
+    },
+    {
+      "id": "30",
+      "code": "reminder_safety_test",
+      "name": "Отправка уведомления о необходимости прохождения теста по ОТ",
+      "date_execute": "2012-10-24T21:00:00.000Z",
+      "schedule": "Ежедневно"
+    },
+    {
+      "id": "31",
+      "code": "reminder_spclub_confirm",
+      "name": "Отправка уведомления участникам ESC об участии",
+      "date_execute": "2011-10-21T21:00:00.000Z",
+      "schedule": "Ежедневно"
     }
   ],
   "headertype": [

@@ -103,8 +103,8 @@
 									<ng-container matColumnDef="action">
 										<th mat-header-cell *matHeaderCellDef class="operation-center"> Действия </th>
 										<td mat-cell *matCellDef="let item" class="operation-center">
-											<button type="button" (click)="removeUser(item.id)" mat-icon-button>
-												<i class="fas fa-trash-alt text-black-50"></i>
+											<button mat-icon-button type="button" (click)="removeUser(item.id)">
+												<mat-icon class="point text-black-50">delete</mat-icon>
 											</button>
 										</td>
 									</ng-container>
@@ -150,7 +150,7 @@
 										<td mat-cell *matCellDef="let item"> {{item.position?.name}}</td>
 									</ng-container>
 
-									<ng-container matColumnDef="type">
+									<ng-container matColumnDef="type" class="brd">
 										<th mat-header-cell *matHeaderCellDef mat-sort-header> Тип руководителя </th>
 										<td 
 											class="point"
@@ -161,7 +161,7 @@
 										> 
 											<div class="leader-type-container">
 												<p class="mr-2">{{item.header_type?.name}}</p>
-												<i class="fas fa-caret-down"></i>
+												<i class="material-icons">arrow_drop_down</i>											
 											</div>
 										</td>
 									</ng-container>
@@ -169,8 +169,8 @@
 									<ng-container matColumnDef="action">
 										<th mat-header-cell *matHeaderCellDef class="operation-center"> Действия </th>
 										<td mat-cell *matCellDef="let item" class="operation-center">
-											<button (click)="removeUser(item.id)" type="button" mat-icon-button>
-												<i class="fas fa-trash-alt text-black-50"></i>
+											<button mat-icon-button type="button" (click)="removeUser(item.id)">
+												<mat-icon class="point text-black-50">delete</mat-icon>
 											</button>
 										</td>
 									</ng-container>
@@ -207,7 +207,7 @@
 	</div>
 </div>
 
-<!-- <select-item-menu
+<select-item-menu
 	[incomeData]="leadersTypeList"
 	(selectedOutputItem)="changeBossType($event)"
-></select-item-menu> -->
+></select-item-menu>

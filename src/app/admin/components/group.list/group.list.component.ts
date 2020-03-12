@@ -33,7 +33,7 @@ export class GroupListComponent extends ListComponentsClass<IGroup> {
 		public dialogService: DialogService
 	) { 
 		super($SETTINGS, router, $MSG, listService, dialogService);		
-		this.displayedColumns = ['code', 'name', 'count', 'action'];
+		this.displayedColumns = ['code', 'name', 'action'];
 		this.editUrl = compRoutes.groupEdit;
 		this.dataUrl = compRoutes.group;
 		this.listService.setServiceUrl(this.dataUrl);
@@ -59,10 +59,10 @@ export class GroupListComponent extends ListComponentsClass<IGroup> {
 	// 	}
 	// }
 
-	/** Убрать фильтр */
-	removeFilter() {
-		this.state.rubFilterTree.next([]);
-		this.state.f2 = "";
-		this.itemReload();
-	}
+	// /** Убрать фильтр */
+	// removeFilter() {
+	// 	this.state.rubFilterTree.next([]);
+	// 	this.state.f2 = "";
+	// 	this.itemReload();
+	// }
 }
