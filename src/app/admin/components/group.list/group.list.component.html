@@ -25,7 +25,7 @@
 				[infiniteScrollContainer]="'.component-inset'"
 				[infiniteScrollDistance]="distance" 
 				[infiniteScrollThrottle]="throttle" 
-				(scrolled)="onScroll($event)"
+				(scrolled)="onScroll()"
 			>
 				<table mat-table class="w-100  hover" [dataSource]="componentData" [trackBy]="tableTrackById" matSort
 					(matSortChange)="sortChange($event)" matSortActive="name" matSortDirection="asc"

@@ -15,28 +15,19 @@ export class GlobalVars {
 	private data: StringKeyObject = {
 		siteName: 'Alex site',						// Титул в названиии сайта
 
-		// 'urlKeyStart': environment.url.start,			// URL ключ начала диапазона, выдаваемого запросом
-		// 'urlKeyLimit': environment.url.limit,			// URL ключ длинны диапазона, выдаваемого запросом
-		// 'urlKeySort': environment.url.sort,			// URL ключ по какому полю сортируется выборка
-		// 'urlKeyOrder': environment.url.order,			// URL ключ направления сортировки. ASC/DESC. ASC по умолчанию
-		// 'urlKeyField': 'field',					// URL ключ по какому полю производится поиск
-		// 'urlKeyfilter': 'f',						// URL ключ строки поиска
-		// 'urlKeyField2': 'field2',					// URL дополнительный ключ по какому полю производится поиск
-		// 'urlKeyfilter2': 'f2',						// URL дополнительный ключ строки поиска
-
 		showBreadcrumbs: true,						// Показать/спрятать хлебные крошки
 		startListLen: 20,							// + Количество начально запрашиваемых элементов в больших списках
-		autocompleteListLen: 20,							// + Количество начально запрашиваемых элементов в списках автокомплит поиска
+		autocompleteListLen: 20,					// + Количество начально запрашиваемых элементов в списках автокомплит поиска
 		listIncrement: 20,							// + Количество элементов в подчитываемом списке
-		readScrollDistance: 1,							// + *10% от размера контейнера, когда начинается подчитывание данных
-		readScrollThrottle: 300,						// + Пауза перед началом подчитывания данных
+		readScrollDistance: 1,						// + *10% от размера контейнера, когда начинается подчитывание данных
+		readScrollThrottle: 300,					// + Пауза перед началом подчитывания данных
 		liveSearchDelay: 1000,						// + Задержка в Мс. при живом поиске
 		rtfWidgetCount: 3,							// + Количество элементов, в виджетах входящих сообщений: запросы на оценку, меня оценили, входящие сообщения и т.п.
-		refreshTaskInterval: 60000,						// + Интервал перечитывания списка задач. MS
+		refreshTaskInterval: 60000,					// + Интервал перечитывания списка задач. MS
 		snackBarDuration: 3000,						// + Задержка закрытия снекбаров, выводящих сообщения
 
-		minLengthPassword: 6,							// + Минимальная длинна пароля
-		minLengthTextInput: 3,							// + Минимальная длинна текстового ввода. Для валидаторов
+		minLengthPassword: 6,						// + Минимальная длинна пароля
+		minLengthTextInput: 3,						// + Минимальная длинна текстового ввода. Для валидаторов
 
 		// Диалоги ----------------------------------------------------------
 		// Confirm
@@ -54,19 +45,6 @@ export class GlobalVars {
 
 		rightWidgetWidth: 400								// Ширина правого виджета поиска и добавления элементов в группы
 	};
-
-	// /**
-	//  * Конструктор GlobalVars. Инициализирует пути к API админки и морды, используя предустановленные 
-	//  * константы приложения.
-	//  * 
-	//  * @memberof GlobalVars
-	//  */
-	// constructor() {
-	// 	this.data['fullApiUrl'] = this.data['apiProtocol'] + '://' +
-	// 		this.data['apiHost'] +
-	// 		(this.data['apiPort'] ? ':' + this.data['apiPort'] : '');
-		
-	// }
 
 	/**
 	 * Возвращает значение константы приложения. 

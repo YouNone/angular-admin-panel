@@ -90,7 +90,9 @@ export class ListComponentsClass<T extends IHaveId> implements OnInit {
 	 * @memberof ListComponentsClass
 	 */
 	ngOnInit() {
-		this.itemsLoad(this.componentData.length, this.$SETTINGS.get("startListLen"));		
+		console.log(this.componentData.length, this.$SETTINGS.get("startListLen"));
+		
+		this.itemsLoad(this.componentData.length, this.$SETTINGS.get("startListLen"));	
 	}
 
 
@@ -110,9 +112,8 @@ export class ListComponentsClass<T extends IHaveId> implements OnInit {
 		}
 	}
 
-
 	/**
-	 * Загрузка данных в таблицу
+	 * Стартовая загрузка данных в таблицу
 	 *
 	 * @param {number} startNum
 	 * @param {number} divAmout 
@@ -121,15 +122,18 @@ export class ListComponentsClass<T extends IHaveId> implements OnInit {
 	itemsLoad(startNum: number, divAmout: number) {
 		const option: ISearchOptions = {
 			start: startNum,
-			limit: divAmout,
+			limit: divAmout
 		};
 		this.addExtraFilterOption(option, this.filterField);
 		this.listService.setServiceUrl(this.dataUrl);	
-			
+		//  устанавливает option, но вываливает все данные сразу игнорируя option
+		console.log(option);
 		this.listService.getList<T>(option)
 			.subscribe((newItem: T[]) => {				
 				if (newItem) {
-					this.componentData = this.componentData.concat(newItem);
+					console.log(newItem);
+					// this.componentData = this.componentData.concat(newItem);
+					
 				} else return;
 			});
 	}
@@ -147,8 +151,7 @@ export class ListComponentsClass<T extends IHaveId> implements OnInit {
 		this.addExtraFilterOption(option, this.filterField);
 		this.listService.setServiceUrl(this.dataUrl);
 		this.listService.getList<T>(option)
-			.subscribe((newItem: T[]) => {
-				console.log(newItem);
+			.subscribe((newItem: T[]) => {				
 				this.componentData = newItem;
 			});
 	}
@@ -160,7 +163,6 @@ export class ListComponentsClass<T extends IHaveId> implements OnInit {
 	 * @memberof ListComponentsClass
 	 */
 	onScroll(e) {
-		console.log(e, "onScroll");
 		this.itemsLoad(this.componentData.length, this.$SETTINGS.get("startListLen"));
 	}
 
@@ -171,7 +173,6 @@ export class ListComponentsClass<T extends IHaveId> implements OnInit {
 	 * @memberof ListComponentsClass
 	 */
 	sortChange(e) {		
-		console.log(e, "sortChange");
 		this.state.order = e.direction;
 		this.state.orderField = e.active;
 		this.itemReload();
