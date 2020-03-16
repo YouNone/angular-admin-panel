@@ -132,7 +132,7 @@ export class ListComponentsClass<T extends IHaveId> implements OnInit {
 			.subscribe((newItem: T[]) => {				
 				if (newItem) {
 					console.log(newItem);
-					// this.componentData = this.componentData.concat(newItem);
+					this.componentData = this.componentData.concat(newItem);
 					
 				} else return;
 			});

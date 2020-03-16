@@ -41,7 +41,7 @@ export const routesRoot: Routes = [
 			},
 
 			{
-				path: compRoutes.task, component: TaskListComponent, data: { breadcrumb: 'Задачи' }, children: [
+				path: compRoutes.task, component: TaskListComponent, data: { breadcrumb: 'Мероприятия' }, children: [
 					{ path: compRoutes.taskEdit, component: TaskEditComponent, canDeactivate: [LeaveUnsavedComponentGuard] },
 					{ path: compRoutes.taskEdit + '/:id', component: TaskEditComponent, canDeactivate: [LeaveUnsavedComponentGuard] },
 				]
