@@ -9,14 +9,6 @@
       "sex": 1
     },
     {
-      "id": 2,
-      "full_name": "Name 1",
-      "login": "login 1",
-      "email": "emailexample@gmail.com",
-      "password": "pass1",
-      "sex": 1
-    },
-    {
       "id": 3,
       "full_name": "Григорий",
       "login": "Grigor1",
@@ -187,6 +179,177 @@
         }
       ],
       "id": 11
+    },
+    {
+      "name": "scale4",
+      "code": "code4",
+      "type": "diapasone",
+      "scale": {
+        "min": 0,
+        "max": 100,
+        "step": 1
+      },
+      "id": 12
+    },
+    {
+      "name": "bool1",
+      "code": "code1",
+      "type": "enumerable",
+      "scale": [
+        {
+          "value": 0,
+          "description": "Имя 1"
+        },
+        {
+          "value": 0,
+          "description": "Имя 2"
+        }
+      ],
+      "id": 13
+    },
+    {
+      "name": "diap1",
+      "code": "code1",
+      "type": "diapasone",
+      "scale": {
+        "min": 2,
+        "max": 20,
+        "step": 2
+      },
+      "id": 14
+    },
+    {
+      "name": "diap12",
+      "code": "week123",
+      "type": "enumerable",
+      "scale": [
+        {
+          "value": 0,
+          "description": "Имя буллита0"
+        },
+        {
+          "value": 1,
+          "description": "Имя буллита1"
+        }
+      ],
+      "id": 15
+    },
+    {
+      "name": "new 1",
+      "code": "code 1",
+      "type": "diapasone",
+      "scale": {
+        "min": 0,
+        "max": 1002,
+        "step": 1
+      },
+      "id": 16
+    },
+    {
+      "id": 9,
+      "name": "added",
+      "code": "added",
+      "type": "enumerable",
+      "scale": [
+        {
+          "value": 1,
+          "description": "Имя буллита1"
+        },
+        {
+          "value": 2,
+          "description": "Имя буллита2"
+        },
+        {
+          "value": 3,
+          "description": "Имя буллита3"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "name": "some name1",
+      "code": "somecode",
+      "type": "diapasone",
+      "scale": {
+        "min": 2,
+        "max": 32,
+        "step": 2
+      }
+    },
+    {
+      "id": 12,
+      "name": "Scalse Name111",
+      "code": "Code Scalse",
+      "type": "enumerable",
+      "scale": [
+        {
+          "value": 1,
+          "description": "Имя буллита1"
+        },
+        {
+          "value": 1,
+          "description": "Имя буллита2"
+        },
+        {
+          "value": 2,
+          "description": "Имя буллита3"
+        }
+      ]
+    },
+    {
+      "name": "32131231",
+      "code": "21313131",
+      "type": "diapasone",
+      "scale": {
+        "min": 0,
+        "max": 100,
+        "step": 1
+      },
+      "id": 17
+    },
+    {
+      "name": "name",
+      "code": "rwq4535",
+      "type": "diapasone",
+      "scale": {
+        "min": 2,
+        "max": 1000,
+        "step": 2
+      },
+      "id": 18
+    },
+    {
+      "name": "name2",
+      "code": "4356326326",
+      "type": "diapasone",
+      "scale": {
+        "min": 0,
+        "max": 1050,
+        "step": 2
+      },
+      "id": 19
+    },
+    {
+      "name": "lame name",
+      "code": "code321",
+      "type": "diapasone",
+      "scale": {
+        "min": -1,
+        "max": 10,
+        "step": 1
+      },
+      "id": 20
+    },
+    {
+      "name": "dialcheck",
+      "code": "321313",
+      "type": "diapasone",
+      "scale": {
+        "min": 0,
+        "max": 100,
+        "step": 1
+      },
+      "id": 21
     }
   ],
   "group": [
