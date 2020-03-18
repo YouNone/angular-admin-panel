@@ -84,7 +84,7 @@ export class UserEditComponent extends EditComponentsClass<IUser>{
 
 			this.dataService.getItem<User>(this.currId)
 				.subscribe((data: User) => {
-					// console.log(data);
+					console.log(data);
 					this.componentData = new User(data);
 					this.componentForm.patchValue({
 						code: this.componentData.code,
@@ -171,10 +171,10 @@ export class UserEditComponent extends EditComponentsClass<IUser>{
   }
   
   /** Перехватывает событие изменения radio-button и сохраняет его в форме */
-	radioChange(e: MatRadioChange) {
-		this.componentData["sex"] = 1;
-		this.ctrl["sex"].setValue(e.value);
-		this.componentData["sex"] = e.value;
-	}
+	// radioChange(e: MatRadioChange) {
+	// 	this.componentData["sex"] = 1;
+	// 	this.ctrl["sex"].setValue(e.value);
+	// 	this.componentData["sex"] = e.value;
+	// }
   
 }

@@ -26,7 +26,7 @@ export class SettingService {
 	) {
 		const globalVars = new GlobalVars();
 		this.data = globalVars.cloneData();
-	}	
+	}
 
 	/**
 	 * Возвращает значение константы приложения. 
@@ -36,7 +36,8 @@ export class SettingService {
 	 * @memberof SettingService
 	 */
 	get(key: string): any {
-		if (this.data[key] === undefined) return ''; else return this.data[key];
+		if (this.data[key] === undefined) throw new Error("Settings key not found!");
+		return this.data[key];
 	}
 
 	/**
