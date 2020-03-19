@@ -15,6 +15,15 @@ export class GlobalVars {
 	private data: StringKeyObject = {
 		siteName: 'Alex site',						// Титул в названиии сайта
 
+		'urlKeyStart': environment.url.start,		// URL ключ начала диапазона, выдаваемого запросом
+		'urlKeyLimit': environment.url.limit,		// URL ключ длинны диапазона, выдаваемого запросом
+		'urlKeySort': environment.url.sort,			// URL ключ по какому полю сортируется выборка
+		'urlKeyOrder': environment.url.order,		// URL ключ направления сортировки. ASC/DESC. ASC по умолчанию
+		'urlKeyField': 'field',						// URL ключ по какому полю производится поиск
+		'urlKeyfilter': 'f',						// URL ключ строки поиска
+		'urlKeyField2': 'field2',					// URL дополнительный ключ по какому полю производится поиск
+		'urlKeyfilter2': 'f2',		
+
 		showBreadcrumbs: true,						// Показать/спрятать хлебные крошки
 		startListLen: 20,							// + Количество начально запрашиваемых элементов в больших списках
 		autocompleteListLen: 20,					// + Количество начально запрашиваемых элементов в списках автокомплит поиска
@@ -54,7 +63,11 @@ export class GlobalVars {
 	 * @memberof GlobalVars
 	 */
 	get(key: string): any {
-		if (this.data[key] === undefined) return ''; else return this.data[key];
+		if (this.data[key] === undefined) {
+			throw new Error("Settings key not found!");
+		} else {
+			return this.data[key];
+		}
 	}
 
 

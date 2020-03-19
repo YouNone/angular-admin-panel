@@ -17,18 +17,12 @@
       "sex": 1
     },
     {
+      "id": 3,
       "full_name": "Григорий",
       "login": "Grigor1",
       "email": "grigor@gmail.com",
-      "password": "фуяфльш",
-      "sex": "sexStr.male",
-      "code": "code 1 test",
-      "address": "",
-      "phone": "",
-      "date_birth": "1988-12-31T21:00:00.000Z",
-      "date_hire": "2020-02-29T22:00:00.000Z",
-      "date_fire": "2020-03-14T22:00:00.000Z",
-      "id": 3
+      "password": "",
+      "sex": "1"
     }
   ],
   "scale": [
@@ -217,225 +211,17 @@
   ],
   "task": [
     {
-      "id": "1",
-      "name": "Необходимости завершения курсов из Адаптационной программы",
-      "code": "reminder_adapt",
-      "date_execute": "2012-03-19T21:00:00.000Z",
-      "type_start": "never",
-      "script": "var never = {\r\n    active: false,\r\n    status: true\r\n}",
-      "execute_point": ""
-    },
-    {
-      "id": "2",
-      "name": "Уведомление за 3 дня до мероприятия по адаптации",
-      "code": "reminder_adapt_event",
-      "date_execute": "2011-11-08T21:00:00.000Z",
-      "type_start": "period",
-      "script": "",
-      "execute_point": 15,
-      "date_start": "2020-03-12T22:00:00.000Z",
-      "date_end": "2020-03-26T22:00:00.000Z",
-      "time_start": "13:25",
-      "time_end": "01:55"
-    },
-    {
-      "id": "3",
-      "name": "Рассылка уведомлений о необходимости пройти обязательные курсы",
-      "code": "reminder_adapt_new",
-      "date_execute": "2016-12-12T21:00:00.000Z",
+      "name": "task one",
+      "code": "123",
+      "date_execute": "",
       "type_start": "day",
-      "script": "",
+      "script": "var str = 'start';",
       "execute_point": "",
-      "time_start": "00:50"
-    },
-    {
-      "id": "4",
-      "name": "Напоминание о необходимости записаться на мероприятие по посещению ПП",
-      "code": "reminder_adapt_reservPP",
-      "date_execute": "2014-02-03T21:00:00.000Z",
-      "type_start": "week",
-      "script": "",
-      "execute_point": 6,
-      "time_start": "10:30"
-    },
-    {
-      "id": "5",
-      "name": "Формирование отчета по дубликатам результатов",
-      "code": "reminder_admin_double_results",
-      "date_execute": "2014-02-07T21:00:00.000Z",
-      "type_start": "month",
-      "script": "",
-      "execute_point": 15,
-      "time_start": "13:55"
-    },
-    {
-      "id": "6",
-      "code": "reminder_change_position",
-      "name": "Уведомление о новых записях в исории изменений",
-      "date_execute": "2012-08-07T21:00:00.000Z",
-      "schedule": "Ежедневно"
-    },
-    {
-      "id": "7",
-      "code": "reminder_competence_response",
-      "name": "Уведомление о необходимости оставить отзыв о тренинге по компетенциям",
-      "date_execute": "2019-09-06T21:00:00.000Z",
-      "schedule": "Еженедельно"
-    },
-    {
-      "id": "8",
-      "code": "reminder_course_talant",
-      "name": "Напоминание пройти курс по талантам",
-      "date_execute": "2016-01-21T21:00:00.000Z",
-      "schedule": "Никогда"
-    },
-    {
-      "id": "9",
-      "code": "reminder_devcenter_1",
-      "name": "Уведомление пользователю и его руководителю о необходимости подтвердить участие в Центре оценки",
-      "date_execute": "2013-07-26T21:00:00.000Z",
-      "schedule": "Никогда"
-    },
-    {
-      "id": "10",
-      "code": "reminder_double",
-      "name": "Уведомление со списком дубликатов",
-      "date_execute": "2013-09-26T21:00:00.000Z",
-      "schedule": "Никогда"
-    },
-    {
-      "id": "11",
-      "code": "reminder_double_3",
-      "name": "Уведомление со списком дубликатов хешей сотрудников",
-      "date_execute": "2019-09-06T21:00:00.000Z",
-      "schedule": "Никогда"
-    },
-    {
-      "id": "12",
-      "code": "reminder_double_coll_to_pos",
-      "name": "Уведомление со списком сотрудников на одну позицию",
-      "date_execute": "2019-09-06T21:00:00.000Z",
-      "schedule": "Никогда"
-    },
-    {
-      "id": "13",
-      "code": "reminder_ecourse",
-      "name": "Необходимости завершения курсов c проставленной конечной датой прохождения",
-      "date_execute": "2019-09-02T21:00:00.000Z",
-      "schedule": "Еженедельно"
-    },
-    {
-      "id": "14",
-      "code": "reminder_eod",
-      "name": "Уведомление по оценочной процедуре",
-      "date_execute": "2013-12-30T21:00:00.000Z",
-      "schedule": "Ежедневно"
-    },
-    {
-      "id": "15",
-      "code": "reminder_eod_manager",
-      "name": "Уведомление руководителям о необходимости заполнения форм оценки сотрудников",
-      "date_execute": "2013-12-30T21:00:00.000Z",
-      "schedule": "Ежедневно"
-    },
-    {
-      "id": "16",
-      "code": "reminder_eod_pa",
-      "name": "Уведомление о необходимости заполнить постановку целей",
-      "date_execute": "2015-08-12T21:00:00.000Z",
-      "schedule": "Ежедневно"
-    },
-    {
-      "id": "17",
-      "code": "reminder_interviev",
-      "name": "Уведомление о необходимости пройти опрос",
-      "date_execute": "2016-10-18T21:00:00.000Z",
-      "schedule": "Ежедневно"
-    },
-    {
-      "id": "18",
-      "code": "reminder_interviev_BACKUP",
-      "name": "Уведомление о необходимости пройти опрос_BACKUP",
-      "date_execute": "2016-07-19T21:00:00.000Z",
-      "schedule": "Ежедневно"
-    },
-    {
-      "id": "19",
-      "code": "reminder_knowledge_power",
-      "name": "Уведомление о сроке сдачи домашнего задания",
-      "date_execute": "2019-09-02T21:00:00.000Z",
-      "schedule": "Ежедневно"
-    },
-    {
-      "id": "21",
-      "code": "reminder_learning_effect",
-      "name": "Уведомление о необходимости заполнить оценку эффекта обучения",
-      "date_execute": "2011-07-04T21:00:00.000Z",
-      "schedule": "Ежедневно"
-    },
-    {
-      "id": "22",
-      "code": "reminder_learning_effect_future",
-      "name": "Уведомление руководителю о завершении обучения сотрудником и необходимости в будущем заполнить оценку эффекта обучения",
-      "date_execute": "2011-07-04T21:00:00.000Z",
-      "schedule": "Ежедневно"
-    },
-    {
-      "id": "23",
-      "name": "Напоминание за 3 дня до фильма",
-      "code": "reminder_movie",
-      "date_execute": "2016-12-03T22:00:00.000Z",
-      "schedule": "Ежедневно",
-      "comment": "Отзыв"
-    },
-    {
-      "id": "24",
-      "code": "reminder_new_event",
-      "name": "Уведомление о создании нового мероприятия в рамках АП",
-      "date_execute": "2012-08-23T21:00:00.000Z",
-      "schedule": "Ежедневно"
-    },
-    {
-      "id": "26",
-      "code": "reminder_profprogram_response",
-      "name": "Уведомление о необходимости оставить отзыв о мероприятии",
-      "date_execute": "2015-07-08T21:00:00.000Z",
-      "schedule": "Ежедневно"
-    },
-    {
-      "id": "27",
-      "code": "reminder_project_learning",
-      "name": "Уведомление для непрошедших курсы по управлению проектами",
-      "date_execute": "2011-10-17T21:00:00.000Z",
-      "schedule": "Ежедневно"
-    },
-    {
-      "id": "28",
-      "code": "reminder_PU_infosec",
-      "name": "Рассылка напоминаний сотрудникам ПУ о необходимости пройти курс по ИБ",
-      "date_execute": "2013-03-12T21:00:00.000Z",
-      "schedule": "Ежедневно"
-    },
-    {
-      "id": "29",
-      "code": "reminder_safety_course",
-      "name": "Отправка уведомления-напоминания о необходимости прохождения курса по ОТ",
-      "date_execute": "2012-08-15T21:00:00.000Z",
-      "schedule": "Ежедневно"
-    },
-    {
-      "id": "30",
-      "code": "reminder_safety_test",
-      "name": "Отправка уведомления о необходимости прохождения теста по ОТ",
-      "date_execute": "2012-10-24T21:00:00.000Z",
-      "schedule": "Ежедневно"
-    },
-    {
-      "id": "31",
-      "code": "reminder_spclub_confirm",
-      "name": "Отправка уведомления участникам ESC об участии",
-      "date_execute": "2011-10-21T21:00:00.000Z",
-      "schedule": "Ежедневно"
+      "date_start": "2020-03-19T07:49:58.644Z",
+      "date_end": null,
+      "time_start": "12:30",
+      "time_end": null,
+      "id": 1
     }
   ],
   "headertype": [

@@ -59,12 +59,11 @@
 
 									<mat-radio-group class="mt-4 mb-4" formControlName="sex">
 										<mat-label class="mr-2">Пол</mat-label>
-										<mat-radio-button name="sex" value="sexStr.male"
+										<mat-radio-button name="sex" value="1"
 											[checked]="componentData.sex == sexStr.male" class="mr-2">М
 										</mat-radio-button>
-										<mat-radio-button name="sex" value="sexStr.female"
+										<mat-radio-button name="sex" value="2"
 											[checked]="componentData.sex == sexStr.female">Ж</mat-radio-button>
-										<!-- (change)="radioChange($event, sex)" -->
 									</mat-radio-group>
 								</div>
 							</div>

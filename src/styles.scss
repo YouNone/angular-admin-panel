@@ -35,9 +35,12 @@ $alexAdmin-theme: mat-light-theme($alexAdmin-primary, $alexAdmin-accent, $alexAd
 @import "~bootstrap/scss/mixins";
 @import "~bootstrap/scss/utilities";
 
+@import "vars.scss";
+@import "mixins.scss";
+
 html,
 body {
-  height: 100%;
+  height: $height100p;
 }
 body,
 p {
@@ -45,12 +48,14 @@ p {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-a,
-a:link,
-a:active,
-a:hover {
-  color: black;
-  text-decoration: none;
+a {
+  &:link,
+  &:active,
+  &:hover {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
 }
 
 .brd {
@@ -68,8 +73,8 @@ a:hover {
   overflow: auto;
 }
 .component-inset {
-  height: 100%; 
-	overflow: auto;
+  height: $height100p;
+  overflow: auto;
   padding: 16px;
 }
 
@@ -80,11 +85,10 @@ a:hover {
 }
 
 #screen {
-  display: flex;
-  flex-direction: column;
+  @extend %flex-col;
   position: absolute;
-  width: 100%;
-  height: 100%;
+  width: $width100p;
+  height: $height100p;
   flex-wrap: nowrap;
   mat-sidenav-content {
     background-color: white;
@@ -92,20 +96,23 @@ a:hover {
 }
 
 #main-sidenav {
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow: {
+    x: hidden;
+    y: auto;
+  }
   width: 250px;
-  height: 100%;
+  height: $height100p;
   margin: 0;
 }
 
 #main-menu {
-  overflow-x: hidden;
-  overflow-y: auto;
-  height: 100%;
+  overflow: {
+    x: hidden;
+    y: auto;
+  }
+  height: $height100p;
   margin: 0;
   overflow-x: hidden;
-  // background-color: #ededed;
 }
 
 app-header {
@@ -113,10 +120,9 @@ app-header {
   height: 50px;
 
   header {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
+    height: $height100p;
+    width: $width100p;
+   @extend %flex-row;
     flex-wrap: nowrap;
     align-self: center;
     align-items: stretch;
@@ -129,8 +135,7 @@ app-header {
     .box-nav {
       margin: 0px 20px 0 20px;
       color: #444;
-      display: flex;
-      flex-direction: row;
+     @extend %flex-row;
       flex-wrap: nowrap;
     }
 
@@ -141,31 +146,29 @@ app-header {
   }
 }
 .menu {
-  display: flex;
-  flex-direction: column;
+  @extend %flex-col;
   .item {
     background-color: #ededed;
-    width: 100%;
+    width: $width100p;
     a {
       display: block;
-      width: 100%;
+      width: $width100p;
       padding: 10px;
       color: black;
-    }
-    a:hover {
-      background-color: #dddddd;
-      padding: 9px;
-      border: rgb(196, 196, 196) solid 1px;
+      &:hover {
+        background-color: #dddddd;
+        padding: 9px;
+        border: rgb(196, 196, 196) solid 1px;
+      }
     }
   }
 }
 
 .component-fullscreen-sidenav {
-  width: 100%;
-  height: 100%;
-  .mat-sidenav-content,
-  .mat-sidenav {
-    height: 100%;
+  width: $width100p;
+  height: $height100p;
+  .mat-sidenav-content, .mat-sidenav {
+    height: $height100p;
   }
   .mat-sidenav {
     width: 300px;
@@ -180,108 +183,86 @@ app-header {
 }
 
 .enum-holder {
-  display: flex;
-  flex-direction: row;
+ @extend %flex-row;
   justify-content: space-between;
 }
 
 .enum-element {
-  display: flex;
-  flex-direction: row;
+ @extend %flex-row;
   align-items: center;
   justify-content: center;
 }
 
-.point, a {
-	cursor: pointer;
+.point {
+  cursor: pointer;
 }
 
 .input-val {
-	width: 15%;
+  width: 15%;
 }
 
 .input-name {
-	width: 50%;
+  width: 50%;
   margin-left: 5%;
-	textarea {
+  textarea {
     min-height: 25px;
-		overflow: hidden;
-	}
+    overflow: hidden;
+  }
 }
 
 .button-column {
-	width: 10%;
+  width: 10%;
 }
 .discription-scale {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+ @extend %flex-row;
+  justify-content: space-between;
 }
 
 table.hover {
-	td.mat-cell, td.mat-footer-cell, th.mat-header-cell {
-		padding-left: 5px;
-		padding-right: 5px;
-	}
-	td {
-		min-width: 90px;
-	}
-	th {
-		background-color: white;
-		color: black;
-		font-weight: bold;
-		font-size: 1em;
-	}
-	tr:hover {
-		background-color:  #dddddd; 
-	}
-	th.operation-center, td.operation-center {
-		text-align: center;
-		width: 80px;
-	}
+  td.mat-cell,
+  td.mat-footer-cell,
+  th.mat-header-cell {
+    padding: {
+      left: 5px;
+      right: 5px;
+    }
+  }
+  td {
+    min-width: 90px;
+  }
+  th {
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    font-size: 1em;
+  }
+  tr:hover {
+    background-color: #dddddd;
+  }
+  th.operation-center,
+  td.operation-center {
+    text-align: center;
+    width: 80px;
+  }
 }
 
 .leader-type-container {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	align-items: center;
+ @extend %flex-row;
+  justify-content: space-between;
+  align-items: center;
 }
-
-// monaco holder
-// .tab-group-100 {
-// 	display: flex;
-// 	flex-direction: column;
-// 	height: 100%;
-// 	.mat-tab-body {
-// 		flex-grow: 1;
-// 	}
-	
-// 	.mat-tab-body-wrapper{
-//     flex-grow: 1;
-    
-// 		.mat-tab-body-content {
-//       position: relative;
-
-// 			.scrolled-tab-content {
-// 				overflow: auto;
-// 				display: block;
-// 				position: absolute;
-// 				top: 0;
-// 				left: 0;
-// 				right: 0;
-//         bottom: 0;
-// 			}
-// 		}
-// 	}
-// }
-
-// ngx-monaco-editor.template-editor {
-//   height: 400px;
-// 	padding-top: 15px;
-// }
 
 ngx-monaco-editor.template-editor {
   min-height: 550px;
   padding-top: 15px;
+}
+
+%flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+%flex-col {
+  display: flex;
+  flex-direction: column;
 }
