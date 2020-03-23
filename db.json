@@ -13,8 +13,8 @@
       "full_name": "Name 1",
       "login": "login 1",
       "email": "emailexample@gmail.com",
-      "password": "pass1",
-      "sex": 1
+      "password": "",
+      "sex": "1"
     },
     {
       "id": 3,
