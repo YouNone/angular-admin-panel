@@ -36,8 +36,8 @@ export class GroupEditComponent extends EditComponentsClass<Group> {
 	/** Объект хранящий форму, состояние строк фильтров, полей сортировки в таблицах */
 	state: ITabState[];
 	/** Список заголовков в таблице */
-	userDisplayedColumns: string[] = ['full_name', 'login', 'position', 'email', 'action'];
-	bossDisplayedColumns: string[] = ['full_name', 'login', 'position', 'email', 'type', 'action'];
+	userDisplayedColumns: string[] = ['name', 'login', 'position', 'email', 'action'];
+	bossDisplayedColumns: string[] = ['name', 'login', 'position', 'email', 'type', 'action'];
 	/** Список существующих типов руководства. Читаем из БД */
 	leadersTypeList: TypeOfLeader[] = [];
 	/** Текущий выбраный руководитель. Срабатывает при выборе пункта меню типов руководства */
@@ -91,13 +91,13 @@ export class GroupEditComponent extends EditComponentsClass<Group> {
 			{
 				form: this.componentForm
 			}, {
-				orderField: "full_name",
+				orderField: "name",
 				searchString: "",
 				order: "asc",
 				form: new FormControl(""),
 				users: new MatTableDataSource<IUser>([])
 			}, {
-				orderField: "full_name",
+				orderField: "name",
 				searchString: "",
 				order: "asc",
 				form: new FormControl(""),
@@ -169,7 +169,7 @@ export class GroupEditComponent extends EditComponentsClass<Group> {
 					b.header_type = {};
 				}
 				switch (sort.active) {
-					case 'full_name': return compare(a.full_name, b.full_name, isAsc);
+					case 'name': return compare(a.name, b.name, isAsc);
 					case 'login': return compare(a.login, b.login, isAsc);
 					case 'email': return compare(a.email, b.email, isAsc);
 					case 'position': return compare(a.position.name, b.position.name, isAsc);

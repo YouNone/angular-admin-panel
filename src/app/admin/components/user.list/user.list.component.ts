@@ -24,7 +24,7 @@ export class UserListComponent extends ListComponentsClass<IUser> {
 		public dialogService: DialogService
 	) {
 		super($SETTINGS, router, $MSG, listService, dialogService);
-		this.displayedColumns = ['full_name', 'login', 'email', 'action'];
+		this.displayedColumns = ['name', 'login', 'email', 'action'];
 		this.editUrl = compRoutes.userEdit;
 		this.dataUrl = compRoutes.user;
 		this.listService.setServiceUrl(this.dataUrl);

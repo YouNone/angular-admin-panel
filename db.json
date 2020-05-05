@@ -2,7 +2,7 @@
   "user": [
     {
       "id": 1,
-      "full_name": "Гаврюша Обизянов",
+      "name": "Гаврюша Обизянов",
       "login": "Gavriil",
       "email": "gavr@gmail.com",
       "password": "yellowpen",
@@ -10,7 +10,7 @@
     },
     {
       "id": 2,
-      "full_name": "Name 1",
+      "name": "Name 1",
       "login": "login 1",
       "email": "emailexample@gmail.com",
       "password": "",
@@ -18,7 +18,7 @@
     },
     {
       "id": 3,
-      "full_name": "Григорий",
+      "name": "Григорий",
       "login": "Grigor1",
       "email": "grigor@gmail.com",
       "password": "",
@@ -90,7 +90,7 @@
           "code": "CB70D5EBB69F7FBA4A58903F9A2112C0",
           "login": "Asher",
           "email": "antSher@gmail.com",
-          "full_name": "Антон Шерович",
+          "name": "Антон Шерович",
           "position": {
             "name": "Position 1",
             "id": 54325432
@@ -108,7 +108,7 @@
           "code": "AC864C759E17DAA98954EA2832877A58",
           "login": "PutachK",
           "email": "Putach@gmail.com",
-          "full_name": "Путач Кирил",
+          "name": "Путач Кирил",
           "position": {
             "name": "Position 1",
             "id": 54325432
@@ -125,7 +125,7 @@
           "code": "B440D19C85CF4459DE80495E84194141",
           "login": "SergM",
           "email": "Serg@gmail.com",
-          "full_name": "Шевченко Сергей Михайлович",
+          "name": "Шевченко Сергей Михайлович",
           "position": {
             "name": "Position 1",
             "id": 54325432
@@ -145,7 +145,7 @@
           "code": "ABAEA03788B4FD5E77453DFFB2C4F112",
           "login": "NazarA",
           "email": "Nazar@gmail.com",
-          "full_name": "Назаров Анатолий Сергеевич",
+          "name": "Назаров Анатолий Сергеевич",
           "position": {
             "name": "Position 1",
             "id": 54325432
@@ -174,7 +174,7 @@
           "code": "3654D4791F12AE709991FFFD0527C3A8",
           "login": "ZabZab",
           "email": "zabay@gmail.com",
-          "full_name": "Забаев Олександр Сергійович",
+          "name": "Забаев Олександр Сергійович",
           "position": {
             "name": "Position 1",
             "id": 54325432
@@ -193,7 +193,7 @@
           "code": "34FF4FF33ABC07C6102B05CAC8ED74DD",
           "login": "fremFrem",
           "email": "Frem@gmail.com",
-          "full_name": "Анатолий Фремов",
+          "name": "Анатолий Фремов",
           "position": {
             "name": "Position 1",
             "id": 54325432

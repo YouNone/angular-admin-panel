@@ -1,3 +1,4 @@
+import { AuthComponent } from './auth/auth/auth.component';
 import { Routes } from '@angular/router';
 
 import { compRoutes } from './share/models/type';
@@ -49,6 +50,7 @@ export const routesRoot: Routes = [
 		]
 
 	},
+	{ path: 'auth', component: AuthComponent },
 	{ path: compRoutes.notFound, component: NotFoundComponent },
 	{ path: '**', redirectTo: compRoutes.notFound }
 ];

@@ -6,22 +6,22 @@ import { MatTableDataSource } from '@angular/material';
 
 export enum compRoutes {
 
-	user = 'user',
+	user = 'users',
 	userEdit = 'useredit',
 
-	group = 'group',
+	group = 'groups',
 	groupEdit = 'groupedit',
 
-	div = 'division',
+	div = 'divisions',
 	divEdit = 'divisionedit',
 
 	divgroup = 'divgroup',
     divgroupEdit = 'divgroupedit',
     
-    scale = 'scale',
+    scale = 'scales',
 	scaleEdit = 'scaleedit',
 
-	task = 'task',
+	task = 'tasks',
 	taskEdit = 'taskedit',
 	catalogboss = 'headertype',			// Типы руководства. Справочник
 
@@ -62,7 +62,7 @@ export interface IUser {
 	/** Код пользователя */
 	code?: string;
 	/** ФИО пользователя */
-	full_name: string;
+	name: string;
 	/** Пароль пользователя */
 	password?: string;
 	login: string;
@@ -340,6 +340,11 @@ export interface ButtonDiscription {
 	active?: boolean;
 	/** Картинка */
 	img?: string;
+}
+
+export interface IAuthInfo {
+	login: string;
+	password: string;
 }
 export interface ISearchOptions {
 	/** Индекс первой строки в результатах выборки */

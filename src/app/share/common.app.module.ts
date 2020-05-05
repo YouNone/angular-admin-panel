@@ -1,3 +1,4 @@
+import { AuthComponent } from './../auth/auth/auth.component';
 import { NgModule } from "@angular/core";
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
@@ -48,7 +49,8 @@ import { MonacoEditorModule } from 'ngx-monaco-editor';
 		TaskListComponent,
 		TaskEditComponent,
 		DialogConfirmComponent,
-		SelectItemMenuComponent
+		SelectItemMenuComponent,
+		AuthComponent
 	],
 	entryComponents: [
 		DialogConfirmComponent

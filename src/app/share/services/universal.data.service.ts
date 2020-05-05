@@ -69,10 +69,10 @@ export class UniversalDataService {
 	 * @param {ISearchOptions} options Список параметров запроса:
 	 * @param {number} start Стартовый индекс возвращаемого результата выборки. Отсчет ведется с 0
 	 * @param {number} limit Количество элементов в выборке
-	 * @param {string} sort Имя поля сортировки. По умолчанию будет установлен в 'full_name'
+	 * @param {string} sort Имя поля сортировки. По умолчанию будет установлен в 'name'
 	 * @param {string} order Направление сортировки asc/desc. По умолчанию asc
 	 * @param {string} f Строка фильтра (искомый текст), если производится поиск
-	 * @param {string} field Имя поля, по которому производится фильтрация. Если указана строка поиска и не указано поле, то оно устанавливается в 'full_name'.
+	 * @param {string} field Имя поля, по которому производится фильтрация. Если указана строка поиска и не указано поле, то оно устанавливается в 'name'.
 	 * @returns {Observable<T[]>} Поток на массив объектов
 	 * @memberof UniversalDataService
 	 */

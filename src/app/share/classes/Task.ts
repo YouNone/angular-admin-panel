@@ -2,7 +2,7 @@ import { ITask, ETaskTypeStart } from '../models/type';
 
 export class Task implements ITask {
 	/** id */
-	id?: string;
+	id: string;
 	/** Код */
 	code?: string;
 	/** Название */

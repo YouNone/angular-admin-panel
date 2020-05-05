@@ -24,14 +24,14 @@
 					[dataSource]="componentData" 
 					matSort 
 					(matSortChange)="sortChange($event)"
-					matSortActive="full_name"
+					matSortActive="name"
 					matSortDirection="asc" 
 					matSortDisableClear
 					[trackBy]="tableTrackById" 
 				>
-					<ng-container matColumnDef="full_name">
+					<ng-container matColumnDef="name">
 						<th mat-header-cell *matHeaderCellDef mat-sort-header> ФИО </th>
-						<td mat-cell *matCellDef="let item"> {{item.full_name}}</td>
+						<td mat-cell *matCellDef="let item"> {{item.name}}</td>
 					</ng-container>
 
 					<ng-container matColumnDef="login">

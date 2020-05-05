@@ -4,7 +4,7 @@ export class User implements IUser {
 	id: string;
 	login: string;
 	email: string;
-	full_name: string;
+	name: string;
 	sex: ESex;
 	password: string;
 	date_birth: string;
@@ -17,7 +17,7 @@ export class User implements IUser {
 		data: IUser = <IUser>{}
 	) {
 		this.id = data.id || undefined;
-		this.full_name = data.full_name || '';
+		this.name = data.name || '';
 		this.login = data.login || '';
 		this.email = data.email || '';
 		this.password = data.password || '';

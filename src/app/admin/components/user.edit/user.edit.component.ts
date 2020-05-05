@@ -43,7 +43,7 @@ export class UserEditComponent extends EditComponentsClass<IUser>{
   initState() {
 		const minLength = +this.$SETTINGS.get("minLengthTextInput");
 		this.componentForm = new FormGroup({
-			full_name: new FormControl("", [Validators.required, Validators.minLength(minLength)]),
+			name: new FormControl("", [Validators.required, Validators.minLength(minLength)]),
 			sex: new FormControl(""),
 			login: new FormControl("", [Validators.required, Validators.minLength(minLength)]),
 			password: new FormControl(""),
@@ -62,7 +62,7 @@ export class UserEditComponent extends EditComponentsClass<IUser>{
 	createStateItem(item: IUser) {
 		this.savedState = {
 			id: item.id,
-			full_name: item.full_name,
+			name: item.name,
 			login: item.login,
 			email: item.email,
 			sex: item.sex,
@@ -88,7 +88,7 @@ export class UserEditComponent extends EditComponentsClass<IUser>{
 					this.componentData = new User(data);
 					this.componentForm.patchValue({
 						code: this.componentData.code,
-						full_name: this.componentData.full_name,
+						name: this.componentData.name,
 						login: this.componentData.login,
 						sex: this.componentData.sex,
 						email: this.componentData.email,
