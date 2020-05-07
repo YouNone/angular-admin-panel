@@ -66,6 +66,19 @@
 									"maximumError": "10kb"
 								}
 							]
+						},
+						"nest": {
+							"outputPath": "dist-nest",
+							"outputHashing": "all",
+							"sourceMap": true,
+							"vendorChunk": true,
+							"commonChunk": true,
+							"fileReplacements": [
+								{
+									"replace": "src/environments/environment.ts",
+									"with": "src/environments/environment.nest.ts"
+								}
+							]
 						}
 					}
 				},
@@ -77,6 +90,9 @@
 					"configurations": {
 						"production": {
 							"browserTarget": "alexAdmin:build:production"
+						},
+						"nest": {
+							"browserTarget": "alexAdmin:build:nest"
 						}
 					}
 				},

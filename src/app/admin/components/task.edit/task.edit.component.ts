@@ -182,6 +182,8 @@ export class TaskEditComponent extends EditComponentsClass<Task> {
 					return false;
 				}
 			} else {
+				console.log(this.componentData);
+				
 				this.dataService.createItem(this.componentData)
 					.subscribe((newTask: Task) => {						
 						this.componentData = new Task(newTask);

@@ -70,7 +70,7 @@ export class SearchOptions implements ISearchOptions {
 			if (this.field2) addCond.push(`${this.settings.get('urlKeyField2')}=${this.field2}`);
 		}
 
-		let paramStr = addCond.join('&');
+		let paramStr = addCond.join('&');		
 		return paramStr;
 	}
 }

@@ -14,9 +14,9 @@ import { NotifElemetntConfig } from 'src/app/share/utilit/simple.notification.co
 import { Scale } from 'src/app/share/classes/Scale';
 
 @Component({
-  selector: 'scale.edit',
-  templateUrl: './scale.edit.component.html',
-  styleUrls: ['./scale.edit.component.scss']
+	selector: 'scale.edit',
+	templateUrl: './scale.edit.component.html',
+	styleUrls: ['./scale.edit.component.scss']
 })
 export class ScaleEditComponent extends EditComponentsClass<Scale> {
 	/** Хранилище изменений в шкале */
@@ -117,14 +117,13 @@ export class ScaleEditComponent extends EditComponentsClass<Scale> {
 			type: item.type,
 			date_create: item.date_create,
 			date_modify: item.date_modify,
-			// scale: item.scale
+			scale: item.scale
 		}
 	}
 
 	ngOnInit() {
 		this.initState();
 		this.ctrl = this.componentForm.controls;
-
 		this.dataService.setServiceUrl(compRoutes.scale);
 		if (this.route.snapshot.params["id"] !== undefined) {
 			this.currId = this.route.snapshot.params["id"];
@@ -134,7 +133,9 @@ export class ScaleEditComponent extends EditComponentsClass<Scale> {
 					this.componentData = new Scale(data);
 					this.componentForm.patchValue({
 						name: this.componentData.name,
-						code: this.componentData.code
+						code: this.componentData.code,
+						date_create: this.componentData.date_create,
+						date_modify: this.componentData.date_modify
 					});
 					(<FormArray>this.ctrl['scale']) = new FormArray([]);
 					if (data.type == EScaleType.diapasone) {
@@ -160,6 +161,7 @@ export class ScaleEditComponent extends EditComponentsClass<Scale> {
 			.subscribe(formValues => {
 				this.applyFormValues(formValues);
 			});
+		console.log(this.componentData);
 	}
 
 	/** Переключает тип шкалы */

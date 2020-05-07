@@ -6,7 +6,6 @@ import { StringKeyObject } from '../models/type';
  * Изначально хранит в себе предустановленные константы, которые сервис SettingsService загружает в себя, 
  * а затем после запуска приложения подчитывает данные из таблицы settings.
  * 
- * @author Сергей Веленгура
  * @export
  * @class GlobalVars
  */

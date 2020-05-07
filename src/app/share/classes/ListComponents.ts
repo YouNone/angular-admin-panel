@@ -90,9 +90,9 @@ export class ListComponentsClass<T extends IHaveId> implements OnInit {
 	 * @memberof ListComponentsClass
 	 */
 	ngOnInit() {
-		console.log(this.componentData.length, this.$SETTINGS.get("startListLen"));
+		// console.log(this.componentData.length, this.$SETTINGS.get("startListLen"));
 		
-		this.itemsLoad(this.componentData.length, this.$SETTINGS.get("startListLen"));	
+		this.itemsLoad(this.componentData.length, this.$SETTINGS.get("startListLen"));			
 	}
 
 
@@ -127,12 +127,12 @@ export class ListComponentsClass<T extends IHaveId> implements OnInit {
 		this.addExtraFilterOption(option, this.filterField);
 		this.listService.setServiceUrl(this.dataUrl);	
 		//  устанавливает option, но вываливает все данные сразу игнорируя option
-		console.log(option);
+		// console.log(option);
 		this.listService.getList<T>(option)
 			.subscribe((newItem: T[]) => {				
 				if (newItem) {
-					console.log(newItem);
 					this.componentData = this.componentData.concat(newItem);
+					console.log(this.componentData);
 					
 				} else return;
 			});

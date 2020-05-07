@@ -88,7 +88,7 @@ export class AuthComponent implements OnInit {
     }
 
     formSubmit() {
-        console.log(this.componentForm);
+        // console.log(this.componentForm);
 
     }
 

@@ -10,28 +10,27 @@ import { SettingService } from 'src/app/share/services/settings.service';
 import { MsgList } from 'src/app/share/services/msg.list';
 
 @Component({
-  selector: 'task.list',
-  templateUrl: './task.list.component.html',
-  styleUrls: ['./task.list.component.css']
+	selector: 'task.list',
+	templateUrl: './task.list.component.html',
+	styleUrls: ['./task.list.component.css']
 })
 export class TaskListComponent extends ListComponentsClass<ITask> {
-
-  constructor(
-    public $MSG: MsgList,
+	constructor(
+		public $MSG: MsgList,
 		public $SETTINGS: SettingService,
 		public listService: UniversalDataService,
 		public $NOTE: NotificationsService,
 		public router: Router,
 		public dialogService: DialogService
-  ) {
-    super($SETTINGS, router, $MSG, listService, dialogService);
+	) {
+		super($SETTINGS, router, $MSG, listService, dialogService);
 		this.displayedColumns = ['code', 'name', 'date_execute', 'type_start', 'action'];
 		this.editUrl = compRoutes.taskEdit;
 		this.dataUrl = compRoutes.task;
-		this.listService.setServiceUrl(this.dataUrl);		
-   }
+		this.listService.setServiceUrl(this.dataUrl);
+	}
 
-   onChildDeactivate(compRef: TaskEditComponent) {
+	onChildDeactivate(compRef: TaskEditComponent) {
 		if (compRef instanceof TaskEditComponent) {
 			this.getChangedItemToList(compRef);
 		}

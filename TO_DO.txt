@@ -10,4 +10,7 @@
     scale
     group
 )
-    "server": "json-server --watch db.json --port 3000"
+
+
+ "nest": ""
+    Разработать enviroument ориентированное на работу с  nest: angular.json +
