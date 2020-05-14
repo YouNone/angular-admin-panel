@@ -1,3 +1,22 @@
+static listToTree(list: IUniversalTreeNode[]): IUniversalTreeNode[] {
+		let map = {},
+			roots: IUniversalTreeNode[] = [];
+
+		list.forEach((item, i) => {
+			map[item.id] = i;
+			item.children = [];
+		});
+
+		list.forEach((item, i) => {
+			if (item.parent_id) {
+				list[map[item.parent_id]].children.push(item);
+			} else {
+				roots.push(item);
+			}
+		});
+		return roots;
+	}
+
 Монако + 
 проверить работу скрола -
  (
@@ -14,3 +33,16 @@
 
  "nest": ""
     Разработать enviroument ориентированное на работу с  nest: angular.json +
+
+
+division
+1. разобраться в пустой странице +
+2. добавить поле выбора родителя (forkjoin, select -> items) +
+3. добавить функционал удаления
+4. не присваивает parent_id +
+5. не отображает поле код +
+6. не отображает родителя +
+7. форма не видит изменений в поле имя родителя +
+8. оповещение о невозможном сценарии удаления записи (бэк или фронт) +
+9. обновление дерева при редактировании/создании/удалении данных 
+10. размер иконок +

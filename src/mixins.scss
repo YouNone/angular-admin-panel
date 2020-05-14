@@ -8,3 +8,16 @@
 //     flex-direction: column;
 // }
 
+@mixin table-cell-width($count, $list) {
+	table {
+		width: 100%;
+		table-layout: fixed;
+		@for $count from 1 to $count + 1 {
+			th:nth-child(#{$count}), td:nth-child(#{$count}) {
+				overflow: hidden;
+				text-overflow: ellipsis;
+				width: nth($list, $count);
+			}
+		}
+	}
+}

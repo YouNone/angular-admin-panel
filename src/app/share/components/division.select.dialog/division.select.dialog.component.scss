@@ -1,0 +1,30 @@
+@import '../../../../styles.scss';
+
+.dialog-component-container {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+
+	.dialog-grow-row {
+		flex-grow: 1;
+		height: 100%;
+		overflow-y: auto;
+		border-top: 1px solid #eee;
+		border-bottom: 1px solid #eee;
+	}
+}
+.tree-element-holder {
+	border: 1px solid red;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+
+	.tree-item-icon, .tree-item {
+		padding: 5px;
+	}
+}
+
+$list: (30%, 70%);
+$count: length($list);
+@include table-cell-width ($count, $list);

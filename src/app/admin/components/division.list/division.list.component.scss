@@ -1,0 +1,16 @@
+// @import '../../../../styles.scss';
+// $list: (20%, 80%);
+// $count: length($list);
+// @include table-cell-width ($count, $list);
+
+.tree-element-holder {
+	// border: 1px solid red;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+
+	.tree-item-icon, .tree-item {
+		padding: 5px;
+	}
+}

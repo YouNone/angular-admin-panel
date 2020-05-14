@@ -23,10 +23,19 @@ export enum compRoutes {
 
 	task = 'tasks',
 	taskEdit = 'taskedit',
+
+	businesstype = 'businesstype',
+	businesstypeEdit = 'businesstypeedit',
+
+	division = 'divisions',
+	divisionEdit = 'divisionedit',
+	// divisionTree = 'divisions/tree',
+
 	catalogboss = 'headertype',			// Типы руководства. Справочник
 
 	// Other
 	auth = 'auth',
+	// login = 'login',
 	notFound = 'notfound',
 
 }
@@ -235,6 +244,64 @@ export interface IPosition {
 	date_modify?: string;
 
 }
+
+export enum EItemListType {
+	list = 'list',
+	tree = 'tree'
+}
+
+export interface IUniversalTreeNode {
+	/** ID узла дерева. Только String! При очень больших числах JS теряет младшие разряды */
+	id?: string,
+	/** Текстовое представление узла дерева */
+	name: string;
+	/** Наследники текущего узла */
+	children?: IUniversalTreeNode[];
+	/** ID родителя записи. Если элемент является корнем дерева, это поле равно NULL или не определено */
+	parent_id?: number;	
+	/** Маркер выделенного узла */
+	// active?: boolean;
+}
+
+export interface ITreeFlatNode {
+	expandable: boolean;
+	name: string;
+	level: number;
+	/** ID узла дерева. Только String! При очень больших числах JS теряет младшие разряды */
+	id: string;
+	/** Маркер выделенного узла. По нему добавляем класс active */
+	active?: boolean;
+}
+export interface IDivisionChanges {
+	id?: number
+	name: string;
+	code: string;
+	parent_id: number;
+	date_start: string;
+	date_end: string;
+}
+
+export interface ITreeSelectEvent {
+	/** Список нод родителей активированного элемента дерева, включая его самого */
+	nodes: IUniversalTreeNode[];
+	/** Нода дерева, вызвавшая событие */
+	activeNode: IUniversalTreeNode;
+	/** Событие вызвавшее обработчик */
+	event: Event;
+}
+
+export interface IRouteTreeNode {
+	/** Текстовое описание роута, которое выводтся как пункт меню или текст в крошках */
+	name: string;
+	/** Путь роута */
+	path: string;
+	/** Уровенб вложенности элемента. Корневой уровень = 0 */
+	level?: number;
+	/** Стиль иконки	*/
+	icon: string;
+	/** Вложеное подчиненное дерево */
+	children?: IRouteTreeNode[];
+}
 export interface IDivision {
 	/** ID подразделения */
 	id?: string;
@@ -244,10 +311,6 @@ export interface IDivision {
 	code?: string;
 	/** ссылка на объект родителя */
 	parent?: IDivision;
-	/** тип бизнеса */
-	division_profile_id?: string;
-	/** Флаг расформированного предприятия */
-	closed?: boolean;
 	/** Дата начала */
 	date_start?: string;
 	/** Конечная дата */
@@ -256,8 +319,7 @@ export interface IDivision {
 	date_create?: string;
 	/** Дата последнего изменения */
 	date_modify?: string;
-	/** Список руководителей */
-	boss?: IUserWithPosition[];
+	children?: IDivision[];
 }
 
 export interface ICheckState<T> {

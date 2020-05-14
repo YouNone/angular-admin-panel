@@ -1,0 +1,107 @@
+<div class="cover-parent">
+	<div *ngIf="isReady" class="component-inset container-fluid">
+		<form [formGroup]="componentForm" (ngSubmit)="formSubmit()" class="h-100 d-flex flex-column">
+			<div class="d-flex flex-row">
+				<div class="flex-grow-1 mr-2">
+					<h1>Подразделение</h1>
+				</div>
+				<div>
+					<button (click)="goBack()" class="mr-2 mb-2" mat-raised-button type="button">Назад</button>
+					<button 
+						class="mb-2 submit-button" 
+						mat-raised-button 
+						[disabled]="disableButton" 
+						color="primary"
+						type="submit"
+					>
+						<i *ngIf="disableButton; else elseSave" class="fas fa-spinner fa-spin"></i>
+						<ng-template #elseSave>Сохранить</ng-template>
+					</button>
+				</div>
+			</div>
+			<div class="flex-grow-1 d-flex flex-column">
+				<mat-tab-group class="tab-group-100" dynamicHeight>
+					<mat-tab label="Основные настройки">
+						<div class="container-fluid mt-3">
+							<div class="container-fluid">
+								<div class="row mt-3">
+									<div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mb-4">
+										<div class="d-flex flex-column flex-nowrap mat-form-column">
+											<mat-form-field>
+												<mat-label>Название подразделения</mat-label>
+												<textarea
+													formControlName="name" 
+													matInput 
+													class="overflow-hidden" 
+													cdkTextareaAutosize 
+													cdkAutosizeMinRows="1"
+												>
+												</textarea>
+												<mat-error>{{errMsg(componentForm.controls['name'], $MSG)}}</mat-error>
+											</mat-form-field>
+	
+											<mat-form-field>
+												<mat-label>Код подразделения</mat-label>
+												<input formControlName="code" matInput>
+												<mat-error>{{errMsg(componentForm.controls["code"], $MSG)}}</mat-error>
+											</mat-form-field>
+											
+											<mat-form-field (click)="openDivisionDialog()">
+												<mat-label>Родительское подразделение</mat-label>
+												<textarea 
+													class="overflow-hidden"
+													matInput
+													formControlName="parent_name" 
+													cdkTextareaAutosize
+													cdkAutosizeMinRows="1"
+												></textarea>
+												<mat-error>{{errMsg(componentForm.controls["parent_name"], $MSG)}}</mat-error>
+											</mat-form-field>
+										</div>
+									</div>
+	
+									<div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+										<div class="d-flex flex-column flex-nowrap mat-form-column">
+											<mat-form-field>
+												<input formControlName="date_start" matInput [matDatepicker]="date_start"
+													placeholder="Дата открытия">
+												<mat-datepicker-toggle matSuffix [for]="date_start"></mat-datepicker-toggle>
+												<mat-datepicker #date_start></mat-datepicker>
+											</mat-form-field>
+											<mat-form-field>
+												<input 
+													formControlName="date_end" 
+													matInput 
+													[matDatepicker]="date_end"
+													placeholder="Дата закрытия">
+												<mat-datepicker-toggle matSuffix [for]="date_end"></mat-datepicker-toggle>
+												<mat-datepicker #date_end></mat-datepicker>
+											</mat-form-field>
+										</div>
+									</div>
+	
+									<div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+										<div class="d-flex flex-column flex-nowrap mat-form-column">
+											<mat-form-field>
+												<input formControlName="date_create" matInput [matDatepicker]="date_create"
+													placeholder="Дата создания">
+												<mat-datepicker-toggle matSuffix [for]="date_create"></mat-datepicker-toggle>
+												<mat-datepicker #date_create></mat-datepicker>
+											</mat-form-field>
+											<mat-form-field>
+												<input formControlName="date_modify" matInput [matDatepicker]="date_modify"
+													placeholder="Дата изменения">
+												<mat-datepicker-toggle matSuffix [for]="date_modify"></mat-datepicker-toggle>
+												<mat-datepicker #date_modify></mat-datepicker>
+											</mat-form-field>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</mat-tab>
+				</mat-tab-group>
+			</div>
+		</form>
+	</div>
+</div>

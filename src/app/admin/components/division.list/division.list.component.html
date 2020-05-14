@@ -1,0 +1,122 @@
+<mat-sidenav-container class="component-fullscreen-sidenav">
+	<mat-sidenav-content>
+		<div class="container-fluid component-inset">
+			<div class="mb-2">
+				<h1>Подразделения</h1>
+			</div>
+			<div
+				*ngIf="shownType == 'list';"
+				infiniteScroll 
+				[fromRoot]="true" 
+				[infiniteScrollContainer]="'.component-inset'"
+				[infiniteScrollDistance]="distance" 
+				[infiniteScrollThrottle]="throttle" 
+				(scrolled)="onScroll()"
+			>
+				<table 
+					mat-table 
+					class="w-100 hover"
+					[dataSource]="componentData" 
+					[trackBy]="tableTrackById" 
+					matSort
+					(matSortChange)="sortChange($event)" 
+					matSortActive="name" 
+					matSortDirection="asc"
+					matSortDisableClear
+				>
+					<ng-container matColumnDef="code">
+						<th mat-header-cell *matHeaderCellDef mat-sort-header> Код </th>
+						<td mat-cell *matCellDef="let item"> {{item.code}}</td>
+					</ng-container>
+
+					<ng-container matColumnDef="name">
+						<th mat-header-cell *matHeaderCellDef mat-sort-header> Название </th>
+						<td mat-cell *matCellDef="let item"> {{item.name}}</td>
+					</ng-container>
+
+					<ng-container matColumnDef="action">
+						<th mat-header-cell *matHeaderCellDef class="operation-center"> Действия </th>
+						<td mat-cell *matCellDef="let item" class="operation-center">
+							<div class="d-flex justify-content-between">
+								<button mat-icon-button>
+									<mat-icon class="point text-black-50">edit</mat-icon>
+								</button>
+								<button mat-icon-button (click)="itemDelete($event, item.id)">
+									<mat-icon class="point text-black-50">delete</mat-icon>
+								</button>
+							</div>
+						</td>
+					</ng-container>
+
+					<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+					<tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="editItem(row)"
+						class="point"></tr>
+				</table>
+			</div>
+
+			<!-- Tree -->
+			<mat-tree *ngIf="shownType == 'tree';"
+				[dataSource]="dataSourceTree" 
+				[treeControl]="treeControl"
+			>
+				<!-- Пустая нода -->
+				<mat-tree-node 
+					*matTreeNodeDef="let node" 
+					matTreeNodePadding 
+					[matTreeNodePaddingIndent]="NODE_INDENT"
+					class="black_back"
+					(click)="editDivisionTree($event, node)"
+				>
+				<!-- Узел без наследника -->
+					<div class="tree-element-holder">
+						<div class="tree-item-icon grey">
+							<mat-icon [@rotate45cw]="treeControl.isExpanded(node) ? 'rotate45' : 'rotate0'">chevron_right
+							</mat-icon>
+						</div>
+						<div class="tree-item">
+							<a class="black_text">{{node.name}}</a>
+						</div>
+					</div>
+					<div class="tree-item-icon point" (click)="itemDelete($event, node.id)">
+						<mat-icon class="trash-c">delete_forever
+						</mat-icon>
+					</div>
+				</mat-tree-node>
+		
+				<!-- Узел с наследниками. -->
+				<mat-tree-node 
+					*matTreeNodeDef="let node; when: hasChild" 
+					matTreeNodePadding
+					[matTreeNodePaddingIndent]="NODE_INDENT"
+					class="black_back"
+				>
+					<div matTreeNodeToggle [attr.aria-label]="'toggle ' + node.name" class="point tree-element-holder">
+						<div class="tree-item-icon">
+							<mat-icon [@rotate45cw]="treeControl.isExpanded(node) ? 'rotate45' : 'rotate0'">chevron_right
+							</mat-icon>
+						</div>
+						<div class="tree-item">
+							<a 	
+								[class.font-weight-bold]="treeControl.isExpanded(node)" 
+								class="black_text" 
+								(click)="editDivisionTree($event, node)">{{node.name}}
+							</a>
+						</div>					
+					</div>
+					<div class="tree-item-icon point" (click)="itemDelete($event, node.id)">
+						<mat-icon class="trash-c">delete_forever
+						</mat-icon>
+					</div>
+				</mat-tree-node>
+			</mat-tree>
+			
+			<div class="bottom-right-container">
+				<button mat-mini-fab (click)="addItem()" color="accent">
+					<mat-icon>add</mat-icon>
+				</button>
+			</div>
+		</div>	
+	</mat-sidenav-content>
+
+</mat-sidenav-container>
+<router-outlet (deactivate)="onChildDeactivate($event)"></router-outlet>

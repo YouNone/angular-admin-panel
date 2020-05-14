@@ -38,6 +38,9 @@ p {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+.grey {
+  color: $greyColor;
+}
 a {
   &:link,
   &:active,
@@ -255,6 +258,10 @@ ngx-monaco-editor.template-editor {
 %flex-col {
   display: flex;
   flex-direction: column;
+}
+
+.trash-c {
+  font-size: 20px;
 }
 
 // p {

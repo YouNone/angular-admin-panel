@@ -1,3 +1,5 @@
+import { DivisionSelectDialogComponent } from './components/division.select.dialog/division.select.dialog.component';
+import { DivisionListComponent } from './../admin/components/division.list/division.list.component';
 import { AuthComponent } from './../auth/auth/auth.component';
 import { NgModule } from "@angular/core";
 import { CommonModule } from '@angular/common';
@@ -18,6 +20,7 @@ import { SelectItemMenuComponent } from './components/select.item.menu.component
 import { TaskListComponent } from '../admin/components/task.list/task.list.component';
 import { TaskEditComponent } from '../admin/components/task.edit/task.edit.component';
 import { MonacoEditorModule } from 'ngx-monaco-editor';
+import { DivisionEditComponent } from '../admin/components/division.edit/division.edit.component';
 
 @NgModule({
 	imports: [
@@ -40,6 +43,8 @@ import { MonacoEditorModule } from 'ngx-monaco-editor';
 		SelectItemMenuComponent
 	],
 	declarations: [
+		DivisionEditComponent,
+		DivisionListComponent,
 		UserListComponent,
 		UserEditComponent,
 		GroupListComponent,
@@ -50,10 +55,12 @@ import { MonacoEditorModule } from 'ngx-monaco-editor';
 		TaskEditComponent,
 		DialogConfirmComponent,
 		SelectItemMenuComponent,
-		AuthComponent
+		AuthComponent,
+		DivisionSelectDialogComponent
 	],
 	entryComponents: [
-		DialogConfirmComponent
+		DialogConfirmComponent,
+		DivisionSelectDialogComponent
 	],
 })
 export class CommonAppModule{}

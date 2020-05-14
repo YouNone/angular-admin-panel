@@ -64,8 +64,8 @@ export abstract class EditComponentsClass<T> implements OnInit, OnDestroy {
 	) {
 		this.componentData = new DataClass();
 		this.savedState = undefined;
-	 }
-	
+	}
+
 	/**
 	 * Стартовая инициализация данных.
 	 * Установка контролов формы.
@@ -107,7 +107,7 @@ export abstract class EditComponentsClass<T> implements OnInit, OnDestroy {
 	 * @param {AllowedListType} componentItem Ссылка на измененный объект, с которого будут делать копию.
 	 * @memberof EditComponentsClass
 	 */
-	abstract createStateItem(componentItem: AllowedListType): void; 
+	abstract createStateItem(componentItem: AllowedListType): void;
 
 	/**
 	 * Обработчик изменения состояния формы. В момент возникновения события изменения значения поля проверяет 
@@ -121,8 +121,8 @@ export abstract class EditComponentsClass<T> implements OnInit, OnDestroy {
 	 */
 	applyFormValues(formValues: IFormValues) {
 		for (const key in formValues) {
-			if(formValues[key] === this.componentData[key]) continue;
-			if(this.excludeFieldList.includes(key)) break;
+			if (formValues[key] === this.componentData[key]) continue;
+			if (this.excludeFieldList.includes(key)) break;
 			this.componentData[key] = formValues[key];
 			break;
 		}
@@ -153,12 +153,24 @@ export abstract class EditComponentsClass<T> implements OnInit, OnDestroy {
 		}
 	}
 
-/**
- * Уход на страницу родителя (листа).
- * 
- * @memberof BusinessTypeEditComponent
- */
+	/**
+	 * Уход на страницу родителя (листа).
+	 * 
+	 * @memberof BusinessTypeEditComponent
+	 */
 	goBack() {
 		this.router.navigate([this.routeList]);
+	}
+
+
+	/**
+	 * Сбрасывает состояние формы в статус "Не тронуто"
+	 *
+	 * @memberof EditComponentsClass
+	 */
+	clearChanges() {
+		this.isChanged = false;
+		this.componentForm.markAsUntouched();
+		this.componentForm.markAsPristine();
 	}
 }

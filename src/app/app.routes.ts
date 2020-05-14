@@ -1,3 +1,4 @@
+import { DivisionListComponent } from './admin/components/division.list/division.list.component';
 import { AuthComponent } from './auth/auth/auth.component';
 import { Routes } from '@angular/router';
 
@@ -13,6 +14,7 @@ import { AdminComponent } from './admin/admin.component';
 import { NotFoundComponent } from './share/components/not.found/not.found.component';
 import { TaskListComponent } from './admin/components/task.list/task.list.component';
 import { TaskEditComponent } from './admin/components/task.edit/task.edit.component';
+import { DivisionEditComponent } from './admin/components/division.edit/division.edit.component';
 
 export const routesRoot: Routes = [
 	{
@@ -45,6 +47,13 @@ export const routesRoot: Routes = [
 				path: compRoutes.task, component: TaskListComponent, data: { breadcrumb: 'Задачи' }, children: [
 					{ path: compRoutes.taskEdit, component: TaskEditComponent, canDeactivate: [LeaveUnsavedComponentGuard] },
 					{ path: compRoutes.taskEdit + '/:id', component: TaskEditComponent, canDeactivate: [LeaveUnsavedComponentGuard] },
+				]
+			},
+
+			{
+				path: compRoutes.division, component: DivisionListComponent, data: { breadcrumb: 'Подразделение' }, children: [
+					{ path: compRoutes.divisionEdit, component: DivisionEditComponent, canDeactivate: [LeaveUnsavedComponentGuard] },
+					{ path: compRoutes.divisionEdit + '/:id', component: DivisionEditComponent, canDeactivate: [LeaveUnsavedComponentGuard] },
 				]
 			}
 		]

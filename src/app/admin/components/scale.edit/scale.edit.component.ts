@@ -161,7 +161,6 @@ export class ScaleEditComponent extends EditComponentsClass<Scale> {
 			.subscribe(formValues => {
 				this.applyFormValues(formValues);
 			});
-		console.log(this.componentData);
 	}
 
 	/** Переключает тип шкалы */
