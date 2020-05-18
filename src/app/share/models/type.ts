@@ -16,9 +16,9 @@ export enum compRoutes {
 	divEdit = 'divisionedit',
 
 	divgroup = 'divgroup',
-    divgroupEdit = 'divgroupedit',
-    
-    scale = 'scales',
+	divgroupEdit = 'divgroupedit',
+
+	scale = 'scales',
 	scaleEdit = 'scaleedit',
 
 	task = 'tasks',
@@ -67,24 +67,63 @@ export enum ESex {
 }
 export interface IUser {
 	/** ID пользователя */
-	id?: string;
+	id: string;
 	/** Код пользователя */
 	code?: string;
 	/** ФИО пользователя */
 	name: string;
 	/** Пароль пользователя */
-	password?: string;
+	password: string;
 	login: string;
 	email: string;
 	/** Пол	*/
-	sex?: ESex;
+	sex: ESex;
 	date_birth: string;
 	date_hire: string;
 	date_fire?: string;
 	date_create: string;
 	date_modify: string;
-	header_type?: ITypeOfLeader;
+	// header_type?: ITypeOfLeader;
 
+}
+
+export class ShortHttpResponse {
+	/**
+	 * Конструктор ShortHttpResponse.
+	 * @param {boolean} result Успешный/неуспешный запрос
+	 * @param {*} data Ответ, возвращенный запросом
+	 * @param {string} [message=""] Сообщение, ответ
+	 * @memberof ShortHttpResponse
+	 */
+	constructor(
+		public result: boolean,
+		public data: any,
+		public message: string = ""
+	) { }
+}
+
+export interface IUserAuthInfo {
+	/** ID пользователя */
+	id: string,
+	/** Полное ФИО пользователя */
+	name: string,
+	/** Логин пользователя */
+	login: string,
+	/** email пользователя */
+	email: string,
+	/** Список ролей, к которым принадлежит пользователь. На их основе определяется уровень доступа к разделам */
+	/** Токен сессии */
+	token?: string,
+	/** Крутой админ */
+	isRoot?: boolean,
+	/** Админ. Т.е. управляет процессом, распространяющемся на все пространство предприятий. В этом случае не производится 
+	 *  фильтрация списка доступных сотрудников по предприятиям или другим уровням доступа. */
+	isAdmin?: boolean,
+
+}
+export interface IAuthInfo {
+	login: string;
+	password: string;
 }
 
 /**
@@ -148,9 +187,9 @@ export interface ITask {
 	code?: string;
 	/** Описание задачи */
 	name: string;
- 	/** Дата создания */
+	/** Дата создания */
 	date_create?: string;
- 	/** Дата редактирования */
+	/** Дата редактирования */
 	date_modify?: string;
 	/** Дата последнего запуска */
 	date_execute?: string;
@@ -170,9 +209,9 @@ export interface ITask {
 
 export enum ETaskTypeStart {
 	never = "never",
-	period = "period", 
-	day = "day", 
-	week = "week", 
+	period = "period",
+	day = "day",
+	week = "week",
 	month = "month"
 }
 
@@ -258,7 +297,7 @@ export interface IUniversalTreeNode {
 	/** Наследники текущего узла */
 	children?: IUniversalTreeNode[];
 	/** ID родителя записи. Если элемент является корнем дерева, это поле равно NULL или не определено */
-	parent_id?: number;	
+	parent_id?: number;
 	/** Маркер выделенного узла */
 	// active?: boolean;
 }
@@ -404,10 +443,6 @@ export interface ButtonDiscription {
 	img?: string;
 }
 
-export interface IAuthInfo {
-	login: string;
-	password: string;
-}
 export interface ISearchOptions {
 	/** Индекс первой строки в результатах выборки */
 	start: number;
@@ -427,7 +462,20 @@ export interface ISearchOptions {
 	field2?: string;
 }
 
-export declare type ButtonsSet = ButtonDiscription[]; 
+export enum EAuthType {
+	/** Базовая, силами приложения */
+	basic = "basic",
+	/** NTML -- доменная аутентификация */
+	domain = "domain"
+}
+
+
+export enum EStorageType {
+	local = "localStorage",
+	session = "sessionStorage"
+}
+
+export declare type ButtonsSet = ButtonDiscription[];
 export interface ChildDeactivatable<T> extends Component {
 	savedState: T;
 }
@@ -438,9 +486,9 @@ export interface ChildDeactivatable<T> extends Component {
  * @export
  * @interface IFormValues
  */
-export interface IFormValues { 
-	[key: string]: string | number; 
+export interface IFormValues {
+	[key: string]: string | number;
 }
 
-export type AllowedListType = 
-	 IScale | IUser | IGroup | ITask;
+export type AllowedListType =
+	IScale | IUser | IGroup | ITask;

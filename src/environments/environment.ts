@@ -2,6 +2,8 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+import { EAuthType } from 'src/app/share/models/type';
+
 export const environment = {
   production: false,
   name: 'dev',
@@ -9,6 +11,7 @@ export const environment = {
   apiProtocol: 'http',
   apiPort: '3000',
   mediaUrl: 'alex.site',
+  // authType:  EAuthType.basic,
   url: {
     start: "_start",
     limit: "_limit",

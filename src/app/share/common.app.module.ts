@@ -21,6 +21,7 @@ import { TaskListComponent } from '../admin/components/task.list/task.list.compo
 import { TaskEditComponent } from '../admin/components/task.edit/task.edit.component';
 import { MonacoEditorModule } from 'ngx-monaco-editor';
 import { DivisionEditComponent } from '../admin/components/division.edit/division.edit.component';
+import { AuthModule } from '../auth/auth.module';
 
 @NgModule({
 	imports: [
@@ -40,7 +41,7 @@ import { DivisionEditComponent } from '../admin/components/division.edit/divisio
 		ReactiveFormsModule,
 		AngMaterialModule,
 		InfiniteScrollModule,
-		SelectItemMenuComponent
+		SelectItemMenuComponent,
 	],
 	declarations: [
 		DivisionEditComponent,

@@ -43,6 +43,7 @@ export class MsgList {
 		eDeleteItem:					'Ошибка удаления записи. ID записи ',
 		eDeleteNoIdItem:				'Ошибка удаления записи. запись без ID',
 		eReadItem:						'Ошибка чтения информации о записи с ID = ',
+		eReadItemLog:					'Данного Пользователя не существоет',
 		eCreateItem:					'Ошибка создания записи. ',
 		eUpdateItem:					'Ошибка сохранения записи с ID = ',
 		eUpdateItemList:				'Ошибка обновления списка записей: ',

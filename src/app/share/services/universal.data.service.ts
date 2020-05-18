@@ -41,7 +41,7 @@ export class UniversalDataService {
 	 */
 	setServiceUrl(url) {
 		this.serviceUrl = "http://localhost:3000/";
-		this.serviceUrl += url;		
+		this.serviceUrl += url;
 	}
 
 
@@ -90,7 +90,7 @@ export class UniversalDataService {
 					this.showError(this.$MSG.getMsg('eReadItemsList'), err);
 					return of([]);
 				})
-			);			
+			);
 	}
 
 
@@ -140,6 +140,18 @@ export class UniversalDataService {
 				map((data: T) => data),
 				catchError((err: HttpErrorResponse) => {
 					this.showError(this.$MSG.getMsg('eReadItem'), err);
+					return of(<T>{});
+				})
+			);
+	}
+
+	getItemByLogin<T>(userAuth: { login: string, password: string }): Observable<T> {
+		let url = `${this.serviceUrl}/login`;
+		return this.request
+			.post<T>(url, userAuth).pipe(
+				map((data: T) => data),
+				catchError((err: HttpErrorResponse) => {
+					this.showError(this.$MSG.getMsg('eCreateItem'), err);
 					return of(<T>{});
 				})
 			);

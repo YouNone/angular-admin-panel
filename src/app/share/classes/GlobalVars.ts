@@ -13,7 +13,10 @@ export class GlobalVars {
 	/** Массив предустановленных констант приложения */
 	private data: StringKeyObject = {
 		siteName: 'Alex site',						// Титул в названиии сайта
-
+		apiProtocol: environment.apiProtocol,		// Протокол соединения с API По умолчанию http
+		apiUrl: environment.apiUrl,					// Имя хоста. при инициализации читает URL скрипта
+		apiPort: environment.apiPort,				// Порт API
+		fullApiUrl: '',	
 		'urlKeyStart': environment.url.start,		// URL ключ начала диапазона, выдаваемого запросом
 		'urlKeyLimit': environment.url.limit,		// URL ключ длинны диапазона, выдаваемого запросом
 		'urlKeySort': environment.url.sort,			// URL ключ по какому полю сортируется выборка
@@ -22,6 +25,8 @@ export class GlobalVars {
 		'urlKeyfilter': 'f',						// URL ключ строки поиска
 		'urlKeyField2': 'field2',					// URL дополнительный ключ по какому полю производится поиск
 		'urlKeyfilter2': 'f2',		
+		// 'authorisationType': environment.authType,			// Тип авторизации: basic / domain
+
 
 		showBreadcrumbs: true,						// Показать/спрятать хлебные крошки
 		startListLen: 20,							// + Количество начально запрашиваемых элементов в больших списках

@@ -1,3 +1,5 @@
+import { RequestInterceptor } from './share/services/request.interseptor';
+import { AuthService } from './share/services/auth.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
@@ -17,6 +19,8 @@ import { RequestsService } from './share/services/requests.service';
 import { NotificationsService, SimpleNotificationsModule } from 'angular2-notifications';
 import { DialogButtonConfig } from './share/utilit/dialog.button.config';
 import { LeaveUnsavedComponentGuard } from './share/services/leaveUnsavedGuard';
+import { AuthModule } from './auth/auth.module';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -36,11 +40,17 @@ import { LeaveUnsavedComponentGuard } from './share/services/leaveUnsavedGuard';
     MsgList,
     SettingService,
     RequestsService,
+    AuthService,
     UniversalDataService,
     NotificationsService,
     DialogButtonConfig,
-		LeaveUnsavedComponentGuard,
+    LeaveUnsavedComponentGuard,
     { provide: ROUTES_TREE, useValue: routesRoot },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: RequestInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [
     AppComponent

@@ -63,6 +63,7 @@ export class UserEditComponent extends EditComponentsClass<IUser>{
 		this.savedState = {
 			id: item.id,
 			name: item.name,
+			password: item.password,
 			login: item.login,
 			email: item.email,
 			sex: item.sex,
@@ -97,7 +98,7 @@ export class UserEditComponent extends EditComponentsClass<IUser>{
 						date_birth: this.componentData.date_birth,
 						date_hire: this.componentData.date_hire,
 						date_fire: this.componentData.date_fire,
-						header_type: this.componentData.header_type
+						// header_type: this.componentData.header_type
 					});
 					this.isReady = true;
 				});

@@ -1,4 +1,7 @@
-import { IFormValues } from 'src/app/share/models/type';
+import { User } from 'src/app/share/classes/User';
+import { AuthService } from './../../share/services/auth.service';
+import { IAuthInfo, ShortHttpResponse } from './../../share/models/type';
+import { IFormValues, IUserAuthInfo, compRoutes } from 'src/app/share/models/type';
 import { DialogService } from 'src/app/share/services/dialog.service';
 import { NotificationsService } from 'angular2-notifications';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -7,7 +10,6 @@ import { UniversalDataService } from 'src/app/share/services/universal.data.serv
 import { MsgList } from 'src/app/share/services/msg.list';
 import { SettingService } from 'src/app/share/services/settings.service';
 import { NotifElemetntConfig } from 'src/app/share/utilit/simple.notification.config';
-import { IAuthInfo } from './../../share/models/type';
 import { getErrMsg } from 'src/app/share/utilit/utilit';
 import { Subscription } from 'rxjs';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
@@ -30,11 +32,10 @@ export class AuthComponent implements OnInit {
     disableButton: boolean = true;
     /** Внешняя утилита генерации сообщений об ошибках для полей валидируемой формы */
     errMsg = getErrMsg;
-    /** Флаг бейсик авторизации */
-
-    /** Тип авторизации приложения */
-    // loginType: EAuthType = EAuthType.basic;
+    /** Флаг авторизации */
+    isAuthenticated: boolean = false;
     isBasicAuth: boolean = true;
+
     constructor(
         public $MSG: MsgList,
         public $SETTINGS: SettingService,
@@ -44,7 +45,8 @@ export class AuthComponent implements OnInit {
         public route: ActivatedRoute,
         public $NOTE: NotificationsService,
         public dialogService: DialogService,
-    ) {
+        public authService: AuthService
+    ) {        
         this.componentData = {
             login: '',
             password: ''
@@ -53,11 +55,13 @@ export class AuthComponent implements OnInit {
 
     ngOnInit() {
         this.initState();
-
         this.$formSubscr = this.componentForm.valueChanges
             .subscribe(formValues => {
                 this.applyFormValues(formValues);
+                // console.log(formValues);
+
             });
+
     }
 
     applyFormValues(formValues: IFormValues) {
@@ -76,23 +80,36 @@ export class AuthComponent implements OnInit {
             login: new FormControl("",
                 [
                     Validators.required,
-                    // AppValidators.space(minLength), 
                     Validators.minLength(minLength)
                 ]),
             password: new FormControl("", [
                 Validators.required,
-                // AppValidators.space(minLength), 
                 Validators.minLength(minLength)
             ])
         });
     }
 
     formSubmit() {
-        // console.log(this.componentForm);
+        if (this.componentForm.valid) {
+            this.dataService.setServiceUrl(compRoutes.user)
+            this.dataService.getItemByLogin(this.componentData)
+                .subscribe((res: User) => {
+                    if (res) {
+                        console.log(res);
+                        this.isAuthenticated = true;
+                        this.authService.login(res);
+                        // this.router.navigate()
+                    } else {
+                        this.$NOTE.warn(
+                            this.$MSG.getMsg('warning'),
+                            this.$MSG.getMsg("eReadItemLog"),
+                            NotifElemetntConfig.timeOption
+                        );
+                    }
+                })
+        }
+        // console.log(this.componentData);
 
     }
 
-    clearInput(fieldName: string): void {
-        this.componentForm.get(fieldName).setValue('');
-    }
 }

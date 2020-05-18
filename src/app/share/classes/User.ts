@@ -12,7 +12,7 @@ export class User implements IUser {
 	date_fire?: string;
 	date_create: string;
 	date_modify: string;
-	header_type: ITypeOfLeader;
+	// header_type: ITypeOfLeader;
 	constructor(
 		data: IUser = <IUser>{}
 	) {
@@ -21,7 +21,7 @@ export class User implements IUser {
 		this.login = data.login || '';
 		this.email = data.email || '';
 		this.password = data.password || '';
-		this.header_type = data.header_type;
+		// this.header_type = data.header_type;
 		this.sex = data.sex || undefined;
 		if (this.sex) {
 			const s = data.sex.toString().trim();

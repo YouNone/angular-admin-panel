@@ -370,18 +370,18 @@ export class GroupEditComponent extends EditComponentsClass<Group> {
 		this.isChanged = true;
 	}
 
-	changeBossType(item: TypeOfLeader) {
-		this.selectedBossType = item;
+	// changeBossType(item: TypeOfLeader) {
+	// 	this.selectedBossType = item;
 
-		let bosses = this.groupChanges.boss.changed_header_type;
-		// important init !!
-		if (!bosses[this.currentBoss.id]) bosses[this.currentBoss.id] = {};
-		if (this.currentBoss.header_type && this.currentBoss.header_type.id) {
-			bosses[this.currentBoss.id].old = this.currentBoss.header_type.id;
-		}
-		this.currentBoss.header_type = item;
-		bosses[this.currentBoss.id].new = item.id;
-		this.isChanged = true;
-	}
-
+	// 	let bosses = this.groupChanges.boss.changed_header_type;
+	// 	// important init !!
+	// 	if (!bosses[this.currentBoss.id]) bosses[this.currentBoss.id] = {};
+	// 	if (this.currentBoss.header_type && this.currentBoss.header_type.id) {
+	// 		bosses[this.currentBoss.id].old = this.currentBoss.header_type.id;
+	// 	}
+	// 	this.currentBoss.header_type = item;
+	// 	bosses[this.currentBoss.id].new = item.id;
+	// 	this.isChanged = true;
+	// }
+ 
 }
