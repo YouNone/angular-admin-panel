@@ -35,7 +35,7 @@ export enum compRoutes {
 
 	// Other
 	auth = 'auth',
-	// login = 'login',
+	login = 'login',
 	notFound = 'notfound',
 
 }
@@ -124,6 +124,7 @@ export interface IUserAuthInfo {
 export interface IAuthInfo {
 	login: string;
 	password: string;
+	token?: string
 }
 
 /**

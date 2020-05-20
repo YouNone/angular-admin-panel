@@ -21,11 +21,12 @@ export class GlobalVars {
 		'urlKeyLimit': environment.url.limit,		// URL ключ длинны диапазона, выдаваемого запросом
 		'urlKeySort': environment.url.sort,			// URL ключ по какому полю сортируется выборка
 		'urlKeyOrder': environment.url.order,		// URL ключ направления сортировки. ASC/DESC. ASC по умолчанию
+		
 		'urlKeyField': 'field',						// URL ключ по какому полю производится поиск
 		'urlKeyfilter': 'f',						// URL ключ строки поиска
 		'urlKeyField2': 'field2',					// URL дополнительный ключ по какому полю производится поиск
 		'urlKeyfilter2': 'f2',		
-		// 'authorisationType': environment.authType,			// Тип авторизации: basic / domain
+		'authorisationType': environment.authType,			// Тип авторизации: basic / domain
 
 
 		showBreadcrumbs: true,						// Показать/спрятать хлебные крошки

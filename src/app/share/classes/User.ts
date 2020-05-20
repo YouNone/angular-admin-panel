@@ -7,6 +7,7 @@ export class User implements IUser {
 	name: string;
 	sex: ESex;
 	password: string;
+	code?: string;
 	date_birth: string;
 	date_hire: string;
 	date_fire?: string;
@@ -21,6 +22,7 @@ export class User implements IUser {
 		this.login = data.login || '';
 		this.email = data.email || '';
 		this.password = data.password || '';
+		this.code = data.code || '';
 		// this.header_type = data.header_type;
 		this.sex = data.sex || undefined;
 		if (this.sex) {

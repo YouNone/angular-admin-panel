@@ -1,3 +1,4 @@
+import { LoginComponent } from './../auth/login/login.component';
 import { DivisionSelectDialogComponent } from './components/division.select.dialog/division.select.dialog.component';
 import { DivisionListComponent } from './../admin/components/division.list/division.list.component';
 import { AuthComponent } from './../auth/auth/auth.component';
@@ -57,6 +58,7 @@ import { AuthModule } from '../auth/auth.module';
 		DialogConfirmComponent,
 		SelectItemMenuComponent,
 		AuthComponent,
+		LoginComponent,
 		DivisionSelectDialogComponent
 	],
 	entryComponents: [

@@ -118,7 +118,8 @@ app-header {
    @extend %flex-row;
     flex-wrap: nowrap;
     align-self: center;
-    align-items: stretch;
+    align-items: baseline;
+    justify-content: space-between;
     background-color: #ddd;
 
     [class^="box-"] {
@@ -264,6 +265,3 @@ ngx-monaco-editor.template-editor {
   font-size: 20px;
 }
 
-// p {
-//   @if 1 + 1 == 2 { color: red;  }
-// }

@@ -1,4 +1,3 @@
-import { TokenService } from './../share/services/token.service';
 import { RequestInterceptor } from './../share/services/request.interseptor';
 import { CommonAppModule } from "src/app/share/common.app.module";
 import { NgModule } from "@angular/core";
@@ -9,7 +8,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 const authRoutes: Routes = [
 	{path: 'auth', component: AuthComponent}
-];
+]; 
 
 @NgModule({
 	imports: [
@@ -21,7 +20,6 @@ const authRoutes: Routes = [
 		AuthComponent
 	],
 	providers: [
-		TokenService,
 		// {
 		// 	provide: HTTP_INTERCEPTORS,
 		// 	useClass: RequestInterceptor,

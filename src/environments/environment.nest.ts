@@ -7,6 +7,7 @@ export const environment = {
     apiProtocol: 'http',
     apiPort: '3000',
     mediaUrl: 'alex.site',
+    authType: 'domain',
     // authType:  EAuthType.domain,
     url: {
       start: "start",

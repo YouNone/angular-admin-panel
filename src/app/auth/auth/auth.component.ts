@@ -34,7 +34,7 @@ export class AuthComponent implements OnInit {
     errMsg = getErrMsg;
     /** Флаг авторизации */
     isAuthenticated: boolean = false;
-    isBasicAuth: boolean = true;
+    // isBasicAuth: boolean = true;
 
     constructor(
         public $MSG: MsgList,
@@ -42,11 +42,10 @@ export class AuthComponent implements OnInit {
         public dataService: UniversalDataService,
         public snackBar: MatSnackBar,
         public router: Router,
-        public route: ActivatedRoute,
         public $NOTE: NotificationsService,
         public dialogService: DialogService,
         public authService: AuthService
-    ) {        
+    ) {
         this.componentData = {
             login: '',
             password: ''
@@ -94,22 +93,23 @@ export class AuthComponent implements OnInit {
             this.dataService.setServiceUrl(compRoutes.user)
             this.dataService.getItemByLogin(this.componentData)
                 .subscribe((res: User) => {
-                    if (res) {
-                        console.log(res);
+                    if (Object.keys(res).length !== 0) {
                         this.isAuthenticated = true;
                         this.authService.login(res);
-                        // this.router.navigate()
-                    } else {
-                        this.$NOTE.warn(
-                            this.$MSG.getMsg('warning'),
-                            this.$MSG.getMsg("eReadItemLog"),
-                            NotifElemetntConfig.timeOption
-                        );
-                    }
+                        this.router.navigate(['./', compRoutes.user])
+                    } 
+                    // else {
+                    //     this.$NOTE.warn(
+                    //         this.$MSG.getMsg('warning'),
+                    //         this.$MSG.getMsg("eReadItemLog"),
+                    //         NotifElemetntConfig.timeOption
+                    //     );
+                    // }
                 })
         }
-        // console.log(this.componentData);
-
     }
 
+    goAuth() {
+        this.router.navigate(['./', compRoutes.login])
+    }
 }

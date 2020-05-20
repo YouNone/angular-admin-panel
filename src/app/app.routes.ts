@@ -1,3 +1,4 @@
+import { LoginComponent } from './auth/login/login.component';
 import { DivisionListComponent } from './admin/components/division.list/division.list.component';
 import { AuthComponent } from './auth/auth/auth.component';
 import { Routes } from '@angular/router';
@@ -60,6 +61,7 @@ export const routesRoot: Routes = [
 
 	},
 	{ path: 'auth', component: AuthComponent },
+	{ path: 'login', component: LoginComponent },
 	{ path: compRoutes.notFound, component: NotFoundComponent },
 	{ path: '**', redirectTo: compRoutes.notFound }
 ];

@@ -1,7 +1,7 @@
 <div class="component-inset">
 	<div class="container-fluid h-100">
 		<div class="row h-100 align-items-center align-self-center justify-content-around">
-			<div *ngIf="isBasicAuth" class="col-10 col-sm-7 col-md-5 col-lg-3">
+			<div class="col-10 col-sm-7 col-md-5 col-lg-3">
 				<form [formGroup]="componentForm" (ngSubmit)="formSubmit()">
 					<mat-card class="shadow">
 						<mat-card-header>
@@ -21,8 +21,11 @@
 							</mat-form-field>
 						</mat-card-content>
 						<mat-card-actions  class="w-100 mb-2 text-center">
+							<button class="mb-2 submit-button" mat-raised-button (click)="goAuth()" color="accent" type="button">
+								Создать
+							</button>
 							<button class="mb-2 submit-button" mat-raised-button [disabled]="disableButton" color="primary" type="submit">
-								Отправить
+								Войти
 							</button>
 						</mat-card-actions>
 					</mat-card>

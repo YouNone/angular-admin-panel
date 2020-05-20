@@ -63,6 +63,7 @@ export class UserEditComponent extends EditComponentsClass<IUser>{
 		this.savedState = {
 			id: item.id,
 			name: item.name,
+			code: item.code,
 			password: item.password,
 			login: item.login,
 			email: item.email,
@@ -98,7 +99,6 @@ export class UserEditComponent extends EditComponentsClass<IUser>{
 						date_birth: this.componentData.date_birth,
 						date_hire: this.componentData.date_hire,
 						date_fire: this.componentData.date_fire,
-						// header_type: this.componentData.header_type
 					});
 					this.isReady = true;
 				});
@@ -170,12 +170,5 @@ export class UserEditComponent extends EditComponentsClass<IUser>{
 		this.componentForm.markAsPristine();
 		// console.log(this.componentForm);
   }
-  
-  /** Перехватывает событие изменения radio-button и сохраняет его в форме */
-	radioChange(e: MatRadioChange) {
-		this.componentData["sex"] = 1;
-		this.ctrl["sex"].setValue(e.value);
-		this.componentData["sex"] = e.value;
-	}
-  
+    
 }
