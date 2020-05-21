@@ -83,6 +83,9 @@ export class UniversalDataService {
 			let optionUrl = new SearchOptions(options, this.$SETTINGS);
 			url += '?' + optionUrl.getUrl();
 		}
+		console.log( "url", url);
+		console.log("options", options);
+		
 		return this.request
 			.get<T[]>(url).pipe(
 				map((data: T[]) => data),

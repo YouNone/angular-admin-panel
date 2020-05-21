@@ -22,17 +22,20 @@ export class RequestInterceptor implements HttpInterceptor {
 			console.log(this.token);
 			
 		} else {
-			console.log("catch");
 			this.router.navigate(['./', compRoutes.login])
 		}
 
 	}
 
 	intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpSentEvent | HttpHeaderResponse | HttpProgressEvent | HttpResponse<any> | HttpUserEvent<any>> {
+		// console.log(req);
+		
 		let params = {
 			headers: req.headers.set('TOKEN', this.token),
 		}
 		const myReq = req.clone(params);
+		console.log(myReq);
+		
 	    return next.handle(myReq);
 	}
 }

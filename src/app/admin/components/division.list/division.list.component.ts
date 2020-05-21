@@ -30,7 +30,7 @@ export class divisionItemDeleteEvent {
 	styleUrls: ['./division.list.component.scss'],
 	animations: [rotate45cw]
 })
-
+ 
 export class DivisionListComponent extends ListComponentsClass<IDivision> {
 
 	transformer = (node: IUniversalTreeNode, level: number) => {
@@ -62,7 +62,7 @@ export class DivisionListComponent extends ListComponentsClass<IDivision> {
 		field2: "division_id",
 	};
 	/** Дерево предприятий */
-	divisionTree: IUniversalTreeNode[] = [];
+	componentData: IUniversalTreeNode[] = [];
 
 	constructor(
 		public $SETTINGS: SettingService,
@@ -92,8 +92,8 @@ export class DivisionListComponent extends ListComponentsClass<IDivision> {
 		this.shownType = EItemListType.tree;
 
 		this.listService.getList().subscribe((data: IUniversalTreeNode[]) => {
-			this.divisionTree = Util.listToTree(data);
-			this.dataSourceTree.data = this.divisionTree;
+			this.componentData = Util.listToTree(data);
+			this.dataSourceTree.data = this.componentData;
 		});
 	}
 
@@ -111,36 +111,4 @@ export class DivisionListComponent extends ListComponentsClass<IDivision> {
 			this.getChangedItemToList(compRef);
 		}
 	}
-
-
-	// divisionItemDelete(e: divisionItemDeleteEvent) {
-	// 	let item = e.item;
-	// 	e.event.stopPropagation();
-	// 	if (item.children && item.children.length > 0) {
-	// 		this.$NOTE.warn(
-	// 			this.$MSG.getMsg('warning'),
-	// 			this.$MSG.getMsg("wchildListNotEmpty"),
-	// 			NotifElemetntConfig.timeOption
-	// 		);
-	// 		return false;
-	// 	}
-	// 	this.listService.setServiceUrl(this.dataUrl);
-	// 	this.dialogService.openConfirm(
-	// 		this.$MSG.getMsg('mConfirmRecordDelete'),
-	// 		this.$MSG.getMsg('warning'),
-	// 		DialogButtonConfig.YesNo
-	// 	).subscribe(res => {
-	// 		if (res) {
-	// 			this.listService.deleteItem<Division>(item.id).subscribe((deletedItem: Division) => {
-	// 				if(deletedItem && deletedItem.id) this.componentData = <Division[]>Util.deleteTreeChildren(item.id, this.componentData);
-	// 				this.snackBar.open(
-	// 					this.$MSG.getMsg("mRecordDeleted"),
-	// 					this.$MSG.getMsg("btnOk"),
-	// 					NotifElemetntConfig.snackInfoConfig
-	// 				);
-	// 			});
-	// 		}
-	// 	});
-	// }
-
 }
