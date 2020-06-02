@@ -265,3 +265,59 @@ ngx-monaco-editor.template-editor {
   font-size: 20px;
 }
 
+.utilites-inset {
+	padding: $stdUtilitesInset;
+}
+
+.utilites-inset-negative{
+	margin: $negativeUtilitesInset;
+}
+
+
+@media only screen and (max-width: $mobileWidth) {
+	.breadcrumb {
+		display: none;
+	}
+	.component-inset {
+		padding: $mobComponentInset;
+	}
+	.utilites-inset {
+		padding: $mobUtilitesInset;
+	}
+	#main-sidenav {
+		width: 220px;
+	}	
+
+	.button-jump-top {
+		margin-top: 80px;
+	}
+
+	.utility-column-sidenav {
+		.mat-tree-node {
+			padding: 5px $mobUtilitesInset 5px ;
+		}
+	}	
+	.simple-notification-wrapper.center {
+		width: calc(100% - 20px) !important;
+		left: calc(50% -10px);
+    	transform: translateX( calc(-50% + 10px) );
+	}
+}
+
+.utility-column-content {
+	@extend %flex-col;
+	z-index: 1; 
+	position: fixed; 
+	top: $headerHeight; 
+	right: 0; 
+	bottom: 0;
+	border-right: 1px solid #aaa;
+	background-color: #fff;
+	overflow: auto;
+
+	.close-button {
+		position: absolute;
+		top: 40px;
+		right: 20px;
+	}	
+}

@@ -60,8 +60,8 @@ export const routesRoot: Routes = [
 		]
 
 	},
-	{ path: 'auth', component: AuthComponent },
-	{ path: 'login', component: LoginComponent },
+	// { path: 'auth', component: AuthComponent },
+	// { path: 'login', component: LoginComponent },
 	{ path: compRoutes.notFound, component: NotFoundComponent },
 	{ path: '**', redirectTo: compRoutes.notFound }
 ];

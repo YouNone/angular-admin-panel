@@ -12,7 +12,7 @@
 							<button (click)="goBack()" class="mr-2 mb-2" mat-raised-button type="button">Назад</button>
 							<button class="mb-2 submit-button" mat-raised-button [disabled]="disableButton"
 								color="primary" type="submit">
-								<i *ngIf="disableButton; else elseSave" class="fas fa-spinner fa-spin"></i>
+								<i *ngIf="disableButton; else elseSave"></i>
 								<ng-template #elseSave>Сохранить</ng-template>
 							</button>
 						</div>
@@ -35,11 +35,6 @@
 										<mat-label>Пароль</mat-label>
 										<input formControlName="password" matInput type="password">
 										<mat-error>{{errMsg(componentForm.controls["password"], $MSG)}}</mat-error>
-									</mat-form-field>
-									<mat-form-field>
-										<mat-label>Код пользователя</mat-label>
-										<input formControlName="code" matInput>
-										<mat-error>{{errMsg(componentForm.controls["code"], $MSG)}}</mat-error>
 									</mat-form-field>
 								</div>
 							</div>

@@ -1,3 +1,38 @@
 $width100p: 100%;
 $height100p: 100%;
 $greyColor: #dddddd;
+
+// Локальные константы стилей
+
+/* Цвета */
+$LinkColor: rgb(2, 2, 255);
+$textColor: rgb(0, 0, 0);
+$menuDark: #cccccc;
+$menuDarkHover: #bbbbbb;
+$menuLight: #ededed;
+$menuLightHover: #dddddd;
+$BgColor: rgb(255, 255, 255);
+$Gray0: rgba(0, 0, 0, 0.08);
+$Gray1: rgba(0, 0, 0, 0.12);
+$Gray2: rgba(0, 0, 0, 0.38);
+$Gray3: rgba(0, 0, 0, 0.54);
+$Gray4: rgba(0, 0, 0, 0.80);
+
+/* Размеры */
+$textSize:				14px;
+$mobileWidth:			800px;
+$mainSidenavWidth:		300px;
+$headerHeight:		 	60px;
+$serviceSidenavWidth:	300px;
+$stdComponentInset: 	16px;
+$stdUtilitesInset: 		32px;
+$negativeUtilitesInset: -$stdUtilitesInset;
+$mobComponentInset: 	16px;
+$mobUtilitesInset: 		14px;
+$thumbBig:              80px;
+$thumbSmall:            40px;
+$sizeH1:                2em;
+$sizeH2:                1.7em;
+$sizeH3:                1.3em;
+$sizeH4:                1.1em;
+$sizeP:                 1em;

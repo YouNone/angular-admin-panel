@@ -11,15 +11,12 @@ import { decode } from 'punycode';
 export class AuthService {
     /** Признак авторизованности пользователя */
     private isAuth = false;
-    /** Авторизационная и сопутствующая информация пользователя, получаемая с сервера */
+    /** Авторизационная информация пользователя, получаемая с сервера */
     private authInfo: IAuthInfo = undefined;
     /** Тип локального хранилища браузера: localStorage,	sessionStorage */
     private storage: string = EStorageType.session;
 
     constructor(
-        // private $SETTING: SettingService,
-        // private request: RequestsService,
-        // private $MSG: MsgList,
     ) {
         const info = window[this.storage].getItem('AUTH_INFO');
         if (info) {

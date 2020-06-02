@@ -1,4 +1,4 @@
-import { RequestInterceptor } from './share/services/request.interseptor';
+// import { RequestInterceptor } from './share/services/request.interseptor';
 import { AuthService } from './share/services/auth.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -46,11 +46,11 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     DialogButtonConfig,
     LeaveUnsavedComponentGuard,
     { provide: ROUTES_TREE, useValue: routesRoot },
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: RequestInterceptor,
-      multi: true
-    }
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: RequestInterceptor,
+    //   multi: true
+    // }
   ],
   bootstrap: [
     AppComponent

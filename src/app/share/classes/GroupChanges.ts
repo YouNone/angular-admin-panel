@@ -1,3 +1,4 @@
+import { IUser } from './../models/type';
 import { IGroupChanges } from '../models/type';
 
 export class GroupChanges implements IGroupChanges {
@@ -8,16 +9,7 @@ export class GroupChanges implements IGroupChanges {
 		added: string[];
 		deleted: string[];
 	};
-	boss: {
-		deleted: string[];
-		added: string[];
-		changed_header_type: {
-			[boss_id: string]: {
-				old?: string;
-				new?: string;
-			}
-		}
-	};
+	users: IUser
 
 	constructor(data: IGroupChanges = <IGroupChanges>{}) {
 		this.id = data.id || undefined;
@@ -27,10 +19,10 @@ export class GroupChanges implements IGroupChanges {
 			added: [],
 			deleted: []
 		};
-		this.boss = {
-			deleted: [],
-			added: [],
-			changed_header_type: {}
-		};
+		// this.boss = {
+		// 	deleted: [],
+		// 	added: [],
+		// 	changed_header_type: {}
+		// };
 	}
 }

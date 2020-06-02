@@ -69,16 +69,16 @@ export const rotate90cw = trigger('rotate90cw', [
 // 	]),
 // ]);
 
-// /** Выползание компонента из-за правого края */
-// export const slideFromRight = trigger('slideFromRight', [
-// 	state('in', style({ transform: 'translate(0, 0)', visibility: 'visible' })),
-// 	state('out', style({ transform: 'translate(100%, 0)', visibility: 'hidden' })),
-// 	// transition(':enter', [
-// 	// 	style({ transform: 'translate(100%, 0)', visibility: 'hidden' }),
-// 	// 	animate(300, style({ transform: 'translate(0, 0)', visibility: 'visible' }))
-// 	// ]),
-// 	// transition(':leave', [
-// 	// 	animate(300, style({ transform: 'translate(100%, 0)', visibility: 'hidden' }))
-// 	// ]),
-// 	transition('out <=> in', animate(300))
-// ]);
+/** Выползание компонента из-за правого края */
+export const slideFromRight = trigger('slideFromRight', [
+	state('in', style({ transform: 'translate(0, 0)', visibility: 'visible' })),
+	state('out', style({ transform: 'translate(100%, 0)', visibility: 'hidden' })),
+	// transition(':enter', [
+	// 	style({ transform: 'translate(100%, 0)', visibility: 'hidden' }),
+	// 	animate(300, style({ transform: 'translate(0, 0)', visibility: 'visible' }))
+	// ]),
+	// transition(':leave', [
+	// 	animate(300, style({ transform: 'translate(100%, 0)', visibility: 'hidden' }))
+	// ]),
+	transition('out <=> in', animate(300))
+]);

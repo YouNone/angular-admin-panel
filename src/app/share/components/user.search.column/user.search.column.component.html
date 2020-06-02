@@ -1,0 +1,86 @@
+<div 
+	[@slideFromRight]="isOpen ? 'in' : 'out'"
+	class="utilites-inset utility-column-content shadow brd" 
+	[ngStyle]="{'width.px': componentWidth}"
+>
+	<div class="d-flex flex-row align-items-top mt-2">
+		<div class="mr-2 flex-grow-1 mb-3"><h2>{{ title }}</h2></div>
+		<div>
+			<a (click)="toggleVisible()" title="Закрыть">
+				<mat-icon class="poit text-muted">close</mat-icon>
+			</a>
+		</div>
+	</div>
+	<div class="mt-2">
+		<form [formGroup]="searchForm">
+			<mat-form-field class="w-100">
+				<input matInput 
+					formControlName="searchInput" 
+					placeholder="Найти пользователя"
+					(keydown.enter)="filterInput($event)" 
+					value=""
+				>
+				<mat-icon matSuffix class="point text-muted" (click)="filterInput($event)">search</mat-icon>
+			</mat-form-field>
+		</form>
+	</div>
+
+	<div *ngIf="isNotFound" class="text-secondary mt-3">
+		<em>{{ mNotFound }}</em>
+	</div>
+	<div *ngIf="!items.length" class="text-secondary mt-3">
+		<em>{{ mEmptyBox }} <mat-icon class="fas fa-search point">search</mat-icon></em>
+	</div>
+	<div 
+		*ngIf="items.length"
+		class="flex-grow-1"
+		infiniteScroll 
+		[fromRoot]="true" 
+		[infiniteScrollDistance]="distance" 
+		[infiniteScrollThrottle]="throttle" 
+		[infiniteScrollContainer]="'.utility-column-content'"
+		(scrolled)="onScroll($event)"
+	>
+		<table 
+			matSort
+			mat-table 
+			class="w-100" 
+			[dataSource]="items" 
+			(matSortChange)="sortChange($event)" 
+			matSortActive="orderField" 
+			matSortDirection="asc"
+			matSortDisableClear
+		>
+			<ng-container matColumnDef="select">
+				<td 
+					class="px-2"
+					mat-cell 
+					*matCellDef="let item"
+				>
+					<mat-checkbox 
+						(click)="$event.stopPropagation()"
+						(change)="toggleItem($event, item)"
+						[checked]="selection.isSelected(item)"
+						[aria-label]="checkboxLabel(item)"
+					></mat-checkbox>
+				</td>
+			</ng-container>
+
+			<ng-container matColumnDef="name">
+				<td  
+					mat-cell 
+					*matCellDef="let item" 
+					[matTooltip]="getItemInfo(item)"
+					class="py-2"
+				> 
+					{{ item.name}}
+				</td>
+			</ng-container>
+
+			<tr 
+				mat-row 
+				*matRowDef="let row; columns: displayedColumns;" 
+			></tr>
+		</table>
+	</div>
+</div>

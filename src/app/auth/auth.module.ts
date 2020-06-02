@@ -1,4 +1,4 @@
-import { RequestInterceptor } from './../share/services/request.interseptor';
+// import { RequestInterceptor } from './../share/services/request.interseptor';
 import { CommonAppModule } from "src/app/share/common.app.module";
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from '@angular/router';

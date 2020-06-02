@@ -36,20 +36,14 @@ export class GroupEditComponent extends EditComponentsClass<Group> {
 	/** Объект хранящий форму, состояние строк фильтров, полей сортировки в таблицах */
 	state: ITabState[];
 	/** Список заголовков в таблице */
-	userDisplayedColumns: string[] = ['name', 'login', 'position', 'email', 'action'];
-	bossDisplayedColumns: string[] = ['name', 'login', 'position', 'email', 'type', 'action'];
-	/** Список существующих типов руководства. Читаем из БД */
-	leadersTypeList: TypeOfLeader[] = [];
-	/** Текущий выбраный руководитель. Срабатывает при выборе пункта меню типов руководства */
-	currentBoss: IUser;
+	userDisplayedColumns: string[] = ['name', 'login', 'email', 'action'];
 	/** Хранилище изменений сотрудников и начальства */
 	groupChanges = new GroupChanges();
 	/** Роут по которому в виджете поиска пользователей производится поиск */
 	userSearchVidgetRoute: string = compRoutes.user;
 
 	@ViewChild("sortUser", { static: false }) sortUser: MatSort;
-	@ViewChild("sortBoss", { static: false }) sortBoss: MatSort;
-	// @ViewChild(MatMenuTrigger, { static: false }) contextMenu: MatMenuTrigger;
+	@ViewChild(MatMenuTrigger, { static: false }) contextMenu: MatMenuTrigger;
 	@ViewChild(SelectItemMenuComponent, { static: true }) SelectItemMenuComponent: SelectItemMenuComponent;
 	selectedBossType: TypeOfLeader = undefined;
 
@@ -96,48 +90,13 @@ export class GroupEditComponent extends EditComponentsClass<Group> {
 				order: "asc",
 				form: new FormControl(""),
 				users: new MatTableDataSource<IUser>([])
-			}, {
-				orderField: "name",
-				searchString: "",
-				order: "asc",
-				form: new FormControl(""),
-				users: new MatTableDataSource<IUser>([])
 			}
 		];
-	}
-
-	getLeadersType(): Observable<TypeOfLeader[]> {
-		this.dataService.setServiceUrl(compRoutes.catalogboss);
-		const option: ISearchOptions = {
-			start: 0,
-			limit: 10000,
-		};
-		return this.dataService.getList<TypeOfLeader>(option);
 	}
 
 	getGroup(): Observable<IGroup> {
 		this.dataService.setServiceUrl(compRoutes.group);
 		return this.dataService.getItem<IGroup>(this.currId)
-	}
-
-	readComponentData() {
-		forkJoin([
-			this.getLeadersType(),
-			this.getGroup()
-		]).subscribe((res) => {
-			this.leadersTypeList = res[0];
-			this.componentData = res[1];
-			this.componentForm.patchValue({
-				code: this.componentData.code,
-				name: this.componentData.name,
-				date_create: this.componentData.date_create,
-				date_modify: this.componentData.date_modify
-			});
-			this.state[1].users = new MatTableDataSource(this.componentData.user);
-			this.state[2].users = new MatTableDataSource(this.componentData.boss);
-			this.isReady = true;
-
-		});
 	}
 
 	ngOnInit() {
@@ -147,12 +106,25 @@ export class GroupEditComponent extends EditComponentsClass<Group> {
 		this.currTabNum = 0;
 		if (this.route.snapshot.params["id"] !== undefined) {
 			this.currId = this.route.snapshot.params["id"];
-			this.readComponentData();
+			// this.readComponentData();
+			this.dataService.getItem<Group>(this.currId)
+			.subscribe((data: Group) => {
+				console.log("data", data);
+				
+				this.componentData = new Group(data);
+				console.log("this.componentData", this.componentData);
+				this.componentForm.patchValue({
+					code: this.componentData.code,
+					name: this.componentData.name,				
+					date_create: this.componentData.date_create,
+					date_modify: this.componentData.date_modify,
+				});
+				this.state[1].users = new MatTableDataSource(data.users);
+				// console.log('this.componentData', this.componentData);
+				this.isReady = true;
+			});
 		} else {
 			this.isReady = true;
-			this.getLeadersType().subscribe((res: TypeOfLeader[]) => {
-				this.leadersTypeList = res;
-			});
 		}
 		this.$formSubscr = this.componentForm.valueChanges
 			.subscribe(formValues => {
@@ -164,16 +136,12 @@ export class GroupEditComponent extends EditComponentsClass<Group> {
 		const isAsc = sort.direction === 'asc';
 		if (this.currState.users.data.length > 0) {
 			this.currState.users.data = this.currState.users.data.sort((a, b) => {
-				if (!a.header_type || !b.header_type) {
-					a.header_type = {};
-					b.header_type = {};
-				}
+
 				switch (sort.active) {
 					case 'name': return compare(a.name, b.name, isAsc);
 					case 'login': return compare(a.login, b.login, isAsc);
 					case 'email': return compare(a.email, b.email, isAsc);
-					case 'position': return compare(a.position.name, b.position.name, isAsc);
-					case 'type': return compare(a.header_type.name, b.header_type.name, isAsc);
+
 				}
 			});
 		}
@@ -186,7 +154,7 @@ export class GroupEditComponent extends EditComponentsClass<Group> {
 	tabsSwitch(num: number) {
 		this.currTabNum = num;
 		this.currState = this.state[num];
-	}
+	} 
 
 	/** Удаляет пользователя или начальника исходя из открытой вкладки */
 	removeUser(id: string) {
@@ -200,9 +168,7 @@ export class GroupEditComponent extends EditComponentsClass<Group> {
 				this.currState.users.data = this.currState.users.data.filter(item => id !== item.id);
 				this.markUserRemoved(id);
 				if (this.currTabNum == 1) { // users
-					this.componentData.user = this.state[this.currTabNum].users.data;
-				} else { // bosses
-					this.componentData.boss = this.state[this.currTabNum].users.data;
+					this.componentData.users = this.state[this.currTabNum].users.data;
 				}
 			}
 		});
@@ -225,9 +191,7 @@ export class GroupEditComponent extends EditComponentsClass<Group> {
 	markUserRemoved(id: string) {
 		// Если номер закладки == 1 изменяем пользователей, == 2  руководителей
 		let key = 'items';
-		if (this.currTabNum == 2) {
-			key = 'boss';
-		}
+
 		if (this.groupChanges[key].added.includes(id)) {
 			this.groupChanges[key].added = this.groupChanges.items.added.filter((item: string) => item != id);
 		} else {
@@ -236,11 +200,7 @@ export class GroupEditComponent extends EditComponentsClass<Group> {
 	}
 
 	markUserAdded(id: string) {
-		// Если номер закладки == 1 изменяем пользователей, == 2  руководителей
 		let key = 'items';
-		if (this.currTabNum == 2) {
-			key = 'boss';
-		}
 		if (this.groupChanges[key].deleted.includes(id)) {
 			this.groupChanges[key].deleted = this.groupChanges.items.deleted.filter((item: string) => item != id);
 		} else {
@@ -248,15 +208,14 @@ export class GroupEditComponent extends EditComponentsClass<Group> {
 		}
 	}
 
-
 	createStateItem(item: IGroup) {
 		this.savedState = {
 			id: item.id,
 			name: item.name,
 			code: item.code,
-			count: item.user && item.user.length ? item.user.length : 0,
 			date_create: item.date_create,
-			date_modify: item.date_modify
+			date_modify: item.date_modify,
+			users: item.users 
 		}
 	}
 
@@ -274,6 +233,8 @@ export class GroupEditComponent extends EditComponentsClass<Group> {
 		if (this.componentData.id) {
 			sendData.id = this.componentData.id;
 		}
+		console.log(sendData);
+		
 		return sendData;
 	}
 
@@ -350,13 +311,8 @@ export class GroupEditComponent extends EditComponentsClass<Group> {
 		this.isChanged = false;
 		this.clearGroupChanges();
 		this.componentForm.markAsPristine();
-	}
-
-	filterInput(e: string) {
-		if (this.currState.users.data.length > 0) {
-			this.currState.searchString = e.trim().toLowerCase();
-			this.currState.users.filter = this.currState.searchString;
-		} else false;
+		
+		// console.log(this.componentData);
 	}
 
 	/** Меняет флаг отвечающий за отображение поиска */
@@ -365,23 +321,8 @@ export class GroupEditComponent extends EditComponentsClass<Group> {
 	}
 
 	onContextMenu(event: MouseEvent, item: IUser) {
-		this.currentBoss = item;
+		// this.currentBoss = item;
 		event.preventDefault();
 		this.isChanged = true;
-	}
-
-	// changeBossType(item: TypeOfLeader) {
-	// 	this.selectedBossType = item;
-
-	// 	let bosses = this.groupChanges.boss.changed_header_type;
-	// 	// important init !!
-	// 	if (!bosses[this.currentBoss.id]) bosses[this.currentBoss.id] = {};
-	// 	if (this.currentBoss.header_type && this.currentBoss.header_type.id) {
-	// 		bosses[this.currentBoss.id].old = this.currentBoss.header_type.id;
-	// 	}
-	// 	this.currentBoss.header_type = item;
-	// 	bosses[this.currentBoss.id].new = item.id;
-	// 	this.isChanged = true;
-	// }
- 
+	} 
 }

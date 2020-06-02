@@ -68,8 +68,6 @@ export enum ESex {
 export interface IUser {
 	/** ID пользователя */
 	id: string;
-	/** Код пользователя */
-	code?: string;
 	/** ФИО пользователя */
 	name: string;
 	/** Пароль пользователя */
@@ -229,9 +227,9 @@ export interface IGroup {
 	/** Количество пользователей группы */
 	count?: number;
 	/** Члены группы */
-	user?: IUserWithPosition[];
+	users?: IUserWithPosition[];
 	/** Руководители группы */
-	boss?: IUserWithPosition[];
+	// boss?: IUserWithPosition[];
 }
 
 export interface IUserWithPosition extends IUser {
@@ -382,27 +380,8 @@ export interface ICommonGroupChanges {
 	name: string;
 	/** Код документа */
 	code?: string;
-	/** Список ID добавленных/удаленных руководителей. Дельта состояния пользователей группы */
-	boss?: {
-		/** ID добавленных руководителей */
-		added: string[],
-		/** ID удаленных руководителей */
-		deleted: string[],
-		/** Объект, в котором ключи = ID руководителей, у которых изменился тип руководства, 
-		 * каждая запись хранит старое и новое значение типа руководства 
-		 * */
-		changed_header_type: {
-			/** ID пользователя-руководителя, которому изменяли тип руководства. Сравнивая val и oldVal 
-			 *  принимаем решение о необходимости внесения изменений  */
-			[boss_id: string]: {
-				/** ID начального типа руководства  */
-				old?: string;
-				/** ID нового типа руководства  */
-				new?: string;
-			}
-		}
-	};
 
+	users: IUser
 }
 
 export interface ITabState<T = any> {

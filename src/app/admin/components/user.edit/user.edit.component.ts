@@ -16,40 +16,37 @@ import { User } from 'src/app/share/classes/User';
 import { NotifElemetntConfig } from 'src/app/share/utilit/simple.notification.config';
 
 @Component({
-  selector: 'user.edit',
-  templateUrl: './user.edit.component.html',
-  styleUrls: ['./user.edit.component.css']
+	selector: 'user.edit',
+	templateUrl: './user.edit.component.html',
+	styleUrls: ['./user.edit.component.css']
 })
 export class UserEditComponent extends EditComponentsClass<IUser>{
-  sexStr = {
-    male: ESex.Male.toString(),
-    female: ESex.Female.toString()
-  }
-  constructor(
-    public $MSG: MsgList,
-    public $SETTINGS: SettingService,
-    public dataService: UniversalDataService,
-    public snackBar: MatSnackBar,
-    public router: Router,
-    public route: ActivatedRoute,
-    public $NOTE: NotificationsService,
-    public dialogService: DialogService,
-    public location: Location,
-  ) {
-    super(snackBar, router, route, $MSG, $SETTINGS, dataService, $NOTE, dialogService, location, User);
-    this.routeList = compRoutes.user;
-  }
+	sexStr = {
+		male: ESex.Male.toString(),
+		female: ESex.Female.toString()
+	}
+	constructor(
+		public $MSG: MsgList,
+		public $SETTINGS: SettingService,
+		public dataService: UniversalDataService,
+		public snackBar: MatSnackBar,
+		public router: Router,
+		public route: ActivatedRoute,
+		public $NOTE: NotificationsService,
+		public dialogService: DialogService,
+		public location: Location,
+	) {
+		super(snackBar, router, route, $MSG, $SETTINGS, dataService, $NOTE, dialogService, location, User);
+		this.routeList = compRoutes.user;
+	}
 
-  initState() {
+	initState() {
 		const minLength = +this.$SETTINGS.get("minLengthTextInput");
 		this.componentForm = new FormGroup({
 			name: new FormControl("", [Validators.required, Validators.minLength(minLength)]),
 			sex: new FormControl(""),
 			login: new FormControl("", [Validators.required, Validators.minLength(minLength)]),
 			password: new FormControl(""),
-			code: new FormControl(""),
-			address: new FormControl(""),
-			phone: new FormControl(""),
 			email: new FormControl("", Validators.email),
 			date_birth: new FormControl(null),
 			date_hire: new FormControl(null),
@@ -63,7 +60,6 @@ export class UserEditComponent extends EditComponentsClass<IUser>{
 		this.savedState = {
 			id: item.id,
 			name: item.name,
-			code: item.code,
 			password: item.password,
 			login: item.login,
 			email: item.email,
@@ -86,10 +82,11 @@ export class UserEditComponent extends EditComponentsClass<IUser>{
 
 			this.dataService.getItem<User>(this.currId)
 				.subscribe((data: User) => {
-					// console.log(data);
+					console.log('data', data);
 					this.componentData = new User(data);
+					console.log('componentData', this.componentData);
+
 					this.componentForm.patchValue({
-						code: this.componentData.code,
 						name: this.componentData.name,
 						login: this.componentData.login,
 						sex: this.componentData.sex,
@@ -100,6 +97,8 @@ export class UserEditComponent extends EditComponentsClass<IUser>{
 						date_hire: this.componentData.date_hire,
 						date_fire: this.componentData.date_fire,
 					});
+					console.log('form controls', this.componentForm.value);
+					
 					this.isReady = true;
 				});
 		} else {
@@ -169,6 +168,6 @@ export class UserEditComponent extends EditComponentsClass<IUser>{
 		this.isChanged = false;
 		this.componentForm.markAsPristine();
 		// console.log(this.componentForm);
-  }
-    
+	}
+
 }

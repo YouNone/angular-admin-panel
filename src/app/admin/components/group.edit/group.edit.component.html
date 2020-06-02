@@ -89,12 +89,7 @@
 										<th mat-header-cell *matHeaderCellDef mat-sort-header> Логин </th>
 										<td mat-cell *matCellDef="let item"> {{item.login}}</td>
 									</ng-container>
-
-									<ng-container matColumnDef="position">
-										<th mat-header-cell *matHeaderCellDef mat-sort-header> Должность </th>
-										<td mat-cell *matCellDef="let item"> {{item.position.name}}</td>
-									</ng-container>
-
+									
 									<ng-container matColumnDef="email">
 										<th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
 										<td mat-cell *matCellDef="let item"> {{item.email}}</td>
@@ -116,14 +111,9 @@
 						</div>
 					</div>
 				</mat-tab>
-				<mat-tab label="Руководители">
+				<!-- <mat-tab label="Руководители">
 					<div class="container-fluid">
 						<div class="row">
-							<div class="col-12 mt-4">
-								<!-- <app-search-filter buttonTitle="Поиск групп" [showFilterButton]="false"
-									[filterIsActive]="sideNavIsOpen" (onFilterStateChange)="filterInput($event)"
-									(onSearchStringChange)="filterInput($event)"></app-search-filter> -->
-							</div>
 						</div>
 						<div class="row">
 							<div class="col-12">
@@ -181,7 +171,7 @@
 							</div>
 						</div>
 					</div>
-				</mat-tab>
+				</mat-tab> -->
 			</mat-tab-group>
 		</form>
 
@@ -191,7 +181,7 @@
 			</button>
 		</div>
 
-		<!-- <user-search-column 
+		<user-search-column 
 			*ngIf="currTabNum"
 			title="Поиск пользователей" 
 			[isOpen]="userSearchIsOpen" 
@@ -203,7 +193,7 @@
 			(changeOpen)="userSearchIsOpen = $event"
 			(itemCheck)="toggleUser($event)"
 		>
-		</user-search-column> -->
+		</user-search-column>
 	</div>
 </div>
 

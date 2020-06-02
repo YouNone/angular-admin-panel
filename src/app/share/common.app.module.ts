@@ -1,3 +1,4 @@
+import { UserSearchColumnComponent } from './components/user.search.column/user.search.column.component';
 import { LoginComponent } from './../auth/login/login.component';
 import { DivisionSelectDialogComponent } from './components/division.select.dialog/division.select.dialog.component';
 import { DivisionListComponent } from './../admin/components/division.list/division.list.component';
@@ -43,6 +44,7 @@ import { AuthModule } from '../auth/auth.module';
 		AngMaterialModule,
 		InfiniteScrollModule,
 		SelectItemMenuComponent,
+		UserSearchColumnComponent
 	],
 	declarations: [
 		DivisionEditComponent,
@@ -59,7 +61,8 @@ import { AuthModule } from '../auth/auth.module';
 		SelectItemMenuComponent,
 		AuthComponent,
 		LoginComponent,
-		DivisionSelectDialogComponent
+		DivisionSelectDialogComponent,
+		UserSearchColumnComponent
 	],
 	entryComponents: [
 		DialogConfirmComponent,
