@@ -1,5 +1,5 @@
-import { UserSearchColumnComponent } from './components/user.search.column/user.search.column.component';
 import { LoginComponent } from './../auth/login/login.component';
+import { UserSearchColumnComponent } from './components/user.search.column/user.search.column.component';
 import { DivisionSelectDialogComponent } from './components/division.select.dialog/division.select.dialog.component';
 import { DivisionListComponent } from './../admin/components/division.list/division.list.component';
 import { AuthComponent } from './../auth/auth/auth.component';

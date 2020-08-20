@@ -82,9 +82,7 @@ export class UserEditComponent extends EditComponentsClass<IUser>{
 
 			this.dataService.getItem<User>(this.currId)
 				.subscribe((data: User) => {
-					console.log('data', data);
 					this.componentData = new User(data);
-					console.log('componentData', this.componentData);
 
 					this.componentForm.patchValue({
 						name: this.componentData.name,
@@ -97,7 +95,6 @@ export class UserEditComponent extends EditComponentsClass<IUser>{
 						date_hire: this.componentData.date_hire,
 						date_fire: this.componentData.date_fire,
 					});
-					console.log('form controls', this.componentForm.value);
 					
 					this.isReady = true;
 				});
